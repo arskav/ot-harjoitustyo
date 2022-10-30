@@ -1,6 +1,6 @@
-#Raportti viikon 1 tehtävistä
+# Raportti viikon 1 tehtävistä
 
-##Tehdyt ja tekemättömät
+## Tehdyt ja tekemättömät
 
 Tehtävät 2 - 12, **Huom.** tehtävä 14 tekeillä, *tämän raportin kirjoittaminen on juuri osa sitä*
 
@@ -9,7 +9,7 @@ Tehtävät 2 - 12, **Huom.** tehtävä 14 tekeillä, *tämän raportin kirjoitta
 **Tehtävä 1** Ei ollut oikeuksia, ehkä siitä syystä, että tein ennen kurssin virallista alkamista tai koska olen *avoimen opiskelija*. Yritän uudelleen maanataina.
 
 
-##Linkit
+## Linkit
 
 [gitlog.txt](https://github.com/arskav/ot-harjoitustyo/blob/main/laskarit/viikko1/gitlog.txt)
 
