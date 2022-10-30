@@ -27,3 +27,9 @@ Yritän tätä uudelleen, mutta nyt tree-komentoa on sovellettu hakemistooni ot_
 ## Epäselvyyksiä
 
 Pitäisikö repositorion olla julkinen, nyt itselläni yksityinen.
+
+
+## Tehtävä 17
+
+paikallinen muutos
+
