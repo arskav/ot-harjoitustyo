@@ -1,0 +1,106 @@
+commit 2f401d6cae1b822213e56f6d2632c8bb3adf1d46
+Author: Ari <ari.virtanen@tuni.fi>
+Date:   Sun Oct 30 19:23:18 2022 +0200
+
+    tehtävä 11, viimeinen commit
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 1 +
+ 3 files changed, 1 insertion(+)
+
+commit a0dbf395e60401b22a4663ebb745c18ec125a76c
+Author: Ari <ari.virtanen@tuni.fi>
+Date:   Sun Oct 30 19:16:56 2022 +0200
+
+    tehtävä 11, eka commit
+
+ tiedostoja/file1 | 0
+ tiedostoja/file2 | 0
+ tiedostoja/file3 | 0
+ 3 files changed, 0 insertions(+), 0 deletions(-)
+
+commit 9cdc9c3bc6cd3fcaac08ca5cd44d761d446b7b67
+Author: Ari <ari.virtanen@tuni.fi>
+Date:   Sun Oct 30 18:51:27 2022 +0200
+
+    tehtävä 9
+
+ eka.txt    | 24 +-----------------------
+ kolmas.txt |  4 +++-
+ 2 files changed, 4 insertions(+), 24 deletions(-)
+
+commit fa1d0984c4846480123a1796df800eab555123fd
+Author: Ari <ari.virtanen@tuni.fi>
+Date:   Sun Oct 30 18:46:00 2022 +0200
+
+    Tehtävä 8 valmis
+
+ tiedosto.txt => eka.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit dd7a2da9629c9566d106edd5478dad151434888c
+Author: Ari <ari.virtanen@tuni.fi>
+Date:   Sun Oct 30 18:44:13 2022 +0200
+
+    tehtävä 8, tiedosto toinen.txt poistettu
+
+ toinen.txt | 1 -
+ 1 file changed, 1 deletion(-)
+
+commit d3b169a39d0be94fda0f65af6d5aa2c1443fc4b2
+Author: Ari <ari.virtanen@tuni.fi>
+Date:   Sun Oct 30 18:41:07 2022 +0200
+
+    tehtävän 7 viimeinen commit
+
+ tiedosto.txt | 7 ++-----
+ 1 file changed, 2 insertions(+), 5 deletions(-)
+
+commit 40853a9dc935dcc23b5164f7ea701f7ca6acf402
+Author: Ari <ari.virtanen@tuni.fi>
+Date:   Sun Oct 30 18:38:29 2022 +0200
+
+    kopioitu tekstiä tiedostoon tiedosto.txt
+
+ tiedosto.txt | 158 +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 158 insertions(+)
+
+commit da6bb18d139945742e57a9f217b0883e3b9a7b06
+Author: Ari <ari.virtanen@tuni.fi>
+Date:   Sun Oct 30 18:30:13 2022 +0200
+
+    tehtävä 6 harjoittelua
+
+ kolmas.txt               | 1 +
+ stuff/jokin_tiedosto.txt | 0
+ toinen.txt               | 1 +
+ 3 files changed, 2 insertions(+)
+
+commit a8da396fb43654d57cdbaf723d59257d184e3c1f
+Author: Ari <ari.virtanen@tuni.fi>
+Date:   Sun Oct 30 18:27:12 2022 +0200
+
+    luotu tiedosto kolmas.txt
+
+ kolmas.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+
+commit 40e30d7d3f4706e3a2e8d8cd7bee8e5fe00d1a34
+Author: Ari <ari.virtanen@tuni.fi>
+Date:   Sun Oct 30 18:24:11 2022 +0200
+
+    muutos ja lisäys
+
+ tiedosto.txt | 1 +
+ toinen.txt   | 0
+ 2 files changed, 1 insertion(+)
+
+commit 5e4675946bd43c6270b1ac928d5a0e2999f4b7c3
+Author: Ari <ari.virtanen@tuni.fi>
+Date:   Sun Oct 30 18:21:49 2022 +0200
+
+    tiedosto.txt luotu
+
+ tiedosto.txt | 0
+ 1 file changed, 0 insertions(+), 0 deletions(-)

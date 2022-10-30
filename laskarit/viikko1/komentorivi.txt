@@ -1,0 +1,9 @@
+├── eka.txt
+├── kolmas.txt
+├── stuff
+│   └── jokin_tiedosto.txt
+└── tiedostoja
+    ├── file22
+    └── file3
+
+2 directories, 5 files
