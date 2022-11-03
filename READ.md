@@ -23,11 +23,13 @@ Koska en pystynyt kirjautumaan yliopiston koneelle, en pystynyt noudattamaan ohj
 
 Yritän tätä uudelleen, mutta nyt tree-komentoa on sovellettu hakemistooni ot_viikko1
 
+it-tuki antoi oikeudet melkkiin ja tämä nyt kunnossa.
 
 ## Epäselvyyksiä
 
 Pitäisikö repositorion olla julkinen, nyt itselläni yksityinen.
 
+Kuvakaappauksessa näkyi, että pitää olla public, joten nyt on.
 
 ## Tehtävä 17
 
