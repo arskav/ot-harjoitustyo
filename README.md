@@ -1,3 +1,8 @@
+# Viikko 2
+
+[Vaativuusmäärittely](https://github.com/arskav/ot-harjoitustyo/blob/main/dokumentaatio/vaativuusmaarittely.md)
+
+
 # Raportti viikon 1 tehtävistä
 
 ## Tehdyt ja tekemättömät
