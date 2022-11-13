@@ -1,26 +1,26 @@
-#Vaatimuusmäärittely
+# Vaatimuusmäärittely
 
-##Sovelluksen tarkoitus
+## Sovelluksen tarkoitus
 
 Sovelluksen avulla käyttäjät voivat harjoitella peruskoulun matemaattisia tehtäviä. 
 
 Pääpaino on sanallissa matemaattisissa peruslaskutoimituksia sisältävissä tehtävissä. Suomea vieraana kieltä puhuville on suomenkielisten matemaattisten ilmausten ymmärtämistä harjoittavia tehtäviä. Ennen varsinaisia sanallisia tehtäviä harjoitellaan lausekkeiden arvojen määrittämistä ja alkeellisia yhtälön ratkaisutehtäviä.
 
 
-##Käyttäjät
+## Käyttäjät
 
 _Normaali käyttäjä_ pystyy kirjautumaan järjestelmään tarvittaessa luoden uuden tunnuksen.
 
 
 _Pääkäyttäjä_ pystyy tulostamaan yhteenvetoja kaikkien käyttäjien harjoitteluista. Pääkäyttäjä-toiminta lisätään vasta sitten, kun käyttäjien tiedot tallennetaan tietokantaan.
 
-##Käyttöliittymäluonnos
+## Käyttöliittymäluonnos
 
 Ohjelmaa aloitettaessa kysytään tunnusta. Jos tunnusta ei vielä ole, se luodaan tässä vaiheessa. 
 
 Tämän jälkeen avautuu valikko, jossa on valittavissa eri harjoituksia. Jokaiselle harjoitukselle on oma käyttöliittymä, jossa huomioitu tehtävien luonne.
 
-##Perusversio
+## Perusversio
 
 Tavoitteena on luoda ohjelmarunko, johon on helppo lisätä erilaisia harjoituskokonaisuuksia.
 
@@ -36,7 +36,7 @@ Kun käyttäjä on tehnyt kaikki vaativamman tason tehtävät, harjoituskokonais
 
 Tämän opintojakson yhteydessä tavoitteena on toteuttaa ainakin harjoittelukokonaisuus muuttujista ja yhtälöiden ratkaisemisesta. 
 
-##Jatkokehittelyä
+## Jatkokehittelyä
 
 Kun järjestelmään on saatu lisättyä alussa mainitut kolme harjoituskokonaisuutta, on tarkoitus testata harjoitusten toimivuutta testikäyttäjillä. Tarkoitus on luoda erityisesti sellaisia tehtävämuotoja, jotka eroavat Moodlen tarjoamista. (Tosin lausekkeita ja yhtälöitä käsittävässä harjoituskokonaisuudessa tuskin merkittävästi poiketaan Moodlessa olevista tehtävätyypeistä.)
 
@@ -44,12 +44,6 @@ Kun on löydetty toimivia harjoittelumuotoja, on
 ajatuksena toteuttaa lisää harjoittelukokonaisuuksia kirjoittamani oppimateriaalin [Matematiikan perustiedot](https://homepages.tuni.fi/ari.virtanen/peruskoulumatikkaa.pdf) mukaisesti.
 
 Jos tämä etenee suotuisasti, niin ohjelmasta on tarkoitus tehdä web-sovellus (harrastuksena tai ehkä jonkun toisen opintojakson yhteydessä). Välitavoitteena on tehdä ohjelmasta versio, joka toimii Windows-koneissa.
-
-
-
-
-
-
 
 
 
