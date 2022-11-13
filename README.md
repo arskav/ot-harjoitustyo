@@ -1,3 +1,10 @@
+# Viikko 2
+
+[Vaativuusmäärittely](https://github.com/arskav/ot-harjoitustyo/blob/main/dokumentaatio/vaativuusmaarittely.md)
+
+
+[Tehtävän 9 screenshot](https://github.com/arskav/ot-harjoitustyo/blob/main/laskarit/viikko2/Screenshot_Tehtava_9.png)
+
 # Raportti viikon 1 tehtävistä
 
 ## Tehdyt ja tekemättömät
