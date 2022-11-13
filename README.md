@@ -2,6 +2,7 @@
 
 [Vaativuusmäärittely](https://github.com/arskav/ot-harjoitustyo/blob/main/dokumentaatio/vaativuusmaarittely.md)
 
+[Työaikakirjanpito](https://github.com/arskav/ot-harjoitustyo/blob/main/dokumentaatio/tuntikirjanpito.md)
 
 [Tehtävän 9 screenshot](https://github.com/arskav/ot-harjoitustyo/blob/main/laskarit/viikko2/Screenshot_Tehtava_9.png)
 
