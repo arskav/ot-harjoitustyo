@@ -6,7 +6,7 @@ Pääpaino on sanallissa matemaattisissa peruslaskutoimituksia sisältävissä t
 
 ## Python-versio
 
-Sovellus on tehty Python-versiolla 3.9.12.
+Sovellus on tehty käyttämällä Python-versiota 3.9., mutta testattu Python-versiolla 3.8.
 
 ## Dokumentaatio
 
