@@ -1,5 +1,5 @@
 import os
-from services.utilities import update_total
+
 
 FINISH = 2
 #Kuinka monen peräkkäisen oikean vastauksen jälkeen siirrytään seuraavalle tasolle.
@@ -44,14 +44,15 @@ def do_practise(session, trainee):
                         #Lopetusehdon toteutuessa siirrytään seuraavalle tasolle
                         #Tässä testauksessa riittää vastata kaksi kertaa 1, joka tulkitaan oikeaksi vastaukseksi
 
-                        update_total(trainee, session) #tämä ehkä syytä vaihtaa metodiksi   
+                        trainee._update_total(session) 
                 
                         #siirrytään seuravalla tasolle
                         #session_level_up(session)
                         session._level_up()
+                        input("Jatka ")
                 
             if session._cancelled:
-                update_total(trainee, session)     #tämä ehkä syytä vaihtaa metodiksi   
+                trainee._update_total(session) 
 
 #TODO varsinaisen harjoituksen koodaaminen    
 

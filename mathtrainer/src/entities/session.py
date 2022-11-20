@@ -106,7 +106,7 @@ class MathTrainerSession:
         #Tulostetaan tilanne        
         print(self)
         print("Siirrytään seuraavalle tasolle")
-        input("Jatka ")
+       
 
         self._level += 1
         #nollataan tason yritysten ja oikeiden vastausten lkm

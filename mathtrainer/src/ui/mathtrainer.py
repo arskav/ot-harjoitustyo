@@ -111,7 +111,7 @@ class MathTrainer:
 
     def _login(self):
         os.system('clear')
-        username = input("Anna käyttäjätunnus ")   
+        username = input("Anna käyttäjätunnus (vähintään yksi merkki) ")   
         #Tässä vaiheessa oletetaan, että aina uusi käyttäjätunnus
         #TODO jatkokehittelyssä tarkistetaan, onko tunnus jo tietokannassa
         #jos on, haetaan tiedot sieltä        

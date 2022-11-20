@@ -1,12 +1,9 @@
 #Apualiohjelmia
+#Tämä tyhejntyi ja on melkein jo turha
 
 
-#Harjoituksiin liittyen
 
-def update_total(trainee, session):
-    #Päivitetään kokonaistilanne
-    trainee._correct_total += session._correct_at_level
-    trainee._tries_total += session._tries_at_level    
+
 
 
 def return_to_menu():

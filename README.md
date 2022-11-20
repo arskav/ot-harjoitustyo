@@ -1,45 +1,49 @@
-# Viikko 2
+# Mathtrainer
 
-[Vaativuusmäärittely](https://github.com/arskav/ot-harjoitustyo/blob/main/dokumentaatio/vaativuusmaarittely.md)
+Sovelluksen avulla käyttäjät voivat harjoitella peruskoulun matemaattisia tehtäviä. 
 
-[Työaikakirjanpito](https://github.com/arskav/ot-harjoitustyo/blob/main/dokumentaatio/tuntikirjanpito.md)
+Pääpaino on sanallissa matemaattisissa peruslaskutoimituksia sisältävissä tehtävissä. Suomea vieraana kieltä puhuville on suomenkielisten matemaattisten ilmausten ymmärtämistä harjoittavia tehtäviä. Ennen varsinaisia sanallisia tehtäviä harjoitellaan lausekkeiden arvojen määrittämistä ja alkeellisia yhtälön ratkaisutehtäviä.
 
-[Tehtävän 9 screenshot](https://github.com/arskav/ot-harjoitustyo/blob/main/laskarit/viikko2/Screenshot_Tehtava_9.png)
+## Python-versio
 
-# Raportti viikon 1 tehtävistä
+Sovellus on tehty Python-versiolla 3.9.12.
 
-## Tehdyt ja tekemättömät
+## Dokumentaatio
 
-Tehtävät 2 - 12, **Huom.** tehtävä 14 tekeillä, *tämän raportin kirjoittaminen on juuri osa sitä*
+* käyttöohje TODO
 
-**Tehtävä 13** Avain oli jo luotu GitHubia varten.
+* [Vaativuusmäärittely](https://github.com/arskav/ot-harjoitustyo/blob/main/mathtrainer/dokumentaatio/vaativuusmaarittely.md)
 
-**Tehtävä 1** Ei ollut oikeuksia, ehkä siitä syystä, että tein ennen kurssin virallista alkamista tai koska olen *avoimen opiskelija*. Yritän uudelleen maanataina.
+* Arkkitehtuurikuvaus TODO
+
+* Testausdokumentti TODO
+
+* [Työaikakirjanpito](https://github.com/arskav/ot-harjoitustyo/blob/main/mathtrainer/dokumentaatio/tuntikirjanpito.md)
+
+* Changelog Tekeillä
+
+## Asennus
+
+TODO
+
+## Komentorivitoiminnot
+
+### Ohjelman suorittaminen
+
+> poetry run invoke start
+
+### Testaus
+
+> poetry run invoke test
+
+### Testikattavuus
+
+> poetry run invoke coverage-report
+
+Raportti generoituu htmlcov-hakemistoon.
 
 
-## Linkit
+### Pylint
 
-[gitlog.txt](https://github.com/arskav/ot-harjoitustyo/blob/main/laskarit/viikko1/gitlog.txt)
-
-[komentorivi.txt](https://github.com/arskav/ot-harjoitustyo/blob/main/laskarit/viikko1/komentorivi.txt)
-
-## Ongelmia
-
-Koska en pystynyt kirjautumaan yliopiston koneelle, en pystynyt noudattamaan ohjetta
-
-"Komentorivitehtävien lopussa oli kehotus: Mene tämän jälkeen kotihakemistoon ja anna komento tree kurssit. Copypastea komennon tulostus talteen, tarvitset sitä myöhemmin"
-
-Yritän tätä uudelleen, mutta nyt tree-komentoa on sovellettu hakemistooni ot_viikko1
-
-it-tuki antoi oikeudet melkkiin ja tämä nyt kunnossa.
-
-## Epäselvyyksiä
-
-Pitäisikö repositorion olla julkinen, nyt itselläni yksityinen.
-
-Kuvakaappauksessa näkyi, että pitää olla public, joten nyt on.
-
-## Tehtävä 17
-
-paikallinen muutos
+TODO
 

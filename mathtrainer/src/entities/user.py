@@ -30,3 +30,8 @@ class MathTrainerUser:
             string += "Ei aloitettuja harjoituksia."            
             
         return string
+
+    def _update_total(self, session):
+        #Päivitetään kokonaistilanne meneillään olevaa harjoituskertaa koskevista tiedoista session: MathTrainerSessions
+        self._correct_total += session._correct_at_level
+        self._tries_total += session._tries_at_level    
