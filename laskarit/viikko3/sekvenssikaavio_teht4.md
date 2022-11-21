@@ -1,5 +1,5 @@
 ```mermaid
-participant kallen_kortti
+    participant kallen_kortti
     participant ratikka6
     participant bussi244
     participant rautatietori
