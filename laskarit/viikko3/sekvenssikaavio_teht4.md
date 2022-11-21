@@ -1,5 +1,6 @@
 ```mermaid
-participant kallen_kortti
+sequenceDiagram
+    participant kallen_kortti
     participant ratikka6
     participant bussi244
     participant rautatietori
