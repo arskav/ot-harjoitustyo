@@ -1,5 +1,6 @@
 ```mermaid
 sequenceDiagram
+    participant Main
     participant kallen_kortti
     participant ratikka6
     participant bussi244
