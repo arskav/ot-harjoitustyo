@@ -11,4 +11,6 @@
 |17.11. | 2 | Koodin rakenteen muokkaamista ja MathTrainesSession luokan kehittelyä. |
 |18.11. | 2 | Invoke-tehtävät, ohjelmiston toimivuuden testaaminen virtuaalityöasemassa. |
 |20.11. | 2 | Luokan MathTrainerSession metodien testaukset valmiiksi, koodin kehittelyä README päivitys, changelog. |
-| yht   | 29   | | 
+|23.11. | 1 | pylint perusteella koodin korjaaminen.
+|24.11. | 2 | pylint perusteella koodin korjaaminen.
+| yht   | 32   | | 
