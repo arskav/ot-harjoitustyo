@@ -20,7 +20,7 @@ Sovellus on tehty käyttämällä Python-versiota 3.9., mutta testattu Python-ve
 
 * [Työaikakirjanpito](https://github.com/arskav/ot-harjoitustyo/blob/main/mathtrainer/dokumentaatio/tuntikirjanpito.md)
 
-* Changelog Tekeillä
+* [Changelog](https://github.com/arskav/ot-harjoitustyo/blob/main/mathtrainer/dokumentaatio/changelog.md)
 
 ## Asennus
 
