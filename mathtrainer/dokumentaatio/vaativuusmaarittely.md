@@ -9,30 +9,31 @@ Pääpaino on sanallissa matemaattisissa peruslaskutoimituksia sisältävissä t
 
 ## Käyttäjät
 
-_Normaali käyttäjä_ pystyy kirjautumaan järjestelmään tarvittaessa luoden uuden tunnuksen.
+_Normaali käyttäjä_ pystyy kirjautumaan järjestelmään tarvittaessa luoden uuden tunnuksen. _Tehty._
 
 
 _Pääkäyttäjä_ pystyy tulostamaan yhteenvetoja kaikkien käyttäjien harjoitteluista. Pääkäyttäjä-toiminta lisätään vasta sitten, kun käyttäjien tiedot tallennetaan tietokantaan.
 
 ## Käyttöliittymäluonnos
 
-Ohjelmaa aloitettaessa kysytään tunnusta. Jos tunnusta ei vielä ole, se luodaan tässä vaiheessa. 
+Ohjelmaa aloitettaessa kysytään tunnusta. Jos tunnusta ei vielä ole, se luodaan tässä vaiheessa. _Tehty._
 
-Tämän jälkeen avautuu valikko, jossa on valittavissa eri harjoituksia. Jokaiselle harjoitukselle on oma käyttöliittymä, jossa huomioitu tehtävien luonne.
+Tämän jälkeen avautuu valikko, jossa on valittavissa eri harjoituksia. _Tehty._
+Jokaiselle harjoitukselle on oma käyttöliittymä, jossa huomioitu tehtävien luonne.
 
 ## Perusversio
 
 Tavoitteena on luoda ohjelmarunko, johon on helppo lisätä erilaisia harjoituskokonaisuuksia.
 
-Kun käyttäjä kirjautuu järjestelmään vanhalla tunnuksella, hän näkee tilastotietoa harjoitteluistaan: alkuvaiheessa harjoituskokonaisuudet, mitkä hän aloittanut ja mitkä tehnyt loppuun, sekä kuinka monta yksittäistä tehtävää hän on yrittänyt tehdä ja kuinka moni on mennyt oikein. 
+Kun käyttäjä kirjautuu järjestelmään vanhalla tunnuksella, hän näkee tilastotietoa harjoitteluistaan: alkuvaiheessa harjoituskokonaisuudet, mitkä hän aloittanut ja mitkä tehnyt loppuun, sekä kuinka monta yksittäistä tehtävää hän on yrittänyt tehdä ja kuinka moni on mennyt oikein. _Tehty._
 
-Harjoituskokonaisuudessa on tasoja. Käyttäjä aloittaa helpoimmista tehtävistä. Harjoituskokonaisuudessa on asetettu ehdot sille, miten siirrytään tasolta ylemmäs. Ehdot voivat vaihdella eri tasoilla.
+Harjoituskokonaisuudessa on tasoja. Käyttäjä aloittaa helpoimmista tehtävistä. Harjoituskokonaisuudessa on asetettu ehdot sille, miten siirrytään tasolta ylemmäs. Ehdot voivat vaihdella eri tasoilla. _Ei vielä varsinaisia kysymyksiä, vain testausta varten_
 
-Harjoituskokonaisuuden yhteydessä pidetään kirjaa siitä, miten tehtävät etenevät ja reaaliaikainen tilanne näytetään käyttäjälle.
+Harjoituskokonaisuuden yhteydessä pidetään kirjaa siitä, miten tehtävät etenevät ja reaaliaikainen tilanne näytetään käyttäjälle. __Tehty osittain, mutta harjoitusta koskevat tiedot nollautuvat aloitettaessa uudelleen. Niitä ei vielä viedä tietokantaan._
 
-Käyttäjä voi keskeyttää harjoittelukokonaisuuden tekemisen. Tällöin harjoituksen tila tallennetaan. Kun käyttäjä palaa harjoitukseen, jatketaan siltä tasolta, mihin hän on päässyt.
+Käyttäjä voi keskeyttää harjoittelukokonaisuuden tekemisen. Tällöin harjoituksen tila tallennetaan. Kun käyttäjä palaa harjoitukseen, jatketaan siltä tasolta, mihin hän on päässyt. _Tehty._
 
-Kun käyttäjä on tehnyt kaikki vaativamman tason tehtävät, harjoituskokonaisuus on tehty, eikä käyttäjä voi enää samalla tunnuksella siihen palata. Käyttäjä voi kuitenkin tehdä uuden tunnuksen ja palata jo tekemiinsä harjoituksiin.
+Kun käyttäjä on tehnyt kaikki vaativamman tason tehtävät, harjoituskokonaisuus on tehty, eikä käyttäjä voi enää samalla tunnuksella siihen palata. Käyttäjä voi kuitenkin tehdä uuden tunnuksen ja palata jo tekemiinsä harjoituksiin. _Tehty._
 
 Tämän opintojakson yhteydessä tavoitteena on toteuttaa ainakin harjoittelukokonaisuus muuttujista ja yhtälöiden ratkaisemisesta. 
 

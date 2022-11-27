@@ -13,7 +13,8 @@ from entities.session import MathTrainerSession
 from services.utilities import string_to_list, string_to_dict
 
 from repositories.user_repository import user_repository
-#Käyttäjätietohin liittyvä tietokantaoperaatiot
+# Käyttäjätietohin liittyvä tietokantaoperaatiot
+
 
 class MathTrainer:
     # Käyttöliittymää vastaava luokka
@@ -74,14 +75,16 @@ class MathTrainer:
         if drill not in trainee.practise_finished():
             # Käyttäjä ei ole tehnyt harjoitusta loppuun
             if drill in trainee.practise_started():
-                print("Harjoitus aloitettu")               
+                print("Harjoitus aloitettu")
                 input(" Jatka ")
                 level = trainee.practise_level(drill)
-                session = MathTrainerSession(trainee.username(), drill, 0, 0, level, MAXLEVELS[drill])
+                session = MathTrainerSession(
+                    trainee.username(), drill, 0, 0, level, MAXLEVELS[drill])
             else:
                 # 1. harjoituskerta
                 # harjoitussessioon liittyvät tiedot
-                session = MathTrainerSession(trainee.username(), drill, 0, 0, 1, MAXLEVELS[drill])                
+                session = MathTrainerSession(
+                    trainee.username(), drill, 0, 0, 1, MAXLEVELS[drill])
 
             session.begin_practise(drill, trainee)
             # Aloitetaan tai jatketaan harjoitusta
@@ -102,7 +105,6 @@ class MathTrainer:
         print("TODO tallennetaan käyttäjän tiedot tietokantaan")
         print("Käyttäjän tiedot:")
         print(trainee)
-       
 
     def _help(self):
         os.system('clear')
@@ -110,22 +112,22 @@ class MathTrainer:
         print("TODO tarvittavia ohjeita")
 
     def _login(self):
-        
+
         os.system('clear')
-        
+
         username = input("Anna käyttäjätunnus (vähintään viisi merkkiä) ")
-        
+
         while len(username) < 5:
             print("Liian lyhyt käyttäjätunnus, oltava vähintään 5 merkkiä")
             username = input("Anna käyttäjätunnus (vähintään viisi merkkiä) ")
 
         if user_repository.find_user(username) is None:
-    
+
             print("Uusi käyttäjätunnus.")
 
             trainee = MathTrainerUser(username, {}, [], 0, 0)
 
-            #Tallennetaan uusi käyttäjä tietokantaan.
+            # Tallennetaan uusi käyttäjä tietokantaan.
             user_repository.insert_new_user(username)
 
         else:
@@ -136,17 +138,18 @@ class MathTrainer:
             print("ja kirjaudu uudelleen eri tunnuksella.")
             input("Jatka Enter ")
 
-            #Etsitään rekisteröityneen käyttäjän tiedot tietokannasta.
-            userdata = user_repository.find_user(username)              
+            # Etsitään rekisteröityneen käyttäjän tiedot tietokannasta.
+            userdata = user_repository.find_user(username)
 
             started = string_to_dict(userdata[2])
-            
+
             finished = string_to_list(userdata[3])
-            
+
             corrects = userdata[4]
-            
+
             tries = userdata[5]
-                        
-            trainee = MathTrainerUser(username, started, finished, corrects, tries)
+
+            trainee = MathTrainerUser(
+                username, started, finished, corrects, tries)
 
         return trainee

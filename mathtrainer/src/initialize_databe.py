@@ -1,12 +1,7 @@
-import os
 import sqlite3
 
+DATABASE = "../data/userdata.sqlite"
 
-def get_database_connection(db_file):
-
-    connection = None    
-    connection = sqlite3.connect(db_file)       
-    return connection
 
 def create_usertable(connection):
 
@@ -30,15 +25,9 @@ def create_usertable(connection):
 
     connection.commit()
 
+
 if __name__ == '__main__':
 
-    database = "../data/userdata.sqlite"
-    
-    connection = get_database_connection(database)
+    my_connection = sqlite3.connect(DATABASE)
 
-    create_usertable(connection)
-
-    
-
-    
-
+    create_usertable(my_connection)

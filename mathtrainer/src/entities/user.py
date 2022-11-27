@@ -1,7 +1,8 @@
 from services.utilities import list_to_string, dict_to_string
 
 from repositories.user_repository import user_repository
-#Käyttäjätietohin liittyvä tietokantaoperaatiot
+# Käyttäjätietohin liittyvä tietokantaoperaatiot
+
 
 class MathTrainerUser:
 
@@ -16,16 +17,15 @@ class MathTrainerUser:
         return self._user
 
     def practise_started(self):
-        #Harjoitukset, jotka aloitettu
+        # Harjoitukset, jotka aloitettu
         return self._practise_started.keys()
 
     def practise_started_with_level(self):
-        #Harjoitukset, jotka aloitettu
+        # Harjoitukset, jotka aloitettu
         return self._practise_started
-    
 
-    def practise_level(self,drill):
-        #Aloitetun harjoituksen taso
+    def practise_level(self, drill):
+        # Aloitetun harjoituksen taso
         return self._practise_started[drill]
 
     def practise_finished(self):
@@ -37,12 +37,12 @@ class MathTrainerUser:
     def practise_finished_append(self, drill):
 
         self._practise_finished.append(drill)
-    
+
     def correct_total(self):
         return self._correct_total
 
     def tries_total(self):
-        return self._tries_total         
+        return self._tries_total
 
     def __str__(self):
         # Tulostus ainakin päävalikon yhteydessä
@@ -72,13 +72,13 @@ class MathTrainerUser:
         # koskevista tiedoista session: MathTrainerSessions.
         # Tallennetaan tiedot käyttäjän kokonaistilanteesta tietokantaan.
         self._correct_total += correct
-        
+
         self._tries_total += tries
 
         self._practise_started[drill] = level
-                       
+
     def to_database(self):
-        #tallennus tietokantaan
+        # tallennus tietokantaan
 
         username = self.username()
 
@@ -90,4 +90,5 @@ class MathTrainerUser:
 
         tries = self.tries_total()
 
-        user_repository.update_user(username, started, finished, corrects, tries)
+        user_repository.update_user(
+            username, started, finished, corrects, tries)

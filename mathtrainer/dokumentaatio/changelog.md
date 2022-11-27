@@ -7,3 +7,6 @@
 * Viimeistelty MathTrainerUser-luokka, joka pitää kirjaa käyttäjän koko harjoitushistoriasta
 * Viimeistelty MathTrainerSession-luokka, joka pitää kirjaa käyttäjän meneillään olevasta harjoituksesta
 * Aloitettu MathTrainerSession-luokan metodien testaus
+
+## Viikko 4
+* Käyttäjän tiedot tallennetaan ja haetaan tietokannasta.

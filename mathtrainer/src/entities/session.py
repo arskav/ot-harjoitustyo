@@ -6,7 +6,7 @@ import practises.practises1
 import practises.practises2
 # Näitä lisätään sitä mukaa kun tulee lisää harjoituskokonaisuuksia
 
-from services.utilities import return_to_menu
+from services.utilities import return_to_menu, practise_done
 # vakiokysymys vaiheessa, jossa jonkun harjoituksen tietyn tason kysymykset on tehty
 
 
@@ -27,7 +27,9 @@ class MathTrainerSession:
         string += " harjoitus " + str(self._practise)
         string += "\n" + "Yrityksiä tässä harjoituksessa " + \
             str(self._tries) + ", joista "
-        string += "oikeita vastauksia " + str(self._correct) + " TODO tämä ei nollaudu aloitettaessa uudelleen päävalikon kautta."
+        string += "oikeita vastauksia " + \
+            str(self._correct) + \
+            " TODO tämä ei nollaudu aloitettaessa uudelleen päävalikon kautta."
         string += "\nTaso " + str(self._level) + "/" + str(self._maxlevel) + \
             ", tällä tasolla yrityksiä " + \
             str(self._tries_at_level) + ", joista "
@@ -73,11 +75,11 @@ class MathTrainerSession:
         correct = 0
         tries = 0
 
-
         while training and self._level <= self._maxlevel:
 
             if drill == 1:
-                correct, tries, cancelled = practises.practises1.do_practise(self, correct, tries, cancelled)
+                correct, tries, cancelled = practises.practises1.do_practise(
+                    self, correct, tries, cancelled)
                 # Tehdään harjoitus 1 aloittaen tasosta self._level,
                 # session: harjoituskerran tiedot,
                 # kutsuttavan aliohjelman täytyy kasvattaa oikeiden vastausten
@@ -85,11 +87,11 @@ class MathTrainerSession:
                 # Kun harjoituskokonaisuuksieen lukumäärä kasvaa, nämä toimenpiteet
                 # pitäisi tehdä varsinaisen harjoituksen sisältävän aliohjelman ulkopuolella
                 # omassa aliohjelmassa.
-                
 
             if drill == 2:
-                correct, tries, cancelled = practises.practises1.do_practise(self, correct, tries, cancelled)
-                #Tämä on testausta varten sama kuin harjoitus 1
+                correct, tries, cancelled = practises.practises1.do_practise(
+                    self, correct, tries, cancelled)
+                # Tämä on testausta varten sama kuin harjoitus 1
 
             # HARJOITUKSEN LISÄÄMINEN
             # jos esim. numero 100
@@ -101,24 +103,19 @@ class MathTrainerSession:
                 training = False
                 print("TODO tallennetaan harjoituskerran tiedot tietokantaan")
                 input("Jatka ")
-    
-        #Päivitetään käyttäjän kokonaistilanne
+
+        # Päivitetään käyttäjän kokonaistilanne
         trainee.update_total(correct, tries, drill, self.level())
 
         if self._level - 1 == self._maxlevel:
-            print(f"Olet tehnyt kaikki tehtävät harjoituksissa {drill}.")
-            print("Jos haluat tehdä tämän harjoituksen tehtäviä uudelleen,")
-            print("valitse uusi käyttäjätunnus.")                        
-            input("Enter paluu päävalikkoon.")
-
+            practise_done(drill)
             # päivitetään tieto tästä käyttäjän tietoihin
             trainee.practise_finished_append(drill)
-                
-        #Tallennus tietokantaan
-        trainee.to_database()
-        #TO DO harjoituskerran tiedot tallennetaan tilastointia varten
 
-        
+        # Tallennus tietokantaan
+        trainee.to_database()
+        # TO DO harjoituskerran tiedot tallennetaan tilastointia varten
+
     def new_attempt(self):
         # uusi yritys, kasvatetaan yritysten sekä harjoitus- että tasokohtaista lukumäärää yhdellä
         self._tries += 1
@@ -141,8 +138,8 @@ class MathTrainerSession:
 
         if self._level <= self._maxlevel:
             return return_to_menu() == 'X'
-        else:            
-            return True    
+
+        return True
 
     def correct_up(self):
         # oikea vastaus, kasvatetaan oikeiden vastausten lukumäärää yhdellä
