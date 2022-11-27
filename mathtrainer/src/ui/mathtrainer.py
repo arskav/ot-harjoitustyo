@@ -10,15 +10,17 @@ from entities.user import MathTrainerUser
 from entities.session import MathTrainerSession
 # meneillään olevaa harjoitusta kuvaava luokka
 
-# Pääohjelmaa vastaava luokka
+from services.utilities import string_to_list, string_to_dict
 
+from repositories.user_repository import user_repository
+#Käyttäjätietohin liittyvä tietokantaoperaatiot
 
 class MathTrainer:
     # Käyttöliittymää vastaava luokka
     def mainmenu(self):
 
         trainee = self._login()
-        # kirjaudutaan järjestelmään uuten atai vanhana käyttäjänä
+        # kirjaudutaan järjestelmään uutena tai vanhana käyttäjänä
         # harjoituksen tekijan tiedot luokan MathTrainerUse mukaisesti
 
         while True:
@@ -67,20 +69,19 @@ class MathTrainer:
             # Aloitetaan harjoitus
 
     def begin_practising(self, drill, trainee):
-        # drill aloitettavan harjoituksen numero, trainee käyttäjä
+        # drill harjoituksen numero, trainee käyttäjä
 
-        if drill not in trainee._practise_finished:
+        if drill not in trainee.practise_finished():
             # Käyttäjä ei ole tehnyt harjoitusta loppuun
-            if drill in trainee._practise_started:
-                print("Harjoitus aloitettu")
-                print("TODO tiedot haetaan tietokannasta")
-                print("Nyt kuitenkin aloitetaan alusta")
+            if drill in trainee.practise_started():
+                print("Harjoitus aloitettu")               
                 input(" Jatka ")
-                session = MathTrainerSession(trainee._user, drill, MAXLEVELS[drill])
+                level = trainee.practise_level(drill)
+                session = MathTrainerSession(trainee.username(), drill, 0, 0, level, MAXLEVELS[drill])
             else:
                 # 1. harjoituskerta
-                # harjoitussessioon liittyvä tiedot luokan MathTrainerSessi mukaisesti
-                session = MathTrainerSession(trainee._user, drill, MAXLEVELS[drill])
+                # harjoitussessioon liittyvät tiedot
+                session = MathTrainerSession(trainee.username(), drill, 0, 0, 1, MAXLEVELS[drill])                
 
             session.begin_practise(drill, trainee)
             # Aloitetaan tai jatketaan harjoitusta
@@ -90,17 +91,18 @@ class MathTrainer:
             self._all_done(drill)
 
     def _all_done(self, drill):
+        os.system('clear')
         print(f"Olet tehnyt kaikki tehtävät harjoituksissa {drill}.")
         print("Jos haluat tehdä tämän harjoituksen tehtäviä uudelleen, valitse uusi käyttäjätunnus.")
         input("Enter paluu päävalikkoon.")
 
     def _shutdown(self, trainee):
+        os.system('clear')
         print("Lopetetaan ohjelman suoritus.")
         print("TODO tallennetaan käyttäjän tiedot tietokantaan")
         print("Käyttäjän tiedot:")
         print(trainee)
-        input(" Jatka ")
-        return
+       
 
     def _help(self):
         os.system('clear')
@@ -108,12 +110,43 @@ class MathTrainer:
         print("TODO tarvittavia ohjeita")
 
     def _login(self):
+        
         os.system('clear')
-        username = input("Anna käyttäjätunnus (vähintään yksi merkki) ")
-        # Tässä vaiheessa oletetaan, että aina uusi käyttäjätunnus
-        # TODO jatkokehittelyssä tarkistetaan, onko tunnus jo tietokannassa
-        # jos on, haetaan tiedot sieltä
-        trainee = MathTrainerUser(username, [], [], 0, 0)
-        # TODO jos uusi käyttäjätunnus, tallennetaan se tietokantaan
+        
+        username = input("Anna käyttäjätunnus (vähintään viisi merkkiä) ")
+        
+        while len(username) < 5:
+            print("Liian lyhyt käyttäjätunnus, oltava vähintään 5 merkkiä")
+            username = input("Anna käyttäjätunnus (vähintään viisi merkkiä) ")
+
+        if user_repository.find_user(username) is None:
+    
+            print("Uusi käyttäjätunnus.")
+
+            trainee = MathTrainerUser(username, {}, [], 0, 0)
+
+            #Tallennetaan uusi käyttäjä tietokantaan.
+            user_repository.insert_new_user(username)
+
+        else:
+
+            print("Rekisteröity käyttäjätunnus.")
+            print("jos et ole itse rekisteröinyt tätä tunnusta,")
+            print("keskeytä ohjelman käyttö päävalikossa X")
+            print("ja kirjaudu uudelleen eri tunnuksella.")
+            input("Jatka Enter ")
+
+            #Etsitään rekisteröityneen käyttäjän tiedot tietokannasta.
+            userdata = user_repository.find_user(username)              
+
+            started = string_to_dict(userdata[2])
+            
+            finished = string_to_list(userdata[3])
+            
+            corrects = userdata[4]
+            
+            tries = userdata[5]
+                        
+            trainee = MathTrainerUser(username, started, finished, corrects, tries)
 
         return trainee

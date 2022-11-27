@@ -1,10 +1,14 @@
 import os
 
+from services.utilities import return_to_menu
+# vakiokysymys vaiheessa, jossa jonkun harjoituksen tietyn tason kysymykset on tehty
+
+
 FINISH = 2
 #Kuinka monen peräkkäisen oikean vastauksen jälkeen siirrytään seuraavalle tasolle.
 #Siirtymisehto voi olla valmiissa harjoituksessa joku muukin.
 
-def do_practise(session, trainee, cancelled):
+def do_practise(session, correct, tries, cancelled):
 
     successive_correct = 0
     #Kun peräkkäisiä oikeita vastauksia on (tässä) 2, siirrytään seuraavalle tasolle.
@@ -23,25 +27,24 @@ def do_practise(session, trainee, cancelled):
             cancelled = True
         else:
             session.new_attempt()
+            tries += 1
             #Ainakin yritetty vastata
             if not is_correct:
                 print("Väärin")
             else:
                 print("Oikein")
                 session.correct_up()
+                correct += 1
                 successive_correct += 1
             if is_finish:
             #Lopetusehdon toteutuessa siirrytään seuraavalle tasolle
             #Tässä testauksessa riittää vastata kaksi kertaa 1, joka tulkitaan oikeaksi vastaukseksi
-
-                trainee.update_total(session)
-
+                
                 #siirrytään seuravalla tasolle
-                #session_level_up(session)
-                session.level_up()
-
-        if cancelled:
-            trainee.update_total(session)
+                cancelled = session.level_up()
+                
+       
+    return correct, tries, cancelled
 
 #TO DO varsinaisen harjoituksen koodaaminen
 

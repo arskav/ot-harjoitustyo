@@ -13,4 +13,7 @@
 |20.11. | 2 | Luokan MathTrainerSession metodien testaukset valmiiksi, koodin kehittelyä README päivitys, changelog. |
 |23.11. | 1 | pylint perusteella koodin korjaaminen.
 |24.11. | 2 | pylint perusteella koodin korjaaminen.
-| yht   | 32   | | 
+|25.11. | 2 | SQLite Pythonin kertausta, tietokantakokeiluja
+|26.11. | 2 | Tietokantakoodausta
+|27.11. | 3 | Käyttäjän tietojen tallentaminen ja haku tietokannasta; koodin parantelua
+| yht   | 39   | | 

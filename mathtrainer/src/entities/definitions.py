@@ -16,7 +16,7 @@ COMMANDS = {
 # Harjoituksessa olevien tasojen eli osaharjoitusten lukumäärä.
 # Jokaiselle uudelle harjoituskokonaisuudelle lisäys.
 MAXLEVELS = {
-    1: 2,  # harjoituksessa 1 tasoja 2
+    1: 4,  # harjoituksessa 1 tasoja 4
     2: 3,  # harjoituksessa 2 tasoja 3
 }
 

@@ -1,4 +1,7 @@
-from services.utilities import list_to_string
+from services.utilities import list_to_string, dict_to_string
+
+from repositories.user_repository import user_repository
+#Käyttäjätietohin liittyvä tietokantaoperaatiot
 
 class MathTrainerUser:
 
@@ -9,17 +12,37 @@ class MathTrainerUser:
         self._correct_total = correct
         self._tries_total = tries
 
+    def username(self):
+        return self._user
+
     def practise_started(self):
+        #Harjoitukset, jotka aloitettu
+        return self._practise_started.keys()
+
+    def practise_started_with_level(self):
+        #Harjoitukset, jotka aloitettu
         return self._practise_started
+    
+
+    def practise_level(self,drill):
+        #Aloitetun harjoituksen taso
+        return self._practise_started[drill]
 
     def practise_finished(self):
         return self._practise_finished
 
     def practise_started_append(self, drill):
-        self._practise_started.append(drill)
+        self._practise_started[drill] = 1
 
     def practise_finished_append(self, drill):
+
         self._practise_finished.append(drill)
+    
+    def correct_total(self):
+        return self._correct_total
+
+    def tries_total(self):
+        return self._tries_total         
 
     def __str__(self):
         # Tulostus ainakin päävalikon yhteydessä
@@ -28,7 +51,7 @@ class MathTrainerUser:
             str(self._tries_total) + ", joista "
         string += "oikeita vastauksia " + str(self._correct_total) + "\n"
 
-        if self.practise_started() != []:
+        if len(self.practise_started()) > 0:
             string += "Aloitettu harjoitukset "
             string += list_to_string(self.practise_started())
             string += "."
@@ -44,8 +67,27 @@ class MathTrainerUser:
 
         return string
 
-    def update_total(self, session):
+    def update_total(self, correct, tries, drill, level):
         # Päivitetään kokonaistilanne meneillään olevaa harjoituskertaa
-        # koskevista tiedoista session: MathTrainerSessions
-        self._correct_total += session.correct_at_level()
-        self._tries_total += session.tries_at_level()
+        # koskevista tiedoista session: MathTrainerSessions.
+        # Tallennetaan tiedot käyttäjän kokonaistilanteesta tietokantaan.
+        self._correct_total += correct
+        
+        self._tries_total += tries
+
+        self._practise_started[drill] = level
+                       
+    def to_database(self):
+        #tallennus tietokantaan
+
+        username = self.username()
+
+        started = dict_to_string(self.practise_started_with_level())
+
+        finished = list_to_string(self.practise_finished())
+
+        corrects = self.correct_total()
+
+        tries = self.tries_total()
+
+        user_repository.update_user(username, started, finished, corrects, tries)
