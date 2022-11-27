@@ -21,7 +21,7 @@ class MathTrainerUser:
         return self._practise_started.keys()
 
     def practise_started_with_level(self):
-        # Harjoitukset, jotka aloitettu
+        # Harjoitukset, jotka aloitettu tasoineen
         return self._practise_started
 
     def practise_level(self, drill):
@@ -92,3 +92,6 @@ class MathTrainerUser:
 
         user_repository.update_user(
             username, started, finished, corrects, tries)
+
+        #Tarkistusta varten    
+        return(username, started, finished, corrects, tries)    

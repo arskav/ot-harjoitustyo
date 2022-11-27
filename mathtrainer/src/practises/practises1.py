@@ -1,4 +1,5 @@
 import os
+from services.utilities import return_to_menu
 
 FINISH = 2
 # Kuinka monen peräkkäisen oikean vastauksen jälkeen siirrytään seuraavalle tasolle.
@@ -23,24 +24,33 @@ def do_practise(session, correct, tries, cancelled):
         # Näitä muutetaan meneilläään olevan harjoituksen mukaisesti.
         if is_interrupt:
             cancelled = True
-        else:
-            session.new_attempt()
-            tries += 1
-            # Ainakin yritetty vastata
-            if not is_correct:
-                print("Väärin")
-            else:
-                print("Oikein")
-                session.correct_up()
-                correct += 1
-                successive_correct += 1
-            if is_finish:
-                # Lopetusehdon toteutuessa siirrytään seuraavalle tasolle
-                # Tässä testauksessa riittää vastata kaksi kertaa 1,
-                # joka tulkitaan oikeaksi vastaukseksi
+            break
 
-                # siirrytään seuravalla tasolle
-                cancelled = session.level_up()
+        session.new_attempt()
+        tries += 1
+        # Ainakin yritetty vastata
+        if not is_correct:
+            print("Väärin")
+        else:
+            print("Oikein")
+            session.correct_up()
+            correct += 1
+            successive_correct += 1
+
+        if is_finish:
+            # Lopetusehdon toteutuessa siirrytään seuraavalle tasolle
+            # Tässä testauksessa riittää vastata kaksi kertaa 1,
+            # joka tulkitaan oikeaksi vastaukseksi
+
+            # siirrytään seuravalla tasolle
+            session.level_up()
+
+            if session.level() <= session.maxlevel():
+                if return_to_menu():
+                    cancelled = True
+                    break
+
+
 
     return correct, tries, cancelled
 

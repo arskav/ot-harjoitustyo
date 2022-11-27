@@ -11,9 +11,11 @@
 |17.11. | 2 | Koodin rakenteen muokkaamista ja MathTrainesSession luokan kehittelyä. |
 |18.11. | 2 | Invoke-tehtävät, ohjelmiston toimivuuden testaaminen virtuaalityöasemassa. |
 |20.11. | 2 | Luokan MathTrainerSession metodien testaukset valmiiksi, koodin kehittelyä README päivitys, changelog. |
-|23.11. | 1 | pylint perusteella koodin korjaaminen.
-|24.11. | 2 | pylint perusteella koodin korjaaminen.
-|25.11. | 2 | SQLite Pythonin kertausta, tietokantakokeiluja
-|26.11. | 2 | Tietokantakoodausta
-|27.11. | 3 | Käyttäjän tietojen tallentaminen ja haku tietokannasta; koodin parantelua
-| yht   | 39   | | 
+|23.11. | 1 | pylint perusteella koodin korjaaminen. |
+|24.11. | 2 | pylint perusteella koodin korjaaminen. |
+|25.11. | 2 | SQLite Pythonin kertausta, tietokantakokeiluja |
+|26.11. | 2 | Tietokannan koodausta |
+|27.11. | 3 | Käyttäjän tietojen tallentaminen ja haku tietokannasta; koodin parantelua |
+|27.11. | 1 | pylint perusteella koodin korjaaminen. |
+|27.11. | 2 | testauksia, koodin pientä muuntelua testien pohjalta |
+| yht   | 42   | | 

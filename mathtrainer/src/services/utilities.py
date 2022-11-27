@@ -11,7 +11,7 @@ def return_to_menu():
 
     ans = input("X/muu > ")
 
-    return ans.upper()
+    return ans.upper() == 'X'
 
 
 def practise_done(drill):
@@ -24,9 +24,9 @@ def practise_done(drill):
 
 def list_to_string(as_list):
 
-    string = " ".join([str(item) + ", " for item in as_list])
+    string = " ".join([str(item) + "," for item in as_list])
 
-    return string[:-2]
+    return string[:-1]
 
 
 def string_to_list(as_string):

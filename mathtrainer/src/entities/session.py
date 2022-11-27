@@ -3,10 +3,9 @@ from entities.definitions import DESCRIPTION
 # Harjoitusten kuvaukset
 
 import practises.practises1
-import practises.practises2
 # Näitä lisätään sitä mukaa kun tulee lisää harjoituskokonaisuuksia
 
-from services.utilities import return_to_menu, practise_done
+from services.utilities import practise_done
 # vakiokysymys vaiheessa, jossa jonkun harjoituksen tietyn tason kysymykset on tehty
 
 
@@ -39,6 +38,9 @@ class MathTrainerSession:
 
     def level(self):
         return self._level
+
+    def maxlevel(self):
+        return self._maxlevel
 
     def correct(self):
         return self._correct
@@ -135,11 +137,6 @@ class MathTrainerSession:
         # nollataan tason yritysten ja oikeiden vastausten lkm
         self._tries_at_level = 0
         self._correct_at_level = 0
-
-        if self._level <= self._maxlevel:
-            return return_to_menu() == 'X'
-
-        return True
 
     def correct_up(self):
         # oikea vastaus, kasvatetaan oikeiden vastausten lukumäärää yhdellä
