@@ -18,4 +18,5 @@
 |27.11. | 3 | Käyttäjän tietojen tallentaminen ja haku tietokannasta; koodin parantelua |
 |27.11. | 1 | pylint perusteella koodin korjaaminen. |
 |27.11. | 2 | testauksia, koodin pientä muuntelua testien pohjalta |
-| yht   | 42   | | 
+|2.11. | 2 | varsinaisen yhtälöitä harjoittavan harjoituksen alustavaa koodausta, ei vielä yhdistetty varsinaiseen ohjelmistoon |
+| yht   | 44   | | 

@@ -93,5 +93,5 @@ class MathTrainerUser:
         user_repository.update_user(
             username, started, finished, corrects, tries)
 
-        #Tarkistusta varten    
-        return(username, started, finished, corrects, tries)    
+        #Tarkistusta varten
+        return(username, started, finished, corrects, tries)
