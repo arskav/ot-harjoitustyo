@@ -86,7 +86,7 @@ class MathTrainer:
                 session = MathTrainerSession(
                     trainee.username(), drill, 0, 0, 1, MAXLEVELS[drill])
 
-            session.begin_practise(drill, trainee)
+            session.begin_practise(trainee)
             # Aloitetaan tai jatketaan harjoitusta
 
         else:

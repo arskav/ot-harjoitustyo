@@ -1,7 +1,7 @@
 # tähän lisätään harjoituskokonaisuuksien nimiä
 DESCRIPTION = {
-    1: "Leikkikysymyksiä TODO Peruslaskutoimitusten harjoittelua",
-    2: "Leikkikysymyksiä TODO Alkeita muuttujista ja yhtälöistä"
+    1: "Peruslaskutoimitusten harjoittelua",
+    2: "Yhtälön ratkaisun alkeita"
 }
 
 
@@ -16,8 +16,8 @@ COMMANDS = {
 # Harjoituksessa olevien tasojen eli osaharjoitusten lukumäärä.
 # Jokaiselle uudelle harjoituskokonaisuudelle lisäys.
 MAXLEVELS = {
-    1: 4,  # harjoituksessa 1 tasoja 4
-    2: 3,  # harjoituksessa 2 tasoja 3
+    1: 6,  # harjoituksessa 1 tasoja 6
+    2: 6,  # harjoituksessa 2 tasoja 6
 }
 
 

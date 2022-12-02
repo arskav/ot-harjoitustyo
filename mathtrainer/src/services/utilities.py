@@ -1,4 +1,4 @@
-# Sekaialisia apualiohjelmia
+# Sekalaisia apualiohjelmia
 
 
 def return_to_menu():
@@ -57,3 +57,24 @@ def string_to_dict(as_string):
         as_dict[int(triple[0])] = int(triple[2])
 
     return as_dict
+
+
+def is_number(ans):
+    """Tarkistetaan, onko annettu vastaus kokonaisluku
+    """
+    if len(ans) == 0:
+        return False
+    if ans[0] == '-':        
+        #negatiivinen luku, ensimmäinen merkki '-'
+        return ans[1:].isnumeric()
+    else:
+        return ans.isnumeric()
+
+def cancel():
+    """Lopetetaan tehtävien tekeminen.
+    """
+    print("Lopetus")
+    is_correct = False
+    is_cancelled = True
+    is_finish = False
+    return is_correct, is_cancelled, is_finish

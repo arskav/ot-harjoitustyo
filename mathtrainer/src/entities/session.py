@@ -5,9 +5,13 @@ from entities.definitions import DESCRIPTION
 import practises.practises1
 # Näitä lisätään sitä mukaa kun tulee lisää harjoituskokonaisuuksia
 
+import practises.practises2
+# Näitä lisätään sitä mukaa kun tulee lisää harjoituskokonaisuuksia
+
 from services.utilities import practise_done
 # vakiokysymys vaiheessa, jossa jonkun harjoituksen tietyn tason kysymykset on tehty
 
+from services.utilities import return_to_menu
 
 class MathTrainerSession:
     def __init__(self, username, practise, correct, tries, level, maxlevel):
@@ -19,6 +23,7 @@ class MathTrainerSession:
         self._maxlevel = maxlevel
         self._correct_at_level = 0
         self._tries_at_level = 0
+        self._ongoing = True
 
     def __str__(self):
 
@@ -35,6 +40,9 @@ class MathTrainerSession:
         string += "oikeita vastauksia " + str(self._correct_at_level)
 
         return string
+
+    def practise(self):
+        return self._practise
 
     def level(self):
         return self._level
@@ -54,11 +62,17 @@ class MathTrainerSession:
     def tries_at_level(self):
         return self._tries_at_level
 
-    def begin_practise(self, drill, trainee):
+    def ongoing(self):
+        return self._ongoing
+
+    def set_ongoing(self, truthvalue):
+        self._ongoing = truthvalue
+
+    def begin_practise(self,trainee):
 
         os.system('clear')
-        print(DESCRIPTION[drill])
-        print("Nyt ei kuitenkaan vielä varsinaisia tehtäviä")
+        drill = self.practise()
+        print(DESCRIPTION[drill])       
         # Tässä voisi olla myös enemmänkin tehtäväkokonaisuuden esittelyä
 
         # lisätään tieto, että harjoitus drill aloitettu
@@ -67,42 +81,72 @@ class MathTrainerSession:
         if drill not in trainee.practise_started():
             trainee.practise_started_append(drill)
 
-        self.do_practise(drill, trainee)
+        self.do_practise(trainee)
 
-    def do_practise(self, drill, trainee):
+    def do_practise(self, trainee):
         # trainee on harjoituksen tekijä, drill harjoituksen nro ja self harjoituksen suoritustiedot
-
-        training = True
-        cancelled = False
+               
         correct = 0
-        tries = 0
+        tries = 0        
+        successive_correct = 0
+        is_cancelled = False
+        drill = self.practise()
 
-        while training and self._level <= self._maxlevel:
+        while self.ongoing(): #training and self._level <= self._maxlevel:
 
-            if drill == 1:
-                correct, tries, cancelled = practises.practises1.do_practise(
-                    self, correct, tries, cancelled)
-                # Tehdään harjoitus 1 aloittaen tasosta self._level,
-                # session: harjoituskerran tiedot,
-                # kutsuttavan aliohjelman täytyy kasvattaa oikeiden vastausten
-                # ja yritysten lukumäärää ja tehtävätasoa.
-                # Kun harjoituskokonaisuuksieen lukumäärä kasvaa, nämä toimenpiteet
-                # pitäisi tehdä varsinaisen harjoituksen sisältävän aliohjelman ulkopuolella
-                # omassa aliohjelmassa.
+                            
+            print("---------------------------------------")
+            print(self)
+            if drill == 1:        
+                is_correct, is_cancelled, is_finish = practises.practises1.question(
+                    successive_correct, self.level())
+                
+            if drill == 2:        
+                is_correct, is_cancelled, is_finish = practises.practises2.question(
+                    successive_correct, self.level())    
 
-            if drill == 2:
-                correct, tries, cancelled = practises.practises1.do_practise(
-                    self, correct, tries, cancelled)
-                # Tämä on testausta varten sama kuin harjoitus 1
+            #lisäys
+            #if drill == 3:        
+            #    is_correct, is_cancelled, is_finish = practises.practises3.question(
+            #        successive_correct, self.level())    
 
-            # HARJOITUKSEN LISÄÄMINEN
-            # jos esim. numero 100
-            # if drill == 100:
-            #       practises100.do_practise(session, trainee)
-            # tiedostossa paractises100 funktio do_practise, joka sisältää harjoituksen.
+            if is_cancelled:
+                self.set_ongoing(False)
+                break
 
-            if cancelled:
-                training = False
+            self.new_attempt()
+            tries += 1
+            # Ainakin yritetty vastata
+            if is_correct:            
+                self.correct_up()
+                correct += 1            
+                successive_correct += 1
+            else:
+                successive_correct = 0    
+
+            if is_finish:
+                # Lopetusehdon toteutuessa siirrytään seuraavalle tasolle
+                print("Olet tehnyt kaikki tämän tason harjoitukset.")
+                self.level_up()
+                successive_correct = 0    
+
+                if self.level() <= self.maxlevel():
+                    if return_to_menu():
+                        self.set_ongoing(False)
+                        break
+
+
+            
+            
+
+                # HARJOITUKSEN LISÄÄMINEN
+                # jos esim. numero 100
+                # if drill == 100:
+                #       practises100.do_practise(session, trainee)
+                # tiedostossa paractises100 funktio do_practise, joka sisältää harjoituksen.
+
+            if is_cancelled or (self.level() > self.maxlevel()):
+                self.set_ongoing(False)
                 print("TODO tallennetaan harjoituskerran tiedot tietokantaan")
                 input("Jatka ")
 
@@ -127,11 +171,6 @@ class MathTrainerSession:
         # Siirrytään seuraavalle tasolle ja
         # ja kysytään, jatketaanko harjoittelua sillä,
         # jos edellinen ei ollut jo viimeinen.
-
-        if self._level <= self._maxlevel:
-            os.system('clear')
-            print(self)
-            print("Olet tehnyt kaikki tämän tason harjoitukset.")
 
         self._level += 1
         # nollataan tason yritysten ja oikeiden vastausten lkm

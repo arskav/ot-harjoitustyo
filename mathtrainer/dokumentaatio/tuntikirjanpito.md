@@ -20,4 +20,8 @@
 |27.11. | 2 | testauksia, koodin pientä muuntelua testien pohjalta |
 |27.11. | 2 | varsinaisen yhtälöitä harjoittavan harjoituksen alustavaa koodausta, ei vielä yhdistetty varsinaiseen ohjelmistoon |
 |28.11. | 2 |kaavion laatimista (https://app.diagrams.net), ohjelman rakenteen suunnittelua.|
-| yht   | 46   | 
+|30.11. | 4 |yhtälön ratkaisu harjoituksen koodausta |
+|1.12. | 2 |yhtälön ratkaisu harjoituksen koodausta ja ohjelman rakenteen muokkausta |
+|2.12. | 1 |yhtälön ratkaisu harjoituksen viimeistely ja ohjelman rakenteen muokkausta | 
+|2.12. | 1 | peruslaksutoimitusten harjoittelun koodaus mukaillen yhtälön ratkaisu harjoitusta |
+| yht   | 54   | 
