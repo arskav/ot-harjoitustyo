@@ -355,7 +355,11 @@ good-names=i,
            ex,
            Run,
            _,
-           id
+           id,
+           x,
+           a,
+           b
+#Lisätty x, a, b           
 
 # Good variable names regexes, separated by a comma. If names match any regex,
 # they will always be accepted

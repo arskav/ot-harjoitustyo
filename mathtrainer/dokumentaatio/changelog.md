@@ -10,3 +10,8 @@
 
 ## Viikko 4
 * Käyttäjän tiedot tallennetaan ja haetaan tietokannasta.
+
+## Viikko 5
+* Peruslaskutoimituksia koskeva harjoitus
+* Alkeellisia yhtälön ratkaisemisia koskeva harjoitus
+

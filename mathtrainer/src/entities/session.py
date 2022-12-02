@@ -13,6 +13,7 @@ from services.utilities import practise_done
 
 from services.utilities import return_to_menu
 
+
 class MathTrainerSession:
     def __init__(self, username, practise, correct, tries, level, maxlevel):
         self._user = username
@@ -68,11 +69,11 @@ class MathTrainerSession:
     def set_ongoing(self, truthvalue):
         self._ongoing = truthvalue
 
-    def begin_practise(self,trainee):
+    def begin_practise(self, trainee):
 
         os.system('clear')
         drill = self.practise()
-        print(DESCRIPTION[drill])       
+        print(DESCRIPTION[drill])
         # Tässä voisi olla myös enemmänkin tehtäväkokonaisuuden esittelyä
 
         # lisätään tieto, että harjoitus drill aloitettu
@@ -85,30 +86,30 @@ class MathTrainerSession:
 
     def do_practise(self, trainee):
         # trainee on harjoituksen tekijä, drill harjoituksen nro ja self harjoituksen suoritustiedot
-               
+
         correct = 0
-        tries = 0        
+        tries = 0
         successive_correct = 0
         is_cancelled = False
         drill = self.practise()
 
-        while self.ongoing(): #training and self._level <= self._maxlevel:
+        while self.ongoing():
 
-                            
             print("---------------------------------------")
             print(self)
-            if drill == 1:        
+
+            if drill == 1:
                 is_correct, is_cancelled, is_finish = practises.practises1.question(
                     successive_correct, self.level())
-                
-            if drill == 2:        
-                is_correct, is_cancelled, is_finish = practises.practises2.question(
-                    successive_correct, self.level())    
 
-            #lisäys
-            #if drill == 3:        
+            if drill == 2:
+                is_correct, is_cancelled, is_finish = practises.practises2.question(
+                    successive_correct, self.level())
+
+            # lisäys
+            # if drill == 3:
             #    is_correct, is_cancelled, is_finish = practises.practises3.question(
-            #        successive_correct, self.level())    
+            #        successive_correct, self.level())
 
             if is_cancelled:
                 self.set_ongoing(False)
@@ -117,27 +118,23 @@ class MathTrainerSession:
             self.new_attempt()
             tries += 1
             # Ainakin yritetty vastata
-            if is_correct:            
+
+            if is_correct:
                 self.correct_up()
-                correct += 1            
+                correct += 1
                 successive_correct += 1
             else:
-                successive_correct = 0    
+                successive_correct = 0
 
             if is_finish:
                 # Lopetusehdon toteutuessa siirrytään seuraavalle tasolle
                 print("Olet tehnyt kaikki tämän tason harjoitukset.")
                 self.level_up()
-                successive_correct = 0    
+                successive_correct = 0
 
-                if self.level() <= self.maxlevel():
-                    if return_to_menu():
-                        self.set_ongoing(False)
-                        break
-
-
-            
-            
+            if is_finish and self.level() <= self.maxlevel():
+                if return_to_menu():
+                    self.set_ongoing(False)
 
                 # HARJOITUKSEN LISÄÄMINEN
                 # jos esim. numero 100

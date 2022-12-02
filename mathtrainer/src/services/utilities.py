@@ -1,4 +1,18 @@
+import random
 # Sekalaisia apualiohjelmia
+
+
+def correct_answer(successive_correct, finish):
+
+    successive_correct += 1
+    print(f"Peräkkäisiä oikeita {successive_correct}/{finish}")
+    is_finish = successive_correct == finish
+
+    return is_finish, successive_correct
+
+
+def draw_two_integers(lower1, upper1, lower2, upper2):
+    return random.randint(lower1, upper1), random.randint(lower2, upper2)
 
 
 def return_to_menu():
@@ -64,11 +78,12 @@ def is_number(ans):
     """
     if len(ans) == 0:
         return False
-    if ans[0] == '-':        
-        #negatiivinen luku, ensimmäinen merkki '-'
+    if ans[0] == '-':
+        # negatiivinen luku, ensimmäinen merkki '-'
         return ans[1:].isnumeric()
-    else:
-        return ans.isnumeric()
+
+    return ans.isnumeric()
+
 
 def cancel():
     """Lopetetaan tehtävien tekeminen.

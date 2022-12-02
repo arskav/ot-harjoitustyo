@@ -27,7 +27,7 @@ Tavoitteena on luoda ohjelmarunko, johon on helppo lisätä erilaisia harjoitusk
 
 Kun käyttäjä kirjautuu järjestelmään vanhalla tunnuksella, hän näkee tilastotietoa harjoitteluistaan: alkuvaiheessa harjoituskokonaisuudet, mitkä hän aloittanut ja mitkä tehnyt loppuun, sekä kuinka monta yksittäistä tehtävää hän on yrittänyt tehdä ja kuinka moni on mennyt oikein. _Tehty._
 
-Harjoituskokonaisuudessa on tasoja. Käyttäjä aloittaa helpoimmista tehtävistä. Harjoituskokonaisuudessa on asetettu ehdot sille, miten siirrytään tasolta ylemmäs. Ehdot voivat vaihdella eri tasoilla. _Ei vielä varsinaisia kysymyksiä, vain testausta varten_
+Harjoituskokonaisuudessa on tasoja. Käyttäjä aloittaa helpoimmista tehtävistä. Harjoituskokonaisuudessa on asetettu ehdot sille, miten siirrytään tasolta ylemmäs. Ehdot voivat vaihdella eri tasoilla. _Tehty kaksi harjoituskokonaisuutta valmiiksi._
 
 Harjoituskokonaisuuden yhteydessä pidetään kirjaa siitä, miten tehtävät etenevät ja reaaliaikainen tilanne näytetään käyttäjälle. __Tehty osittain, mutta harjoitusta koskevat tiedot nollautuvat aloitettaessa uudelleen. Niitä ei vielä viedä tietokantaan._
 

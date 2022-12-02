@@ -1,7 +1,8 @@
 import unittest
 from entities.session import MathTrainerSession
 
-#self, username, practise = 1, correct = 2, tries = 4, level = 2, maxlevel = 4
+# self, username, practise = 1, correct = 2, tries = 4, level = 2, maxlevel = 4
+
 
 class TestMathTrainerSession(unittest.TestCase):
 
@@ -9,34 +10,29 @@ class TestMathTrainerSession(unittest.TestCase):
         self.session = MathTrainerSession(
             "Testikäyttäjä", 1, 2, 4, 2, 4)
 
-   
     def test_tries_given_correctly(self):
 
-        self.assertEqual(self.session.tries(), 4)    
+        self.assertEqual(self.session.tries(), 4)
 
     def test_tries_at_level_given_correctly(self):
 
         self.assertEqual(self.session.tries_at_level(), 0)
-   
 
     def test_correct_at_level_given_correctly(self):
 
         self.assertEqual(self.session.correct_at_level(), 0)
+
     def test_right_given_correctly(self):
 
-         self.assertEqual(self.session.correct(), 2)    
-
+        self.assertEqual(self.session.correct(), 2)
 
     def test_level_given_correctly(self):
 
         self.assertEqual(self.session.level(), 2)
 
-
     def test_maxlevel_given_correctly(self):
 
         self.assertEqual(self.session.maxlevel(), 4)
-    
-
 
     # metodin _new_attempt() pitäisi kasvattaa yhdellä harjoitusten kokonaisyritysten _tries ja tason yritysten _tries_level lukumäärää
 
