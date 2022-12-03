@@ -14,7 +14,7 @@ Sovellus on tehty käyttämällä Python-versiota 3.9., mutta testattu Python-ve
 
 * [Vaativuusmäärittely](https://github.com/arskav/ot-harjoitustyo/blob/main/mathtrainer/dokumentaatio/vaativuusmaarittely.md)
 
-* Arkkitehtuurikuvaus TODO
+* [Arkkitehtuurikuvaus](https://github.com/arskav/ot-harjoitustyo/blob/main/mathtrainer/dokumentaatio/arkkitehtuuri.md)
 
 * Testausdokumentti TODO
 

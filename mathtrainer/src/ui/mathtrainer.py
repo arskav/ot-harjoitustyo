@@ -15,6 +15,9 @@ from services.utilities import string_to_list, string_to_dict
 from repositories.user_repository import user_repository
 # Käyttäjätietohin liittyvä tietokantaoperaatiot
 
+from repositories.session_repository import session_repository
+# Harjoituksen tietoihin liittyvät tietokantaoperaatiot
+
 
 class MathTrainer:
     # Käyttöliittymää vastaava luokka
@@ -40,7 +43,6 @@ class MathTrainer:
                 break
             elif choice == "Y":
                 self._maintenance()
-                # TODO ylläpito
             else:
                 self._action(trainee, choice)
                 # Valitaan jokin harjoituksista tai tulostetaan ohjeet
@@ -53,12 +55,37 @@ class MathTrainer:
         for command in COMMANDS:
             print(command, ":", COMMANDS[command])
 
+    def _show_admin_menu(self):
+
+        print("1:   kaikki käyttäjänimet")
+        print("2:   kaikki suoritukset")
+        print("3:   kaikki annetun käyttäjän suoritukset")
+        print("4:   kaikki annetun harjoituksen suoritukset")
+        print("muu: palataan päävalikkoon")
+
+
     def _maintenance(self):
 
         print("TODO Kysytään salasanaa")
-        print("Avataan valikko, missä toimenpidemahdollisuuksia.")
-        print("Lähinnä tilastotietoa suorituksista.")
-        input("Enter paluu päävalikkoon.")
+
+        self._show_admin_menu()
+
+        ans = input("Valintasi ")
+
+        if ans not in ['1', '2', '3', '4']:
+            return
+
+        if ans == '1':
+            print("Kaikki käyttäjätunnukset")
+            print(user_repository.find_all_usernames())
+            input("Enter paluu päävalikkoon.")
+
+        if ans == '2':
+            print("Kaikki suoritukset")
+            print(session_repository.find_all_sessions())
+            input("Enter paluu päävalikkoon.")
+
+        return
 
     def _action(self, trainee, choice):
         # Ohjeet tai jokin harjoituksista
@@ -75,17 +102,19 @@ class MathTrainer:
         if drill not in trainee.practise_finished():
             # Käyttäjä ei ole tehnyt harjoitusta loppuun
             if drill in trainee.practise_started():
-                print("Harjoitus aloitettu")
-                input(" Jatka ")
+
                 level = trainee.practise_level(drill)
+
+                correct, tries, correct_at_level, tries_at_level = session_repository.find_session_of_user(trainee.username(), drill, level)
+
                 session = MathTrainerSession(
-                    trainee.username(), drill, 0, 0, level, MAXLEVELS[drill])
+                    trainee.username(), drill, correct, tries, level, MAXLEVELS[drill],correct_at_level, tries_at_level)
             else:
                 # 1. harjoituskerta
-                # harjoitussessioon liittyvät tiedot
+                trainee.practise_started_append(drill)
                 session = MathTrainerSession(
-                    trainee.username(), drill, 0, 0, 1, MAXLEVELS[drill])
-
+                    trainee.username(), drill, 0, 0, 1, MAXLEVELS[drill], 0, 0)
+                session.to_database_new()
             session.begin_practise(trainee)
             # Aloitetaan tai jatketaan harjoitusta
 
@@ -102,7 +131,6 @@ class MathTrainer:
     def _shutdown(self, trainee):
         os.system('clear')
         print("Lopetetaan ohjelman suoritus.")
-        print("TODO tallennetaan käyttäjän tiedot tietokantaan")
         print("Käyttäjän tiedot:")
         print(trainee)
 

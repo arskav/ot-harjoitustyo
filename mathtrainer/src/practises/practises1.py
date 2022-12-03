@@ -1,7 +1,7 @@
 from services.utilities import is_number, cancel, draw_two_integers, correct_answer
 
 
-FINISH = 3
+FINISH = 1  # testaamisen helpottamiseksi riittää yksi oikea
 # Kuinka monen peräkkäisen oikean vastauksen jälkeen lopetetaan.
 
 

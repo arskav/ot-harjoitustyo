@@ -42,6 +42,17 @@ class UserRepository:
 
         self._connection.commit()
 
+    def find_all_usernames(self):
+
+        cursor = self._connection.cursor()
+
+        cursor.execute("SELECT user FROM Users")
+
+        rows = cursor.fetchall()
+
+        return rows
+
+
     def find_all_users(self):
 
         cursor = self._connection.cursor()
@@ -66,6 +77,6 @@ class UserRepository:
         return row
 
 
-DATABASE = "data/userdata.sqlite"
+DATABASE = "../data/userdata.sqlite"  # muuta
 
 user_repository = UserRepository(get_database_connection(DATABASE))

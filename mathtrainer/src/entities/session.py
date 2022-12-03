@@ -8,22 +8,22 @@ import practises.practises1
 import practises.practises2
 # Näitä lisätään sitä mukaa kun tulee lisää harjoituskokonaisuuksia
 
-from services.utilities import practise_done
-# vakiokysymys vaiheessa, jossa jonkun harjoituksen tietyn tason kysymykset on tehty
+from services.utilities import practise_done, return_to_menu
 
-from services.utilities import return_to_menu
+from repositories.session_repository import session_repository
+# Harjoituksen tietoihin liittyvät tietokantaoperaatiot
 
 
 class MathTrainerSession:
-    def __init__(self, username, practise, correct, tries, level, maxlevel):
+    def __init__(self, username, practise, correct, tries, level, maxlevel, correct_at_level, tries_at_level):
         self._user = username
         self._practise = practise
         self._correct = correct
         self._tries = tries
         self._level = level
         self._maxlevel = maxlevel
-        self._correct_at_level = 0
-        self._tries_at_level = 0
+        self._correct_at_level = correct_at_level
+        self._tries_at_level = tries_at_level
         self._ongoing = True
 
     def __str__(self):
@@ -33,14 +33,16 @@ class MathTrainerSession:
         string += "\n" + "Yrityksiä tässä harjoituksessa " + \
             str(self._tries) + ", joista "
         string += "oikeita vastauksia " + \
-            str(self._correct) + \
-            " TODO tämä ei nollaudu aloitettaessa uudelleen päävalikon kautta."
+            str(self._correct)
         string += "\nTaso " + str(self._level) + "/" + str(self._maxlevel) + \
             ", tällä tasolla yrityksiä " + \
             str(self._tries_at_level) + ", joista "
         string += "oikeita vastauksia " + str(self._correct_at_level)
 
         return string
+
+    def user(self):
+        return self._user
 
     def practise(self):
         return self._practise
@@ -79,8 +81,9 @@ class MathTrainerSession:
         # lisätään tieto, että harjoitus drill aloitettu
         # tässä vaiheessa ohjelmaa tämä aina aloituskerta, koska tietoja ei tallenneta vielä
         # Jatkossa haetaan vanhat tiedot tietokannasta.
-        if drill not in trainee.practise_started():
-            trainee.practise_started_append(drill)
+        #if drill not in trainee.practise_started():
+        #    trainee.practise_started_append(drill)
+        #    self.to_database_new()
 
         self.do_practise(trainee)
 
@@ -113,6 +116,10 @@ class MathTrainerSession:
 
             if is_cancelled:
                 self.set_ongoing(False)
+                print("Keskeytetty")
+                print(self)
+                input(" >> ")
+                self.update_database()
                 break
 
             self.new_attempt()
@@ -128,8 +135,9 @@ class MathTrainerSession:
 
             if is_finish:
                 # Lopetusehdon toteutuessa siirrytään seuraavalle tasolle
-                print("Olet tehnyt kaikki tämän tason harjoitukset.")
+                self.update_database()
                 self.level_up()
+                self.to_database_new()
                 successive_correct = 0
 
             if is_finish and self.level() <= self.maxlevel():
@@ -145,6 +153,8 @@ class MathTrainerSession:
             if is_cancelled or (self.level() > self.maxlevel()):
                 self.set_ongoing(False)
                 print("TODO tallennetaan harjoituskerran tiedot tietokantaan")
+                if self.level() > self.maxlevel():
+                    print("Olet tehnyt kaikki tämän tason harjoitukset.")
                 input("Jatka ")
 
         # Päivitetään käyttäjän kokonaistilanne
@@ -158,6 +168,15 @@ class MathTrainerSession:
         # Tallennus tietokantaan
         trainee.to_database()
         # TO DO harjoituskerran tiedot tallennetaan tilastointia varten
+
+    def to_database_new(self):
+        session_repository.insert_new_session(self.user(), self.practise(), self.correct(), self.tries(), self.level(), self.correct_at_level(), self.tries_at_level())
+
+    def update_database(self):
+        session_repository.update_session(self.user(), self.practise(), self.correct(
+                ), self.tries(), self.level(), self.correct_at_level(), self.tries_at_level())
+
+
 
     def new_attempt(self):
         # uusi yritys, kasvatetaan yritysten sekä harjoitus- että tasokohtaista lukumäärää yhdellä
