@@ -137,10 +137,10 @@ class MathTrainerSession:
                 # Lopetusehdon toteutuessa siirrytään seuraavalle tasolle
                 self.update_database()
                 self.level_up()
-                self.to_database_new() #tästä tulee yksi ylimääräinen taso
                 successive_correct = 0
 
             if is_finish and self.level() <= self.maxlevel():
+                self.to_database_new()
                 if return_to_menu():
                     self.set_ongoing(False)
 
@@ -152,7 +152,6 @@ class MathTrainerSession:
 
             if is_cancelled or (self.level() > self.maxlevel()):
                 self.set_ongoing(False)
-                print("TODO tallennetaan harjoituskerran tiedot tietokantaan")
                 if self.level() > self.maxlevel():
                     print("Olet tehnyt kaikki tämän tason harjoitukset.")
                 input("Jatka ")
@@ -184,7 +183,7 @@ class MathTrainerSession:
 
     def level_up(self):
         # Siirrytään seuraavalle tasolle ja
-        # ja kysytään, jatketaanko harjoittelua sillä,
+        # ja kysytään, jatketaanko harjoittelua,
         # jos edellinen ei ollut jo viimeinen.
 
         self._level += 1

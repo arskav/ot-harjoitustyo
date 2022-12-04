@@ -107,6 +107,6 @@ class UserRepository:
         return row
 
 
-DATABASE = "../data/userdata.sqlite"  # muuta
+DATABASE = "./data/userdata.sqlite"
 
 user_repository = UserRepository(get_database_connection(DATABASE))
