@@ -1,5 +1,5 @@
 import sqlite3
-
+#Tämä tiedosto pitää siistiä, nyt toistetaan samaa koodia, vain SQL-käsky vaihtelee
 
 def get_database_connection(db_file):
 
@@ -46,11 +46,41 @@ class UserRepository:
 
         cursor = self._connection.cursor()
 
-        cursor.execute("SELECT user FROM Users")
+        cursor.execute("SELECT user FROM Users ORDER BY user COLLATE NOCASE")
 
         rows = cursor.fetchall()
 
         return rows
+
+    def print_all_usernames(self):
+
+        print("\nKaikki käyttäjätunnukset:")
+
+        rows = self.find_all_usernames()
+
+        for item in set(rows):
+            print(item[0])
+
+
+    def find_all_users_with_practises(self):
+
+        cursor = self._connection.cursor()
+
+        cursor.execute("SELECT * FROM Users ORDER BY user COLLATE NOCASE")
+
+        rows = cursor.fetchall()
+
+        return rows
+
+    def print_all_users_with_practises(self):
+        #Tulostus siistittävä, nyt lähinnä testauksen apuna
+
+        rows = self.find_all_users_with_practises()
+
+        for item in set(rows):
+            print(item[1], "aloitetut harjoitukset", item[2], ", tehty loppuun", item[3], ", oikeita", item[4], "/", item[5])
+
+        return
 
 
     def find_all_users(self):

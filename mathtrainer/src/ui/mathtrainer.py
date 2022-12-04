@@ -10,7 +10,7 @@ from entities.user import MathTrainerUser
 from entities.session import MathTrainerSession
 # meneillään olevaa harjoitusta kuvaava luokka
 
-from services.utilities import string_to_list, string_to_dict
+from services.utilities import string_to_list
 
 from repositories.user_repository import user_repository
 # Käyttäjätietohin liittyvä tietokantaoperaatiot
@@ -58,11 +58,11 @@ class MathTrainer:
     def _show_admin_menu(self):
 
         print("1:   kaikki käyttäjänimet")
-        print("2:   kaikki suoritukset")
-        print("3:   kaikki annetun käyttäjän suoritukset")
-        print("4:   kaikki annetun harjoituksen suoritukset")
+        print("2:   kaikki käyttäjät harjoitustietoineen")
+        print("3:   kaikki suoritukset")
+        print("4:   kaikki annetun käyttäjän suoritukset")
+        print("5:   kaikki annetun harjoituksen suoritukset")
         print("muu: palataan päävalikkoon")
-
 
     def _maintenance(self):
 
@@ -71,21 +71,35 @@ class MathTrainer:
         self._show_admin_menu()
 
         ans = input("Valintasi ")
+        print("\n")
 
-        if ans not in ['1', '2', '3', '4']:
-            return
+        while ans in ['1', '2', '3', '4', '5']:
 
-        if ans == '1':
-            print("Kaikki käyttäjätunnukset")
-            print(user_repository.find_all_usernames())
-            input("Enter paluu päävalikkoon.")
+            if ans == '1':
+                user_repository.print_all_usernames()
 
-        if ans == '2':
-            print("Kaikki suoritukset")
-            print(session_repository.find_all_sessions())
-            input("Enter paluu päävalikkoon.")
+            if ans == '2':
+                user_repository.print_all_users_with_practises()
 
-        return
+            if ans == '3':
+                session_repository.print_all_sessions()
+
+            if ans == '4':
+                username = input("Käyttäjä, jonka tiedot annetaan > ")
+                session_repository.print_all_sessions_of_user(username)
+
+            if ans == '5':
+                practise = input("Harjoitus, jonka tiedot annetaan > ")
+                session_repository.print_all_sessions_of_practise(practise)
+
+            print("\n")
+            input("Enter paluu valikkoon.")
+
+            self._show_admin_menu()
+
+            ans = input("Valintasi ")
+
+
 
     def _action(self, trainee, choice):
         # Ohjeet tai jokin harjoituksista
@@ -103,12 +117,13 @@ class MathTrainer:
             # Käyttäjä ei ole tehnyt harjoitusta loppuun
             if drill in trainee.practise_started():
 
-                level = trainee.practise_level(drill)
+                #level = trainee.practise_level(drill)
 
-                correct, tries, correct_at_level, tries_at_level = session_repository.find_session_of_user(trainee.username(), drill, level)
-
+                correct, tries, level, correct_at_level, tries_at_level = session_repository.find_session_of_user(
+                    trainee.username(), drill)
+                #Haetaan käyttäjän trainee.username() harjoitusta drill vastaavan korkeimman level tiedot tietokannasta
                 session = MathTrainerSession(
-                    trainee.username(), drill, correct, tries, level, MAXLEVELS[drill],correct_at_level, tries_at_level)
+                    trainee.username(), drill, correct, tries, level, MAXLEVELS[drill], correct_at_level, tries_at_level)
             else:
                 # 1. harjoituskerta
                 trainee.practise_started_append(drill)
@@ -153,7 +168,7 @@ class MathTrainer:
 
             print("Uusi käyttäjätunnus.")
 
-            trainee = MathTrainerUser(username, {}, [], 0, 0)
+            trainee = MathTrainerUser(username, [], [], 0, 0)
 
             # Tallennetaan uusi käyttäjä tietokantaan.
             user_repository.insert_new_user(username)
@@ -169,7 +184,7 @@ class MathTrainer:
             # Etsitään rekisteröityneen käyttäjän tiedot tietokannasta.
             userdata = user_repository.find_user(username)
 
-            started = string_to_dict(userdata[2])
+            started = string_to_list(userdata[2])
 
             finished = string_to_list(userdata[3])
 

@@ -81,7 +81,7 @@ class MathTrainerSession:
         # lisätään tieto, että harjoitus drill aloitettu
         # tässä vaiheessa ohjelmaa tämä aina aloituskerta, koska tietoja ei tallenneta vielä
         # Jatkossa haetaan vanhat tiedot tietokannasta.
-        #if drill not in trainee.practise_started():
+        # if drill not in trainee.practise_started():
         #    trainee.practise_started_append(drill)
         #    self.to_database_new()
 
@@ -137,7 +137,7 @@ class MathTrainerSession:
                 # Lopetusehdon toteutuessa siirrytään seuraavalle tasolle
                 self.update_database()
                 self.level_up()
-                self.to_database_new()
+                self.to_database_new() #tästä tulee yksi ylimääräinen taso
                 successive_correct = 0
 
             if is_finish and self.level() <= self.maxlevel():
@@ -158,7 +158,7 @@ class MathTrainerSession:
                 input("Jatka ")
 
         # Päivitetään käyttäjän kokonaistilanne
-        trainee.update_total(correct, tries, drill, self.level())
+        trainee.update_total(correct, tries)
 
         if self._level - 1 == self._maxlevel:
             practise_done(drill)
@@ -170,13 +170,12 @@ class MathTrainerSession:
         # TO DO harjoituskerran tiedot tallennetaan tilastointia varten
 
     def to_database_new(self):
-        session_repository.insert_new_session(self.user(), self.practise(), self.correct(), self.tries(), self.level(), self.correct_at_level(), self.tries_at_level())
+        session_repository.insert_new_session(self.user(), self.practise(), self.correct(
+        ), self.tries(), self.level(), self.correct_at_level(), self.tries_at_level())
 
     def update_database(self):
         session_repository.update_session(self.user(), self.practise(), self.correct(
-                ), self.tries(), self.level(), self.correct_at_level(), self.tries_at_level())
-
-
+        ), self.tries(), self.level(), self.correct_at_level(), self.tries_at_level())
 
     def new_attempt(self):
         # uusi yritys, kasvatetaan yritysten sekä harjoitus- että tasokohtaista lukumäärää yhdellä

@@ -24,5 +24,7 @@
 |1.12. | 2 |yhtälön ratkaisu harjoituksen koodausta ja ohjelman rakenteen muokkausta |
 |2.12. | 1 |yhtälön ratkaisu harjoituksen viimeistely ja ohjelman rakenteen muokkausta | 
 |2.12. | 1 |peruslaksutoimitusten harjoittelun koodaus mukaillen yhtälön ratkaisu harjoitusta |
-|2.12. | 2 |pylint ja koodin muokkausta sen perusteella
-| yht   | 56   | 
+|2.12. | 2 |pylint ja koodin muokkausta sen perusteella |
+|3.12 | 6 | harjoituksen tietojen tallennus tietokantaan ja tilastojen tulostamista |
+|4.12.| 2 | korjauksia edelliseen |
+| yht   | 64  | 

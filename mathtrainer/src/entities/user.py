@@ -1,4 +1,4 @@
-from services.utilities import list_to_string, dict_to_string
+from services.utilities import list_to_string
 
 from repositories.user_repository import user_repository
 # Käyttäjätietohin liittyvä tietokantaoperaatiot
@@ -18,10 +18,6 @@ class MathTrainerUser:
 
     def practise_started(self):
         # Harjoitukset, jotka aloitettu
-        return self._practise_started.keys()
-
-    def practise_started_with_level(self):
-        # Harjoitukset, jotka aloitettu tasoineen
         return self._practise_started
 
     def practise_level(self, drill):
@@ -32,7 +28,7 @@ class MathTrainerUser:
         return self._practise_finished
 
     def practise_started_append(self, drill):
-        self._practise_started[drill] = 1
+        self._practise_started.append(drill)
 
     def practise_finished_append(self, drill):
 
@@ -67,7 +63,7 @@ class MathTrainerUser:
 
         return string
 
-    def update_total(self, correct, tries, drill, level):
+    def update_total(self, correct, tries):
         # Päivitetään kokonaistilanne meneillään olevaa harjoituskertaa
         # koskevista tiedoista session: MathTrainerSessions.
         # Tallennetaan tiedot käyttäjän kokonaistilanteesta tietokantaan.
@@ -75,14 +71,13 @@ class MathTrainerUser:
 
         self._tries_total += tries
 
-        self._practise_started[drill] = level
 
     def to_database(self):
         # tallennus tietokantaan
 
         username = self.username()
 
-        started = dict_to_string(self.practise_started_with_level())
+        started = list_to_string(self.practise_started())
 
         finished = list_to_string(self.practise_finished())
 

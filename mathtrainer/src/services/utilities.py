@@ -51,26 +51,26 @@ def string_to_list(as_string):
     return []
 
 
-def dict_to_string(as_dict):
+# def dict_to_string(as_dict):
 
-    as_string = ""
+#     as_string = ""
 
-    for key, value in as_dict.items():
+#     for key, value in as_dict.items():
 
-        as_string += str(key) + ":" + str(value) + ","
+#         as_string += str(key) + ":" + str(value) + ","
 
-    return as_string[:-1]
+#     return as_string[:-1]
 
 
-def string_to_dict(as_string):
+# def string_to_dict(as_string):
 
-    as_dict = {}
+#     as_dict = {}
 
-    for triple in as_string.split(','):
+#     for triple in as_string.split(','):
 
-        as_dict[int(triple[0])] = int(triple[2])
+#         as_dict[int(triple[0])] = int(triple[2])
 
-    return as_dict
+#     return as_dict
 
 
 def is_number(ans):
