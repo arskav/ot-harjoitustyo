@@ -1,9 +1,10 @@
 # tähän lisätään harjoituskokonaisuuksien nimiä
 DESCRIPTION = {
-    
-    1: "Peruslaskutoimitusten harjoittelua",
-    2: "Lukujen ilmaiseminen numeroilla",
-    3: "Yhtälön ratkaisun alkeita"
+
+    1: "Kirjoitettujen lukujen ilmaiseminen numeroilla",
+    2: "Peruslaskutoimitusten harjoittelua kirjoitetuin numeroin",
+    3: "Esimerkki sanallisesta peruslaskuharjoituksesta (vain yksi taso)",
+    4: "Yhtälön ratkaisun alkeita"
 }
 
 
@@ -14,7 +15,9 @@ COMMANDS = {
     "Y": "Ylläpito (vaatii salasanan)",
     "1": DESCRIPTION[1],
     "2": DESCRIPTION[2],
-    "3": DESCRIPTION[3]
+    "3": DESCRIPTION[3],
+    "4": DESCRIPTION[4],
+  
 
 }
 # Harjoituksessa olevien tasojen eli osaharjoitusten lukumäärä.
@@ -22,7 +25,8 @@ COMMANDS = {
 MAXLEVELS = {
     1: 6,  # harjoituksessa 1 tasoja 6
     2: 6, 
-    3: 6, 
+    3: 1, 
+    4: 6
 }
 
 

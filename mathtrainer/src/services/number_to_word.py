@@ -83,11 +83,24 @@ def digit_to_word(digit):
 
 def number_to_word(number):
 
+    if number < 0:
+
+        number = - number
+
+        sign = 'miinus '
+
+    else:
+
+        sign = ''
+
+
     if number == 0:
 
         return 'nolla'
 
     else:
 
-        return number_big_to_word(number_to_list(number))
+        return sign + number_big_to_word(number_to_list(number))
+
+
 

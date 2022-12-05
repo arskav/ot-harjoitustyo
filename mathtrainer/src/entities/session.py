@@ -3,9 +3,12 @@ from entities.definitions import DESCRIPTION
 # Harjoitusten kuvaukset
 
 import practises.practises1
-# Näitä lisätään sitä mukaa kun tulee lisää harjoituskokonaisuuksia
 
 import practises.practises2
+
+import practises.practises3
+
+import practises.practises4
 # Näitä lisätään sitä mukaa kun tulee lisää harjoituskokonaisuuksia
 
 from services.utilities import practise_done, return_to_menu
@@ -109,10 +112,19 @@ class MathTrainerSession:
                 is_correct, is_cancelled, is_finish = practises.practises2.question(
                     successive_correct, self.level())
 
+            if drill == 3:
+                is_correct, is_cancelled, is_finish = practises.practises3.question(
+                    successive_correct, self.level())
+
+            if drill == 4:
+                is_correct, is_cancelled, is_finish = practises.practises4.question(
+                successive_correct, self.level())
+
             # lisäys
             # if drill == 3:
             #    is_correct, is_cancelled, is_finish = practises.practises3.question(
             #        successive_correct, self.level())
+
 
             if is_cancelled:
                 self.set_ongoing(False)
@@ -144,11 +156,6 @@ class MathTrainerSession:
                 if return_to_menu():
                     self.set_ongoing(False)
 
-                # HARJOITUKSEN LISÄÄMINEN
-                # jos esim. numero 100
-                # if drill == 100:
-                #       practises100.do_practise(session, trainee)
-                # tiedostossa paractises100 funktio do_practise, joka sisältää harjoituksen.
 
             if is_cancelled or (self.level() > self.maxlevel()):
                 self.set_ongoing(False)

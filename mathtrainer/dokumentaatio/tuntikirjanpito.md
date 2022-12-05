@@ -23,9 +23,10 @@
 |30.11. | 4 |yhtälön ratkaisu harjoituksen koodausta |
 |1.12. | 2 |yhtälön ratkaisu harjoituksen koodausta ja ohjelman rakenteen muokkausta |
 |2.12. | 1 |yhtälön ratkaisu harjoituksen viimeistely ja ohjelman rakenteen muokkausta | 
-|2.12. | 1 |peruslaksutoimitusten harjoittelun koodaus mukaillen yhtälön ratkaisu harjoitusta |
+|2.12. | 1 |peruslaskutoimitusten harjoittelun koodaus mukaillen yhtälön ratkaisu harjoitusta |
 |2.12. | 2 |pylint ja koodin muokkausta sen perusteella |
 |3.12 | 6 | harjoituksen tietojen tallennus tietokantaan ja tilastojen tulostamista |
 |4.12.| 2 | korjauksia edelliseen |
 |4.12.| 2 | luvun kirjoittaminen numeroilla harjoitus
-| yht   | 66  | 
+|5.12.| 2 | peruslaskutoimitusten harjoittelun muuttaminen sanalliseksi tehtäväksi, ideointi sanallisista peruslaskutehtävistä (yksi esimerkki) |
+| yht   | 68  | 

@@ -1,72 +1,44 @@
-from services.utilities import is_number, cancel, draw_two_integers, correct_answer
+import random
+from services.utilities import is_number, cancel, correct_answer
+from services.number_to_word import number_to_word
 
 
 FINISH = 1  # testaamisen helpottamiseksi riittää yksi oikea
 # Kuinka monen peräkkäisen oikean vastauksen jälkeen lopetetaan.
 
 
-def left_hand_func(level, a, b):
-
-    if level == 1:
-        return f"{a} + {b}"
-
-    if level == 2:
-        return f"{a} - {b}"
-
-    if level in [3, 4]:
-        return f"{a}*{b}"
-
-    if level in [5, 6]:
-        return f"{a}/{b}"
-
-    return None
-
-
-def left_value_func(level, a, b):
-
-    if level == 1:
-        return a + b
-
-    if level == 2:
-        return a - b
-
-    if level in [3, 4]:
-        return a * b
-
-    if level in [5, 6]:
-        return a/b
-
-    return None
-
-
 def parameters(level):
     if level == 1:
-        a, b = draw_two_integers(0, 100, 0, 100)
+
+        number = random.randint(0,10)
 
     if level == 2:
-        a, b = draw_two_integers(-50, 50, -50, 50)
+
+        number = random.randint(11,100)
 
     if level == 3:
-        a, b = draw_two_integers(2, 10, 2, 10)
+
+        number = random.randint(101,999)
 
     if level == 4:
-        a, b = draw_two_integers(-10, 10, -10, 10)
+
+        number = random.randint(1000,9999)
 
     if level == 5:
-        k, b = draw_two_integers(1, 10, 1, 10)
-        a = k * b
+
+        number = random.randint(10000,999999)
 
     if level == 6:
-        k, b = draw_two_integers(1, 10, -10, 10)
-        a = k * b
 
-    return a, b
+        number = random.randint(100000,9999999)
+
+    return number
 
 
-def give_feedback(x, feedback_left, left_value):
-    feedback = f"Väärin, vastasit {x}, mutta "
-    feedback += feedback_left
-    feedback += " = " + f"{left_value}" + "."
+def give_feedback(answer, number, number_as_word):
+    feedback = f"Väärin, vastasit {answer}, mutta "
+    feedback += number_as_word
+    feedback += f" on {number}."
     print("="*len(feedback))
     print(feedback)
     print("=" * len(feedback))
@@ -74,27 +46,31 @@ def give_feedback(x, feedback_left, left_value):
 
 def question(successive_correct, level):
 
-    a, b = parameters(level)
+    number = parameters(level)
 
     is_finish = False
 
-    calculation = left_hand_func(level, a, b)
-    print("Laske " + calculation)
-    print("Vastaus on kokonaisluku ...-2, -1, 0, 1, 2,...")
+    print("Ilmoita numeroin")
+    number_as_word = number_to_word(number)
+    length = len(number_as_word)
+    print("-" * length)
+    print(number_as_word)
+    print("-" * length)
+
+    print("Vastaus on ei-negatiivinen kokonaisluku 0, 1, 2,...")
     print("Muu vastaus kuin kokonaisluku keskeyttää tehtävän suorittamisen.")
     ans = input("tulos = ")
 
     if is_number(ans):
-        x = int(ans)
-        left_value = left_value_func(level, a, b)
+        answer = int(ans)
     else:
         return cancel()
 
-    if left_value == x:
+    if answer == number:
         is_correct = True
     else:
         is_correct = False
-        give_feedback(x, calculation, left_value)
+        give_feedback(answer, number, number_as_word)
 
     if is_correct:
 

@@ -141,7 +141,7 @@ class SessionRepository:
 
 
 
-DATABASE_SESSIONS = "./data/sessiondata.sqlite"  
+DATABASE_SESSIONS = "./data/sessiondata.sqlite"
 
 session_repository = SessionRepository(
     get_database_connection(DATABASE_SESSIONS))
