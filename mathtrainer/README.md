@@ -16,7 +16,7 @@ Sovellus on tehty käyttämällä Python-versiota 3.9., mutta testattu Python-ve
 
 * [Arkkitehtuurikuvaus](https://github.com/arskav/ot-harjoitustyo/blob/main/mathtrainer/dokumentaatio/arkkitehtuuri.md)
 
-* [Testausdokumentti (tällä hetkellä vain testauskattavuus)]((https://github.com/arskav/ot-harjoitustyo/blob/main/mathtrainer/dokumentaatio/testaus.md)
+* [Testausdokumentti (tällä hetkellä vain testauskattavuus)](https://github.com/arskav/ot-harjoitustyo/blob/main/mathtrainer/dokumentaatio/testaus.md)
 
 * [Työaikakirjanpito](https://github.com/arskav/ot-harjoitustyo/blob/main/mathtrainer/dokumentaatio/tuntikirjanpito.md)
 
