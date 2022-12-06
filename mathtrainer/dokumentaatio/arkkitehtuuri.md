@@ -1,5 +1,6 @@
 # Arkkitehtuurikuvaus
 
+Alla oleva kuvio viikon 4 tilasteesta, viikolla 5 joiltain osin vanhentunut
 ![Pakkausrakenne](./kuvat/viikko4.png)
 
 
