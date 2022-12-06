@@ -1,0 +1,1 @@
+![Testauskattavuus](./kuvat/coverage_report_viikko5.png)

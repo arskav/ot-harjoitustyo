@@ -16,7 +16,7 @@ Sovellus on tehty käyttämällä Python-versiota 3.9., mutta testattu Python-ve
 
 * [Arkkitehtuurikuvaus](https://github.com/arskav/ot-harjoitustyo/blob/main/mathtrainer/dokumentaatio/arkkitehtuuri.md)
 
-* Testausdokumentti TODO
+* [Testausdokumentti (tällä hetkellä vain testauskattavuus)]((https://github.com/arskav/ot-harjoitustyo/blob/main/mathtrainer/dokumentaatio/testaus.md)
 
 * [Työaikakirjanpito](https://github.com/arskav/ot-harjoitustyo/blob/main/mathtrainer/dokumentaatio/tuntikirjanpito.md)
 
@@ -24,7 +24,14 @@ Sovellus on tehty käyttämällä Python-versiota 3.9., mutta testattu Python-ve
 
 ## Asennus
 
-TODO
+Asenna riippuvuudet komennolla
+
+> poetry install
+
+Käynnistä ohjelma komennolla
+
+> poetry run invoke start
+
 
 ## Komentorivitoiminnot
 
@@ -45,5 +52,5 @@ Raportti generoituu htmlcov-hakemistoon.
 
 ### Pylint
 
-TODO
+> poetry run invoke lint
 
