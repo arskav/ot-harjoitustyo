@@ -30,4 +30,5 @@
 |4.12.| 2 | luvun kirjoittaminen numeroilla harjoitus
 |5.12.| 2 | peruslaskutoimitusten harjoittelun muuttaminen sanalliseksi tehtäväksi, ideointi sanallisista peruslaskutehtävistä (yksi esimerkki) ei mukana päivityksessä |
 |6.12.| 4 | pylint, testejä, koodin korjausta |
-| yht   | 72  | 
+|6.12.| 4 | release, ohjelman manuaalista testausta, korjausta, dokumentaatiota |
+| yht |76 |
