@@ -2,6 +2,10 @@ from invoke import task
 #Kopioitu osin luentomateriaalista
 
 @task
+def initialize_databases(ctx):
+	ctx.run("python3 src/initialize_databases.py", pty = True)
+
+@task
 def start(ctx):    
 	ctx.run("python3 src/index.py", pty = True)
 

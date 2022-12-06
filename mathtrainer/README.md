@@ -35,6 +35,10 @@ Käynnistä ohjelma komennolla
 
 ## Komentorivitoiminnot
 
+### Tietokantojen (tyhjennys ja) luonti
+
+> poetry run invoke initialize-databases
+
 ### Ohjelman suorittaminen
 
 > poetry run invoke start
