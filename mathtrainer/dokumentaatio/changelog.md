@@ -12,9 +12,9 @@
 * Käyttäjän tiedot tallennetaan ja haetaan tietokannasta.
 
 ## Viikko 5
-* Peruslaskutoimituksia koskeva harjoitus
 * Alkeellisia yhtälön ratkaisemisia koskeva harjoitus
 * Harjoituksen suoritusta koskevien tietojen tallennus ja haku tietokantaan
 * Erilaisten suoritustilastojen tuottaminen
 * Sanoin kirjoitetun luvun ilmaiseminen numeroin harjoitus
+* Sanallisia peruslaskutoimituksia sisältävä harjoitus
 

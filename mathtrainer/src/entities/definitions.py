@@ -3,7 +3,7 @@ DESCRIPTION = {
 
     1: "Kirjoitettujen lukujen ilmaiseminen numeroilla",
     2: "Peruslaskutoimitusten harjoittelua kirjoitetuin numeroin",
-    3: "Esimerkki sanallisesta peruslaskuharjoituksesta (vain yksi taso)",
+    3: "TODO Sanallisesta peruslaskuharjoituksia (ei valittavissa)",
     4: "Yhtälön ratkaisun alkeita"
 }
 
@@ -17,15 +17,15 @@ COMMANDS = {
     "2": DESCRIPTION[2],
     "3": DESCRIPTION[3],
     "4": DESCRIPTION[4],
-  
+
 
 }
 # Harjoituksessa olevien tasojen eli osaharjoitusten lukumäärä.
 # Jokaiselle uudelle harjoituskokonaisuudelle lisäys.
 MAXLEVELS = {
     1: 6,  # harjoituksessa 1 tasoja 6
-    2: 6, 
-    3: 1, 
+    2: 6,
+    3: 1,
     4: 6
 }
 

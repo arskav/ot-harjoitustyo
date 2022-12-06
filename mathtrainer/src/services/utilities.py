@@ -1,5 +1,6 @@
 import random
 # Sekalaisia apualiohjelmia
+# Tämä pitäisi jakaa osiin sen mukaisesti, missä apuohjelmaa käytetään
 
 
 def correct_answer(successive_correct, finish):
@@ -49,6 +50,16 @@ def string_to_list(as_string):
         return [int(i) for i in as_string.split(',')]
 
     return []
+
+
+def ask_question(assignment_in_words, prompt):
+    length = len(assignment_in_words)
+    print("-" * length)
+    print(assignment_in_words)
+    print("-" * length)
+    print("Vastaus on kokonaisluku ...-2, -1, 0, 1, 2,...")
+    print("Muu vastaus kuin kokonaisluku keskeyttää tehtävän suorittamisen.")
+    return input(prompt)
 
 
 # def dict_to_string(as_dict):

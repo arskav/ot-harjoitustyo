@@ -1,5 +1,6 @@
 import sqlite3
-#Tämä tiedosto pitää siistiä, nyt toistetaan samaa koodia, vain SQL-käsky vaihtelee
+# Tämä tiedosto pitää siistiä, nyt toistetaan samaa koodia, vain SQL-käsky vaihtelee
+
 
 def get_database_connection(db_file):
 
@@ -61,7 +62,6 @@ class UserRepository:
         for item in set(rows):
             print(item[0])
 
-
     def find_all_users_with_practises(self):
 
         cursor = self._connection.cursor()
@@ -73,14 +73,13 @@ class UserRepository:
         return rows
 
     def print_all_users_with_practises(self):
-        #Tulostus siistittävä, nyt lähinnä testauksen apuna
+        # Tulostus siistittävä, nyt lähinnä testauksen apuna
 
         rows = self.find_all_users_with_practises()
 
         for item in set(rows):
-            print(item[1], "aloitetut harjoitukset", item[2], ", tehty loppuun", item[3], ", oikeita", item[4], "/", item[5])
-
-        return
+            print(item[1], "aloitetut harjoitukset", item[2],
+                  ", tehty loppuun", item[3], ", oikeita", item[4], "/", item[5])
 
 
     def find_all_users(self):

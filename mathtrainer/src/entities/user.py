@@ -71,7 +71,6 @@ class MathTrainerUser:
 
         self._tries_total += tries
 
-
     def to_database(self):
         # tallennus tietokantaan
 

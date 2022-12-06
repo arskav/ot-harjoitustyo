@@ -4,47 +4,51 @@ FINISH = 1  # testaamisen helpottamiseksi riittää yksi oikea
 # Kuinka monen peräkkäisen oikean vastauksen jälkeen lopetetaan.
 
 
-def left_hand_func(level, a):
+def left_hand_func(level, constant_in_left):
 
     if level == 1:
-        return f"x + {a}"
+        return f"x + {constant_in_left}"
 
     if level == 2:
-        return f"{a} - x"
+        return f"{constant_in_left} - x"
 
     if level in [3, 4]:
-        return f"{a}x"
+        return f"{constant_in_left}x"
 
     if level == 5:
-        return f"x/{a}"
+        return f"x/{constant_in_left}"
 
     if level == 6:
-        return f"{a}/x"
+        return f"{constant_in_left}/x"
 
     return None
 
 
-def left_value_func(level, a, x):
+def left_value_func(level, constant_in_left, answer_given):
 
     if level == 1:
-        return x + a
+        return answer_given + constant_in_left
 
     if level == 2:
-        return a - x
+        return constant_in_left - answer_given
 
     if level in [3, 4]:
-        return a * x
+        return constant_in_left * answer_given
 
     if level == 5:
-        return x/a
+        return answer_given / constant_in_left
 
     if level == 6:
-        return a/x
+        return constant_in_left / answer_given
 
     return None
 
 
-def feedback_left_func(level, a, x):
+def feedback_left_func(level, constant_in_left, answer_given):
+
+    # pylint: disable=invalid-name
+    a = constant_in_left
+    x = answer_given
 
     if level == 1:
         return f"x + {a} = {x} + {a}  = {x + a}"
@@ -63,54 +67,55 @@ def feedback_left_func(level, a, x):
 
     return None
 
+# pylint: enable=invalid-name
 
 def parameters(level):
     if level == 1:
-        a, k = draw_two_integers(-10, 10, 1, 10)
-        b = a + k
+        random_integer1, random_temp = draw_two_integers(-10, 10, 1, 10)
+        random_integer2 = random_integer1 + random_temp
 
     if level == 2:
-        a, b = draw_two_integers(-20, 20, -10, 10)
+        random_integer1, random_integer2 = draw_two_integers(-20, 20, -10, 10)
 
     if level == 3:
-        a, k = draw_two_integers(2, 10, 2, 10)
-        b = a * k
+        random_integer1, random_temp = draw_two_integers(2, 10, 2, 10)
+        random_integer2 = random_integer1 * random_temp
 
     if level == 4:
-        a, k = draw_two_integers(-10, 10, -10, 10)
-        b = a * k
+        random_integer1, random_temp = draw_two_integers(-10, 10, -10, 10)
+        random_integer2 = random_integer1 * random_temp
 
     if level == 5:
-        a, b = draw_two_integers(-10, 10, -10, 10)
+        random_integer1, random_integer2 = draw_two_integers(-10, 10, -10, 10)
 
     if level == 6:
-        k, b = draw_two_integers(-10, 10, -10, 10)
-        a = k * b
+        random_temp, random_integer2 = draw_two_integers(-10, 10, -10, 10)
+        random_integer1 = random_temp * random_integer2
 
-    return a, b
+    return random_integer1, random_integer2
 
 
-def give_feedback(solve_task, level, a, b, x):
+def give_feedback(solve_task, level, argument_in_left, right_value, answer_given):
 
-    feedback = f"Väärin, kun x = {x}, vasen puoli on "
-    feedback += feedback_left_func(level, a, x)
-    feedback += ", mutta oikea puoli " + f"{b}" + "."
+    feedback = f"Väärin, kun x = {answer_given}, vasen puoli on "
+    feedback += feedback_left_func(level, argument_in_left, answer_given)
+    feedback += ", mutta oikea puoli " + f"{right_value}" + "."
     print("="*len(feedback))
     print(solve_task)
-    print("Vastauksesi oli x =", x)
+    print("Vastauksesi oli x =", answer_given)
     print(feedback)
     print("=" * len(feedback))
 
 
 def question(successive_correct, level):
 
-    a, b = parameters(level)
+    constant_in_left, right_value = parameters(level)
 
     is_finish = False
 
-    left_hand = left_hand_func(level, a)
+    left_hand = left_hand_func(level, constant_in_left)
 
-    solve_task = "Ratkaise x, kun " + left_hand + " = " + f"{b}"
+    solve_task = "Ratkaise x, kun " + left_hand + " = " + f"{right_value}"
 
     print(solve_task)
     print("Vastaus on kokonaisluku ...-2, -1, 0, 1, 2,..."
@@ -118,18 +123,16 @@ def question(successive_correct, level):
     ans = input("x = ")
 
     if is_number(ans):
-        x = int(ans)
-        left_value = left_value_func(level, a, x)
-        #right_value = b
-        #is_cancelled = False
+        answer_given = int(ans)
+        left_value = left_value_func(level, constant_in_left, answer_given)
     else:
         return cancel()
 
-    if left_value == b:
+    if left_value == right_value:
         is_correct = True
     else:
         is_correct = False
-        give_feedback(solve_task, level, a, b, x)
+        give_feedback(solve_task, level, constant_in_left, right_value, answer_given)
 
     if is_correct:
         is_finish, successive_correct = correct_answer(

@@ -1,5 +1,5 @@
 import random
-from services.utilities import is_number, cancel, correct_answer
+from services.utilities import is_number, cancel, correct_answer, ask_question
 from services.number_to_word import number_to_word
 
 
@@ -10,27 +10,27 @@ FINISH = 1  # testaamisen helpottamiseksi riittää yksi oikea
 def parameters(level):
     if level == 1:
 
-        number = random.randint(0,10)
+        number = random.randint(0, 10)
 
     if level == 2:
 
-        number = random.randint(11,100)
+        number = random.randint(11, 100)
 
     if level == 3:
 
-        number = random.randint(101,999)
+        number = random.randint(101, 999)
 
     if level == 4:
 
-        number = random.randint(1000,9999)
+        number = random.randint(1000, 9999)
 
     if level == 5:
 
-        number = random.randint(10000,999999)
+        number = random.randint(10000, 999999)
 
     if level == 6:
 
-        number = random.randint(100000,9999999)
+        number = random.randint(100000, 9999999)
 
     return number
 
@@ -52,14 +52,7 @@ def question(successive_correct, level):
 
     print("Ilmoita numeroin")
     number_as_word = number_to_word(number)
-    length = len(number_as_word)
-    print("-" * length)
-    print(number_as_word)
-    print("-" * length)
-
-    print("Vastaus on ei-negatiivinen kokonaisluku 0, 1, 2,...")
-    print("Muu vastaus kuin kokonaisluku keskeyttää tehtävän suorittamisen.")
-    ans = input("tulos = ")
+    ans = ask_question(number_as_word, "tulos = ")
 
     if is_number(ans):
         answer = int(ans)

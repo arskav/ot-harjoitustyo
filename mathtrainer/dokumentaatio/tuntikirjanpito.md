@@ -28,5 +28,6 @@
 |3.12 | 6 | harjoituksen tietojen tallennus tietokantaan ja tilastojen tulostamista |
 |4.12.| 2 | korjauksia edelliseen |
 |4.12.| 2 | luvun kirjoittaminen numeroilla harjoitus
-|5.12.| 2 | peruslaskutoimitusten harjoittelun muuttaminen sanalliseksi tehtäväksi, ideointi sanallisista peruslaskutehtävistä (yksi esimerkki) |
-| yht   | 68  | 
+|5.12.| 2 | peruslaskutoimitusten harjoittelun muuttaminen sanalliseksi tehtäväksi, ideointi sanallisista peruslaskutehtävistä (yksi esimerkki) ei mukana päivityksessä |
+|6.12.| 4 | pylint, testejä, koodin korjausta |
+| yht   | 72  | 

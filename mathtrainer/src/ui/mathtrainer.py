@@ -99,8 +99,6 @@ class MathTrainer:
 
             ans = input("Valintasi ")
 
-
-
     def _action(self, trainee, choice):
         # Ohjeet tai jokin harjoituksista
         if choice == "O":
@@ -121,14 +119,14 @@ class MathTrainer:
 
                 correct, tries, level, correct_at_level, tries_at_level = session_repository.find_session_of_user(
                     trainee.username(), drill)
-                #Haetaan käyttäjän trainee.username() harjoitusta drill vastaavan korkeimman level tiedot tietokannasta
+                # Haetaan käyttäjän trainee.username() harjoitusta drill vastaavan korkeimman level tiedot tietokannasta
                 session = MathTrainerSession(
-                    trainee.username(), drill, correct, tries, level, MAXLEVELS[drill], correct_at_level, tries_at_level)
+                    trainee.username(), drill, correct, tries, level, correct_at_level, tries_at_level)
             else:
                 # 1. harjoituskerta
                 trainee.practise_started_append(drill)
                 session = MathTrainerSession(
-                    trainee.username(), drill, 0, 0, 1, MAXLEVELS[drill], 0, 0)
+                    trainee.username(), drill, 0, 0, 1, 0, 0)
                 session.to_database_new()
             session.begin_practise(trainee)
             # Aloitetaan tai jatketaan harjoitusta

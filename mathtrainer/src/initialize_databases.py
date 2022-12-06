@@ -1,5 +1,4 @@
 import sqlite3
-from repositories.session_repository import session_repository
 
 DATABASE_USERS = "../data/userdata.sqlite"
 DATABASE_SESSIONS = "../data/sessiondata.sqlite"
@@ -62,43 +61,3 @@ if __name__ == '__main__':
     my_connection = sqlite3.connect(DATABASE_SESSIONS)
 
     create_sessiontable(my_connection)
-
-    # Testausta
-    """
-    session_repository.insert_new_session("arska", 1)
-
-    session_repository.insert_new_session("arska", 2)
-
-    session_repository.insert_new_session("arska", 3)
-
-    session_repository.insert_new_session("ratja", 1)
-
-    session_repository.insert_new_session("ratja", 2)
-
-    session_repository.insert_new_session("Minna", 1)
-
-    session_repository.insert_new_session("arska2", 1)
-
-    session_repository.insert_new_session("arska2", 2)
-
-    session_repository.insert_new_session("arska2", 3)
-
-
-    print(session_repository.find_all_sessions())   
-
-    session_repository.update_session("arska", 2, 10, 20, 4, 3, 4)
-
-    session_repository.update_session("arska", 2, 10, 20, 5, 3, 4)
-
-    session_repository.update_session("Minna", 1, 100, 20, 5, 3, 4)
-
-    print(session_repository.find_all_sessions())
-
-    print(session_repository.find_sessions_of_practise(1, "user"))
-
-    print(session_repository.find_sessions_of_practise(1, "tries"))
-
-    print(session_repository.find_sessions_of_practise(1, "level_and_user"))
-
-    print(session_repository.find_session_of_user("arska", 2))
-    """
