@@ -1,4 +1,5 @@
-from services.utilities import is_number, cancel, draw_two_integers, correct_answer
+from services.utilities import is_number, draw_two_integers, correct_answer
+from services.practiseutilities import cancel
 
 FINISH = 1  # testaamisen helpottamiseksi riittää yksi oikea
 # Kuinka monen peräkkäisen oikean vastauksen jälkeen lopetetaan.

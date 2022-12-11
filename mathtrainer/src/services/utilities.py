@@ -29,14 +29,6 @@ def return_to_menu():
     return ans.upper() == 'X'
 
 
-def practise_done(drill):
-    # Ilmoitus, kun harjoituksen kaikki tasot on tehty
-    print(f"Olet tehnyt kaikki tehtävät harjoituksissa {drill}.")
-    print("Jos haluat tehdä tämän harjoituksen tehtäviä uudelleen,")
-    print("valitse uusi käyttäjätunnus.")
-    input("Enter paluu päävalikkoon.")
-
-
 def list_to_string(as_list):
 
     string = " ".join([str(item) + "," for item in as_list])
@@ -61,29 +53,6 @@ def ask_question(assignment_in_words, prompt):
     print("Muu vastaus kuin kokonaisluku keskeyttää tehtävän suorittamisen.")
     return input(prompt)
 
-
-# def dict_to_string(as_dict):
-
-#     as_string = ""
-
-#     for key, value in as_dict.items():
-
-#         as_string += str(key) + ":" + str(value) + ","
-
-#     return as_string[:-1]
-
-
-# def string_to_dict(as_string):
-
-#     as_dict = {}
-
-#     for triple in as_string.split(','):
-
-#         as_dict[int(triple[0])] = int(triple[2])
-
-#     return as_dict
-
-
 def is_number(ans):
     """Tarkistetaan, onko annettu vastaus kokonaisluku
     """
@@ -94,13 +63,3 @@ def is_number(ans):
         return ans[1:].isnumeric()
 
     return ans.isnumeric()
-
-
-def cancel():
-    """Lopetetaan tehtävien tekeminen.
-    """
-    print("Lopetus")
-    is_correct = False
-    is_cancelled = True
-    is_finish = False
-    return is_correct, is_cancelled, is_finish

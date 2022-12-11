@@ -1,6 +1,5 @@
 import unittest
-from services.utilities import list_to_string, string_to_list, correct_answer, cancel
-
+from services.utilities import list_to_string, string_to_list, correct_answer
 
 class TestUtitities(unittest.TestCase):
 
@@ -23,8 +22,4 @@ class TestUtitities(unittest.TestCase):
     def test_correct_answer_finish(self):
 
         self.assertEqual(correct_answer(4,5), (True, 5))
-
-    def test_cancel(self):
-
-        self.assertEqual(cancel(), (False, True, False))
 

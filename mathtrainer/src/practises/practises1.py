@@ -1,5 +1,6 @@
 import random
-from services.utilities import is_number, cancel, correct_answer, ask_question
+from services.utilities import is_number, correct_answer, ask_question
+from services.practiseutilities import cancel
 from services.number_to_word import number_to_word
 
 

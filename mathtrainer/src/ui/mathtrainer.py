@@ -76,7 +76,7 @@ class MathTrainer:
         while ans in ['1', '2', '3', '4', '5']:
 
             if ans == '1':
-                user_repository.print_all_usernames()
+                user_repository.print_all_users()
 
             if ans == '2':
                 user_repository.print_all_users_with_practises()
@@ -115,18 +115,17 @@ class MathTrainer:
             # Käyttäjä ei ole tehnyt harjoitusta loppuun
             if drill in trainee.practise_started():
 
-                #level = trainee.practise_level(drill)
-
                 correct, tries, level, correct_at_level, tries_at_level = session_repository.find_session_of_user(
                     trainee.username(), drill)
                 # Haetaan käyttäjän trainee.username() harjoitusta drill vastaavan korkeimman level tiedot tietokannasta
                 session = MathTrainerSession(
-                    trainee.username(), drill, correct, tries, level, correct_at_level, tries_at_level)
+                    trainee.username(), drill, level)
+                session.set_corrects_and_tries(correct, tries,correct_at_level, tries_at_level )
             else:
                 # 1. harjoituskerta
                 trainee.practise_started_append(drill)
                 session = MathTrainerSession(
-                    trainee.username(), drill, 0, 0, 1, 0, 0)
+                    trainee.username(), drill, 1)
                 session.to_database_new()
             session.begin_practise(trainee)
             # Aloitetaan tai jatketaan harjoitusta
@@ -150,7 +149,14 @@ class MathTrainer:
     def _help(self):
         os.system('clear')
         print("Valintasi: O")
-        print("TODO tarvittavia ohjeita")
+        print("Lskutehtävien suorituksen voi keskeyttää antamalla laskun vastaukseksi tyhjän.")
+        print()
+        print("Osassa tehtävissä on 'laskin' käytössä:")
+        print("Kirjoita alkuun = ja sitten laskutoimituksia +, -, *, / sisältävä lauseke.")
+        print("Esimerkiksi =2*(3+4) tai = (4 - 2) / -2.")
+        print()
+        print("Kehotteeseen Jatka >> voi vastata Enterillä.")
+        print()
 
     def _login(self):
 

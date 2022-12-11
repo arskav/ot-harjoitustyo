@@ -3,14 +3,17 @@ from entities.session import MathTrainerSession
 from entities.definitions import MAXLEVELS
 
 
-# self, username, practise = 1, correct = 2, tries = 4, level = 2, maxlevel = 4
+# self, username, practise = 1, correct = 8, tries = 10, level = 4, maxlevel = 4
+#correct_at_levels = 3, tries_at_levels = 5
 
 
 class TestMathTrainerSession(unittest.TestCase):
 
     def setUp(self):
-        self.session = MathTrainerSession(
-            "Testikäyttäjä", 1, 8, 10, 4, 3, 5)
+            self.session = MathTrainerSession(
+            "Testikäyttäjä", 1, 4)
+
+            self.session.set_corrects_and_tries(8, 10, 3, 5)
 
     def test_tries_given_correctly(self):
 

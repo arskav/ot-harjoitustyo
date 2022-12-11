@@ -1,13 +1,5 @@
-import sqlite3
-# Tämä tiedosto pitää siistiä, nyt toistetaan samaa koodia, vain SQL-käsky vaihtelee
-
-
-def get_database_connection(db_file):
-
-    connection = None
-    connection = sqlite3.connect(db_file)
-    return connection
-
+from repositories.connection import get_database_connection,\
+    database_updating, database_searching
 
 class SessionRepository:
     """Harjoitustietoihin liittyvistä tietokantaoperaatioista vastaava luokka
@@ -17,45 +9,47 @@ class SessionRepository:
 
         self._connection = connection
 
-    def insert_new_session(self, username, practise, correct, tries,
-    level, correct_at_level, tries_at_level):
 
-        cursor = self._connection.cursor()
+    # def insert_new_session(self, username, practise, correct, tries,
+    # level, correct_at_level, tries_at_level):
 
-        cursor.execute(
-            "INSERT INTO Sessions "
-            "(user, practise, correct, tries, level, correct_at_level, tries_at_level)"
-            " VALUES(?,?,?,?,?, ?, ?)",
-            (username, practise, correct, tries,
-             level, correct_at_level, tries_at_level,)
-        )
+    def insert_new_session(self, session):
 
-        self._connection.commit()
+        sql_command = """
+        INSERT INTO Sessions
+        (user, practise, correct, tries, level, correct_at_level, tries_at_level)
+        VALUES(?,?,?,?,?,?,?)
+        """
 
-    def update_session(self,
-        username, practise, correct, tries, level, correct_at_level, tries_at_level):
+        parameters = (session.user(), session.practise(), session.correct(), session.tries(),\
+             session.level(), session.correct_at_level(), session.tries_at_level(),)
 
-        cursor = self._connection.cursor()
+        database_updating(self._connection, sql_command, parameters)
 
-        cursor.execute(
-            "UPDATE Sessions SET correct = ?, tries = ?, correct_at_level = ?, tries_at_level = ?"
-            "WHERE user = ? AND practise = ? AND level = ?",
-            (correct, tries, correct_at_level,
-             tries_at_level, username, practise, level)
-        )
+    def update_session(self, session):
 
-        self._connection.commit()
+        sql_command = """
+        UPDATE Sessions
+        SET correct = ?, tries = ?, correct_at_level = ?, tries_at_level = ?
+        WHERE user = ? AND practise = ? AND level = ?
+        """
 
-    def find_all_sessions(self):
+        parameters= (session.correct(), session.tries(), session.correct_at_level(),\
+            session.tries_at_level(), session.user(), session.practise(), session.level(),)
 
-        cursor = self._connection.cursor()
+        database_updating(self._connection, sql_command, parameters)
 
-        cursor.execute(
-            "SELECT * FROM Sessions ORDER BY user COLLATE NOCASE, practise")
+    def  find_all_sessions(self):
 
-        rows = cursor.fetchall()
+        sql_command = """
+        SELECT * FROM Sessions ORDER BY user COLLATE NOCASE, practise
+        """
 
-        return rows
+        cursor = database_searching(self._connection, sql_command, ())
+
+        return cursor.fetchall()
+
+
 
     def print_all_sessions(self):
 
@@ -69,14 +63,16 @@ class SessionRepository:
 
     def find_all_sessions_of_user(self, username):
 
-        cursor = self._connection.cursor()
+        sql_command = """
+        SELECT * FROM Sessions WHERE user = ? ORDER BY practise, level
+        """
 
-        cursor.execute(
-            "SELECT * FROM Sessions WHERE user = ? ORDER BY practise, level", (username,))
+        parameters = (username,)
 
-        rows = cursor.fetchall()
+        cursor = database_searching(self._connection, sql_command, parameters)
 
-        return rows
+        return cursor.fetchall()
+
 
     def print_all_sessions_of_user(self, username):
 
@@ -93,15 +89,16 @@ class SessionRepository:
 
     def find_all_sessions_of_practise(self, practise):
 
-        cursor = self._connection.cursor()
+        sql_command = """
+        SELECT * FROM Sessions WHERE practise = ?
+        ORDER BY user COLLATE NOCASE, level
+        """
 
-        cursor.execute(
-            "SELECT * FROM Sessions WHERE practise = ?  ORDER BY user COLLATE NOCASE, level",
-             (practise,))
+        parameters = (practise,)
 
-        rows = cursor.fetchall()
+        cursor = database_searching(self._connection, sql_command, parameters)
 
-        return rows
+        return cursor.fetchall()
 
     def print_all_sessions_of_practise(self, practise):
 
@@ -118,14 +115,15 @@ class SessionRepository:
             print('-' * 50)
 
     def find_session_of_user(self, username, practise):
-        # viimeisin taso
-        cursor = self._connection.cursor()
-
-        cursor.execute(
-            "SELECT * FROM Sessions WHERE user = ? AND practise = ? ORDER BY level DESC",
-            (username, practise,)
-        )
         # Valitaan se, jonka taso level korkein
+
+        sql_command = """
+        SELECT * FROM Sessions WHERE user = ? AND practise = ? ORDER BY level DESC
+        """
+        parameters = (username, practise,)
+
+        cursor = database_searching(self._connection, sql_command, parameters)
+
         row = cursor.fetchone()
 
         # palauttaa correct, tries, level, correct_at_level, tries_at_level

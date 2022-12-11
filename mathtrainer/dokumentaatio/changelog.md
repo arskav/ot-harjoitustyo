@@ -18,3 +18,6 @@
 * Sanoin kirjoitetun luvun ilmaiseminen numeroin harjoitus
 * Sanallisia peruslaskutoimituksia sisältävä harjoitus
 
+## Viikko 6
+* Sanallisten tehtävien harjoitus (pari esimerkkiä), 'laskin' käytettävissä.
+

@@ -31,4 +31,10 @@
 |5.12.| 2 | peruslaskutoimitusten harjoittelun muuttaminen sanalliseksi tehtäväksi, ideointi sanallisista peruslaskutehtävistä (yksi esimerkki) ei mukana päivityksessä |
 |6.12.| 4 | pylint, testejä, koodin korjausta |
 |6.12.| 4 | release, ohjelman manuaalista testausta, korjausta, dokumentaatiota |
-| yht |76 |
+|8.12.| 2 | sanallisten tehtävien koodausta |
+|9.12.| 4 | uuden olioluokan Question ja sen metodien koodaus, käytöstä esimerkkinä pari sanallista
+tehtävää. |
+|10.12.|4| tietokantaoperaatioiden virtaviivaistaminen, koodin testausta ja korjailua|
+|11.12.|1| koodin korjaaminen niin, että ei enää pylint virheilmoituksia|
+|11.12.|2| testien koodaamista|
+| yht |89 |
