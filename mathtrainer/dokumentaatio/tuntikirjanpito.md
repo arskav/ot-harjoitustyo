@@ -36,5 +36,5 @@
 tehtävää. |
 |10.12.|4| tietokantaoperaatioiden virtaviivaistaminen, koodin testausta ja korjailua|
 |11.12.|1| koodin korjaaminen niin, että ei enää pylint virheilmoituksia|
-|11.12.|2| testien koodaamista|
-| yht |89 |
+|11.12.|4| testien tutkimista ja koodaamista|
+| yht |91 |

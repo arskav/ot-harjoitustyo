@@ -10,7 +10,7 @@ Sovellus on tehty käyttämällä Python-versiota 3.9., mutta testattu Python-ve
 
 ## Dokumentaatio
 
-* käyttöohje TODO
+* [käyttöohje](https://github.com/arskav/ot-harjoitustyo/blob/main/mathtrainer/dokumentaatio/kayttoohje.md)
 
 * [Vaativuusmäärittely](https://github.com/arskav/ot-harjoitustyo/blob/main/mathtrainer/dokumentaatio/vaativuusmaarittely.md)
 
@@ -28,16 +28,16 @@ Asenna riippuvuudet komennolla
 
 > poetry install
 
+Suorita tietokantojen alustustoimenpiteen komennolla
+
+> poetry run invoke build
+
 Käynnistä ohjelma komennolla
 
 > poetry run invoke start
 
 
 ## Komentorivitoiminnot
-
-### Tietokantojen (tyhjennys ja) luonti
-
-> poetry run invoke initialize-databases
 
 ### Ohjelman suorittaminen
 
@@ -51,10 +51,12 @@ Käynnistä ohjelma komennolla
 
 > poetry run invoke coverage-report
 
-Raportti generoituu htmlcov-hakemistoon.
+Raportti generoituu _htmlcov_-hakemistoon.
 
 
 ### Pylint
+
+Tiedoston [.pylintrc](https://github.com/arskav/ot-harjoitustyo/blob/main/mathtrainer/.pylintrc) mukaiset tarkistukset
 
 > poetry run invoke lint
 

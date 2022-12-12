@@ -28,19 +28,19 @@ def calculator(expr):
     except KeyError:
 
         print("Sallitut laskutoimitukset +, -, *, / ja luvun edessä -")
-        input("Jatka > ")
+        time.sleep(1)
         return None
 
     except SyntaxError:
 
         print(f"Lauseketta {expr} ei voi arvioida")
-        input("Jatka > ")
+        time.sleep(1)
         return None
 
     except TypeError:
 
         print("Lopetus")
-        input("Jatka > ")
+        time.sleep(1)
         return None
 
 def eval_(node):

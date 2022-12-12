@@ -73,7 +73,7 @@ def initiliaze(session):
 
 
 def doing_practise(session, trainee, practise_func):
-    # trainee on harjoituksen tekijä, drill harjoituksen nro ja self harjoituksen suoritustiedot
+
 
     correct, tries, successive_correct, is_cancelled, drill = initiliaze(session)
 

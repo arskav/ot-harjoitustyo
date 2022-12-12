@@ -52,7 +52,7 @@ def create_sessiontable(connection):
     connection.commit()
 
 
-if __name__ == '__main__':
+def initialize_databases():
 
     my_connection = sqlite3.connect(DATABASE_USERS)
 
@@ -61,3 +61,8 @@ if __name__ == '__main__':
     my_connection = sqlite3.connect(DATABASE_SESSIONS)
 
     create_sessiontable(my_connection)
+
+
+if __name__ == '__main__':
+
+    initialize_databases()

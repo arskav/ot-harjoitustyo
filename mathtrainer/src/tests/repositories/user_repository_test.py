@@ -2,7 +2,7 @@ import unittest
 import sqlite3
 from repositories.user_repository import user_repository
 from initialize_databases import DATABASE_USERS, create_usertable
-#from entities.user import User
+
 
 class TestUserRepository(unittest.TestCase):
 

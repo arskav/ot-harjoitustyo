@@ -126,6 +126,10 @@ class SessionRepository:
 
         row = cursor.fetchone()
 
+        if row is None:
+
+            return None, None, None, None, None
+
         # palauttaa correct, tries, level, correct_at_level, tries_at_level
         return row[3], row[4], row[5], row[6], row[7]
 
