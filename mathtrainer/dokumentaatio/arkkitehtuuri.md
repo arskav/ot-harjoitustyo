@@ -25,7 +25,7 @@ Sovelluksessa on usean tasoista sovelluslogiikkaa. Jokaista harjoitusta vastaa o
 
 Sovelluksen ytimen loogisen tietomallin muodostavat luokat MathTrainerUser ja MathTrainerSession. Näistä ensimmäinen kuvaa käyttäjää ja hänen tekemiensä harjoitusten kokonaistilannetta. Jälkimmäinen kuvaa käyttäjän tekemän yksittäisen harjoituksen yksittäiseen tasoon liittyviä tietoja (vain oleellisemmat metodit mainittu):
 
-````mermaid
+```mermaid
 classDiagram
     MathTrainerUser <|-- MathTrainerSession    
     class MathTrainerUser{
@@ -56,13 +56,13 @@ classDiagram
       to_database_new()
       update_database()
     }
-´´´´
+```
 
 Käyttöliittymään suoraan liittyvää luokkaan MathTrainer liittyvää sovelluslogiikkaa ei vielä ole vielä täysin eristetty. Tarkoitus on vielä koodata käyttöliittymä uudelleen graafisena käyttöliittymä ja siinä yhteydessä siirtää sen sovelluslogiikasta vastaava luokka MathTrainer services pakkaukseen.
 
 Harjoituksen 3 (joka edustaa tapaa, joka tulee olemaan jatkossa käytössä harjoituksia lisättäessä) sovelluslogiikasta vastaa luokka Question:
 
-````mermaid
+```mermaid
 classDiagram   
     class Question{
       calculator_in_use
@@ -75,7 +75,7 @@ classDiagram
       check_answer()
       give_feedback()
     }
-´´´´
+´´´
 
 Attribuutti question on sanakirja,jonka avaimet ovat 'text', 'prompt' ja 'mode'.
 question['text'] on funktio, joka esittää kysymyksen, randomize funktio, joka antaa kysymyksen parametreille arvot, correct_answer funktio, joka laskee parametreistä oiekan vastauksen, ja feedback funktio, joka antaa palautteen.
@@ -92,7 +92,7 @@ Pakkauksen _repositories_ luokat session_repository ja user_repository huolehtiv
 
 Tapahtumat, kun kirjautunut asiakas: MathTrainerUser on valinnut päävalikosta harjoitukset harj (on luku), jota asiakas ei ole tehnyt loppuun, mutta on aloittanut. 
 
-````mermaid
+```mermaid
     sequenceDiagram
     participant UI
     participant mathtraineruser
@@ -106,7 +106,7 @@ Tapahtumat, kun kirjautunut asiakas: MathTrainerUser on valinnut päävalikosta 
     UI ->> harjoitussessio: begin_practise(asiakas)
     harjoitussessio ->> practisesharj: practisesharj.question
     practisesharj -->> harjoitussessio: is_correct, is_cancelled, is_finish
-´´´´
+´´´
 Kun on tehty yksi harjoituksen harj kysymyksistä, jatko määräytyy sen mukaan, onko vastaus oikein, keskeytettiinkö harjoituksen tekeminen ja (kun vastaus on oikein) tehtiinkö harjoituksen taso loppuun.
 
 ## Ohjelman rakenteen heikkoudet
