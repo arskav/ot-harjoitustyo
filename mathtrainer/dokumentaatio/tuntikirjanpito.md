@@ -38,5 +38,5 @@ tehtävää. |
 |11.12.|1| koodin korjaaminen niin, että ei enää pylint virheilmoituksia|
 |11.12.|4| testien tutkimista ja koodaamista|
 |12.12.|2| docstring dokumentointia|
-|13.12.|1| lisää docstringiä |
-| yht |94 |
+|13.12.|2| lisää docstringiä, alustava arkkitehtuurikuvaus|
+| yht |96 |
