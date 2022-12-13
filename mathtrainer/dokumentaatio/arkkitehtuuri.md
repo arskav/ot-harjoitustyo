@@ -75,7 +75,7 @@ classDiagram
       check_answer()
       give_feedback()
     }
-´´´
+```
 
 Attribuutti question on sanakirja,jonka avaimet ovat 'text', 'prompt' ja 'mode'.
 question['text'] on funktio, joka esittää kysymyksen, randomize funktio, joka antaa kysymyksen parametreille arvot, correct_answer funktio, joka laskee parametreistä oiekan vastauksen, ja feedback funktio, joka antaa palautteen.
@@ -106,7 +106,7 @@ Tapahtumat, kun kirjautunut asiakas: MathTrainerUser on valinnut päävalikosta 
     UI ->> harjoitussessio: begin_practise(asiakas)
     harjoitussessio ->> practisesharj: practisesharj.question
     practisesharj -->> harjoitussessio: is_correct, is_cancelled, is_finish
-´´´
+```
 Kun on tehty yksi harjoituksen harj kysymyksistä, jatko määräytyy sen mukaan, onko vastaus oikein, keskeytettiinkö harjoituksen tekeminen ja (kun vastaus on oikein) tehtiinkö harjoituksen taso loppuun.
 
 ## Ohjelman rakenteen heikkoudet
