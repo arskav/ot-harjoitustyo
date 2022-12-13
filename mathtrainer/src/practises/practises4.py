@@ -1,8 +1,7 @@
-from services.utilities import is_number, draw_two_integers, correct_answer
-from services.practiseutilities import cancel
+from services.utilities import is_number, draw_two_integers
+from services.practiseutilities import cancel, correct_answer
 
-FINISH = 1  # testaamisen helpottamiseksi riittää yksi oikea
-# Kuinka monen peräkkäisen oikean vastauksen jälkeen lopetetaan.
+FINISH = 2
 
 
 def left_hand_func(level, constant_in_left):

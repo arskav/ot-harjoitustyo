@@ -98,65 +98,6 @@ class MathTrainerSession:
 
         doing_practise(self, trainee, PRACTISES[drill])
 
-    # def _initialize_doing_practise(self):
-    #     correct = 0
-    #     tries = 0
-    #     successive_correct = 0
-    #     is_cancelled = False
-    #     drill = self.practise()
-
-    #     return correct, tries, successive_correct, is_cancelled, drill
-
-
-
-    # def do_practise(self, trainee):
-    #
-
-    #     correct, tries, successive_correct, is_cancelled, drill = \
-    # self._initialize_doing_practise()
-
-    #     while self.ongoing():
-
-    #         print("---------------------------------------")
-    #         print(self)
-
-    #         is_correct, is_cancelled, is_finish = PRACTISES[drill](
-    #                 successive_correct, self.level())
-
-    #         if is_cancelled:
-    #             self.cancel()
-    #             break
-
-    #         self.new_attempt()
-    #         tries += 1
-    #         # Ainakin yritetty vastata
-
-    #         successive_correct, correct = self.correct_or_not(
-    #             is_correct, successive_correct, correct
-    #             )
-
-    #         if is_finish:
-    #             successive_correct = 0
-    #             self.finish()
-
-
-
-    #     # Päivitetään käyttäjän kokonaistilanne
-    #     #tämän voisi hoitaa luokan MathTrainerUser metodilla
-    #     trainee.update_total(correct, tries)
-
-    #     if self.level() - 1 == self.maxlevel():
-    #         practise_done(drill)
-    #         # päivitetään tieto tästä käyttäjän tietoihin
-    #         trainee.practise_finished_append(drill)
-
-    #     # Tallennus tietokantaan
-    #     trainee.to_database()
-
-
-    # def to_database_new(self):
-    #     session_repository.insert_new_session(self.user(), self.practise(), self.correct(
-    #     ), self.tries(), self.level(), self.correct_at_level(), self.tries_at_level())
 
     def to_database_new(self):
 

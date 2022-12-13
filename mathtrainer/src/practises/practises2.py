@@ -1,12 +1,10 @@
 import random
-from services.utilities import is_number, draw_two_integers, correct_answer, ask_question
-from services.practiseutilities import cancel
+from services.utilities import is_number, draw_two_integers, ask_question
+from services.practiseutilities import cancel, correct_answer
 from services.number_to_word import number_to_word
 
 
-FINISH = 1  # testaamisen helpottamiseksi riittää yksi oikea
-# Kuinka monen peräkkäisen oikean vastauksen jälkeen lopetetaan.
-
+FINISH = 2
 
 def left_hand_func(level, first_argument, second_argument):
     # pylint: disable=invalid-name

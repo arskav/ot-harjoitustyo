@@ -1,4 +1,9 @@
-# tähän lisätään harjoituskokonaisuuksien nimiä
+"""Kun sovellukseen lisätään uusi harjoitus, tähän pitää
+päivittää vakioon DESCRIPTION, lisätä harjoitus päävalikon
+komentoihin COMMANDS ja lisätä harjoitus ja sen tasojen lukumäärä
+vakioon MAXLEVELS."""
+
+
 DESCRIPTION = {
 
     1: "Kirjoitettujen lukujen ilmaiseminen numeroilla",
@@ -6,9 +11,8 @@ DESCRIPTION = {
     3: "Sanallisia peruslaskuharjoituksia (pari esimerkkiä)",
     4: "Yhtälön ratkaisun alkeita"
 }
+"""Harjoitusten nimet päävalikossa"""
 
-
-# Päämenun valinnat, tähän lisätään valintamahdollisuuksia
 COMMANDS = {
     "O": "Ohje (O-kirjain)",
     "X": "Lopetus",
@@ -16,15 +20,14 @@ COMMANDS = {
     "1": DESCRIPTION[1],
     "2": DESCRIPTION[2],
     "3": DESCRIPTION[3],
-    "4": DESCRIPTION[4],
-
-
+    "4": DESCRIPTION[4]
 }
-# Harjoituksessa olevien tasojen eli osaharjoitusten lukumäärä.
-# Jokaiselle uudelle harjoituskokonaisuudelle lisäys.
+"""Päävalikon valinnat, DESCRIPTION sisältää harjoitusten nimet."""
+
 MAXLEVELS = {
     1: 6,  # harjoituksessa 1 tasoja 6
     2: 6,
     3: 2,
     4: 6
 }
+"""Harjoituksessa olevien tasojen eli osaharjoitusten lukumäärä."""

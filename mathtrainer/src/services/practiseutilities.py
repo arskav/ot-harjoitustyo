@@ -1,6 +1,16 @@
 def ask_answer_to_question(prompt, mode):
+    """Uudempi versio tavasta kysyä vastaus.
+
+    Args:
+        prompt (string): kehote inputissa
+        mode (string): hyväksyttävän vastauksen tyyppi.
+
+    Returns:
+        Boolean: onko vastaus oikean tyyppinen.
+    """
 
     if mode == 'integer':
+
         print("Vastaus on kokonaisluku ...-2, -1, 0, 1, 2,...")
     elif mode == 'nonnegative':
         print("Vastaus on kokonaisluku 0, 1, 2, 3, ...")
@@ -16,6 +26,16 @@ def ask_answer_to_question(prompt, mode):
     return answer
 
 def check_if_input_ok(ans, mode):
+    """Tarkistaa, onko vastaus oikean tyyppinen.
+
+    Args:
+        ans (string): annettu vastaus merkkijonoja.
+        mode (string): hyväksyttävän vastauksen tyyppi.
+
+    Returns:
+        string: vastaus lukuna, jos oikean tyyppinen,
+            muuten None
+    """
 
     if mode == 'integer':
 
@@ -33,7 +53,7 @@ def check_if_input_ok(ans, mode):
 
     else:
 
-        return ans
+        pass
 
     if input_ok:
 
@@ -42,15 +62,26 @@ def check_if_input_ok(ans, mode):
     return None
 
 def cancel():
-    """Lopetetaan tehtävien tekeminen.
+    """Lopetetaan harjoituksen tekeminen.
+
+    Returns:
+        (False, True, False): ei oikein, keskeytetty, ei lopussa
     """
     print("Lopetus")
-    is_correct = False
-    is_cancelled = True
-    is_finish = False
-    return is_correct, is_cancelled, is_finish
+
+    return False, True, False
 
 def correct_answer(successive_correct, finish):
+    """Tarkastaa, onko peräkkäisiä oikeita vastauksia niin monta,
+    että lopetusehto toteutuu.
+
+    Args:
+        successive_correct (int): peräkkäisten oikeiden vastausten lukumäärä.
+        finish (int): kuinka monta peräkkäistä oikeaa riittää lopetukseen,
+
+    Returns:
+        (Booelan, int): toteutuuko lopetusehto, päivitetty perkkäisten oikeiden vastausten lkm.
+    """
 
     successive_correct += 1
     print(f"Peräkkäisiä oikeita {successive_correct}/{finish}")
@@ -59,13 +90,23 @@ def correct_answer(successive_correct, finish):
     return is_finish, successive_correct
 
 def practise_done(drill):
-    # Ilmoitus, kun harjoituksen kaikki tasot on tehty
+    """Ilmoitus, kun harjoituksen kaikki tasot on tehty."""
+
     print(f"Olet tehnyt kaikki tehtävät harjoituksissa {drill}.")
     print("Jos haluat tehdä tämän harjoituksen tehtäviä uudelleen,")
     print("valitse uusi käyttäjätunnus.")
-    input("Enter paluu päävalikkoon.")
+    input("Jatka >> ")
 
 def initiliaze(session):
+    """Alkuarvot aloitettaessa harjoitussessioni.
+
+    Args:
+        session (MathTrainerSession): aloitettava harjoitussessioni.
+
+    Returns:
+        oikeat vastaukset = 0, yritykset = 0, peräkkäiset oikeat = 0,
+        peruutettu = False, harjoituksen numero
+    """
 
     drill = session.practise()
 
@@ -73,6 +114,14 @@ def initiliaze(session):
 
 
 def doing_practise(session, trainee, practise_func):
+    """Suoritetaan harjoituksen yhtä tasoa. Tallennetaan
+    harjoituksen tiedot, kun taso tehty loppuun.
+
+    Args:
+        session (MathTrainerSession): meneillään oleva harjoitussessio.
+        trainee (MathTrainerUser): käyttäjä.
+        practise_func: funktio, joka valitsee harjoituksen.
+    """
 
 
     correct, tries, successive_correct, is_cancelled, drill = initiliaze(session)
@@ -100,9 +149,6 @@ def doing_practise(session, trainee, practise_func):
             successive_correct = 0
             session.finish()
 
-
-
-    # Päivitetään käyttäjän kokonaistilanne
     trainee.update_total(correct, tries)
 
     if session.level() - 1 == session.maxlevel():

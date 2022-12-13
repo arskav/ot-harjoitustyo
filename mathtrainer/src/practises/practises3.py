@@ -1,16 +1,25 @@
+"""'Uuden' koodaustavan mukainen matemaattisen harjoituksen runko.
+Tästä on tarkoitus kehittää yleispätevämpi, nyt koodi riippuu tehdyistä
+kysymyksistä question1 ja question2.
+"""
 from services.practiseutilities import correct_answer
 from practises.practises3_questions.question1 import question1
 from practises.practises3_questions.question2 import question2
-#Uusien tällaisten kysymysten koodaaminen ei tuo juurikaan mitään uutta
-#ohjelmoinnin näkökulmasta, joten tässä tyydytään kahteen esimerkkiin.
 
-#QUESTIONS = {1: question1(), 2: question2()}
+FINISH = 2
 
-
-FINISH = 1
-# Kuinka monen peräkkäisen oikean vastauksen jälkeen lopetetaan.
 
 def question(successive_correct, level):
+    """Esittää osaharjoituksen tason mukaisen kysymyksen,
+
+    Args:
+        successive_correct (int): peräkkäisten oikeiden lkm.
+        level (int): osaharjoituksen taso,
+
+    Returns:
+        (Boolean, Boolean, Boolean): onko vastaus oikein, onko keskeytetty,
+            onko taso tehty loppuun.
+    """
 
     if level == 1:
         is_correct, is_cancelled = question1()

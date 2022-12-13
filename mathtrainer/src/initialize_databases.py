@@ -5,6 +5,7 @@ DATABASE_SESSIONS = "./data/sessiondata.sqlite"
 
 
 def create_usertable(connection):
+    """Luo käyttäjien tiedot sisältävän tietokannan."""
 
     cursor = connection.cursor()
 
@@ -28,6 +29,7 @@ def create_usertable(connection):
 
 
 def create_sessiontable(connection):
+    """Luo harjoitussessioiden tiedot sisältävän tietokannan."""
 
     cursor = connection.cursor()
 
@@ -53,6 +55,7 @@ def create_sessiontable(connection):
 
 
 def initialize_databases():
+    """Luo käyttäjien ja harjoitussessioiden tiedot sisältävät tietokannat."""
 
     my_connection = sqlite3.connect(DATABASE_USERS)
 

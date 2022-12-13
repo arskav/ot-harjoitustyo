@@ -1,3 +1,4 @@
+"""Harjoituksen 3 toinen kysymys."""
 import random
 from entities.question import Question
 
@@ -6,11 +7,22 @@ from entities.question import Question
 
 
 def question2():
+    """Luokan Question olion muodostaminen. Kysymyksessä vastaamisessa voi
+    käyttää 'laskinta'.
+
+    Returns:
+        Question luokan olio.
+    """
 
     question = Question(calculator_in_use = True)
 
 
     def randomize_question():
+        """Annetaan kysymyksen parametreille sopivat satunnaiset arvot.
+
+        Returns:
+            Tässä kysymyksessä viiden parametrin arvot.
+        """
 
         rent = random.randint(100,200) * 10
 
@@ -26,6 +38,18 @@ def question2():
 
 
     def text_func(rent, sauna, internet, water_fee, persons):
+        """Kysymyksen teksti.
+
+        Args:
+            rent (int): vuokra.
+            sauna (int): saunamaksu.
+            internet (int): tietoliikennmaksu.
+            water_fee (int): vesimaksu.
+            persons (int): perheen koko.
+
+        Returns:
+            string: harjoituksen kysymys.
+        """
 
         return f"""
         Perheessä on {persons} jäsentä. Perheen asumismenot ovat kuukaudessa {rent + sauna + internet + persons * water_fee} euroa.
@@ -41,12 +65,25 @@ def question2():
     mode = 'nonnegative'
 
     def correct_answer_func(rent, sauna, internet, water_fee, persons):
+        """Oikean vastauksen kaava.
+
+        Args:
+            Samat kuin kysymyksen tekstissä.
+
+        Returns:
+            int: oikea vastaus.
+        """
 
         old_cost = rent + sauna + internet + persons * water_fee
 
         return old_cost + water_fee
 
     def feedback_func(rent, sauna, internet, water_fee, persons):
+        """Palauteteksti.
+
+        Args:
+            Samat kuin kysymyksen tekstissä.
+        """
 
         old_cost = rent + sauna + internet + persons * water_fee
 
@@ -59,6 +96,6 @@ def question2():
         """)
 
 
-    #Tämä aina lopussa
+    #Tämä aina tällä tyylillä muodostetun kysymyksen lopussa.
     return question.process(randomize_question, text_func, prompt, mode,\
          correct_answer_func, feedback_func)

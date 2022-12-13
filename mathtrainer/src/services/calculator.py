@@ -1,16 +1,26 @@
-#alkuperäinen: https://stackoverflow.com/questions/2371436/
+"""Merkkijonona, jossa alussa '=' annetun lausekkeen arvon laskeminen.
+Alkuperäinen idea https://stackoverflow.com/questions/2371436/
 # evaluating-a-mathematical-expression-in-a-string
+
+    Raises:
+        KeyError: muu laskutoimitus kuin +, -, *, /.
+        SyntaxError: syntaksiltaan väärä lauseke.
+        TypeError: merkkijono ei tulkittavaksi lausekkeeksi.
+
+    Returns:
+        lausekkeen arvo lukuna tai None, jos väärin muodostettu lauseke.
+    """
+
 import ast
 import operator as op
 import time
 
-# supported operators
 operators = {ast.Add: op.add, ast.Sub: op.sub, ast.Mult: op.mul,
              ast.Div: op.truediv, ast.USub: op.neg}
 
 def calculator(expr):
-    """
-    +, -, *, / käytössä
+    """Laskee luvuista ja operaattoreista +, -, *, / muodostetun
+    lausekkeen arvon.
     """
 
     expr = "".join(expr.split())
@@ -44,6 +54,8 @@ def calculator(expr):
         return None
 
 def eval_(node):
+    """Käsittelee rekursiivisesti lauseketta."""
+
     if isinstance(node, ast.Num): # <number>
         return node.n
     if isinstance(node, ast.BinOp): # <left> <operator> <right>
