@@ -5,8 +5,20 @@ from services.number_to_word import number_to_word
 
 
 FINISH = 2
+    """Peräkkäisten oikeiden vastausten lukumäärä, joka riittää harjoituksen yhden tason suorittamiseksi."""
 
 def left_hand_func(level, first_argument, second_argument):
+    """Lauseke, jonka arvo lasketaan.
+
+    Args:
+        level (int): harjoituksen taso.
+        first_argument (int): lausekkeessa esiintyvä parametri.
+        second_argument (int): lausekkeessa esiintyvä parametri.
+
+    Returns:
+        string, string: kysymys sanallisesti ja matemaattisena lausekkeena.
+    """
+
     # pylint: disable=invalid-name
     a = first_argument
     b = second_argument
@@ -27,6 +39,16 @@ def left_hand_func(level, first_argument, second_argument):
  # pylint: enable=invalid-name
 
 def left_value_func(level, argument1, argument2):
+    """Palauttaa oikean vastauksen.
+
+    Args:
+        level (int): taso.
+        argument1 (int): lausekkeessa esiintyvä parametri.
+        argument2 (int): lausekkeessa esiintyvä parametri.
+
+    Returns:
+        int: oikean vastauksen lukuarvo.
+    """
 
     if level == 1:
         return argument1 + argument2
@@ -44,6 +66,14 @@ def left_value_func(level, argument1, argument2):
 
 
 def parameters(level):
+    """Palauttaa kysymyksen parametrien arvot.
+
+    Args:
+        level (int): taso.
+
+    Returns:
+        (int, int): kysymyksen parametreille annetut satunnaisluvut.
+    """
     if level == 1:
         random_integer1, random_integer2 = draw_two_integers(0, 100, 0, 100)
 
@@ -76,6 +106,14 @@ def parameters(level):
 
 
 def give_feedback(answer_given, feedback_left, left_value):
+    """Antaa palautteen. Käytetään, kun vastaus on ollut väärin.
+
+    Args:
+        answer_given (int): annettu vastaus.
+        feedback_left (string): kysymys sanallisesti.
+        left_value (int): oikea vastaus.
+    """
+
     feedback = f"Väärin, vastasit {answer_given}, mutta "
     feedback += feedback_left
     feedback += " = " + f"{left_value}" + "."
@@ -84,6 +122,19 @@ def give_feedback(answer_given, feedback_left, left_value):
     print("=" * len(feedback))
 
 def deal_with_answer(ans, successive_correct, calculation_numbers, level, argument1, argument2):
+    """Käsittelee kysymyksen ja siihen annetun vastauksen.
+
+    Args:
+        ans (sting): käyttäjän antama vastaus merkkijonona.
+        successive_correct (int): peräkkäisten oiekiden vastausten lkm.
+        calculation_numbers (string): kysyttävä lauseke, luvut numeroina.
+        level (int): taso.
+        argument1 (int): kysymyksen parametri.
+        argument2 (int): kysymyksen parametri.
+
+    Returns:
+        (Boolean, Boolean, Boolean): vastaus oikein, keskeytys, taso tehty loppuun.
+    """
 
     is_finish = False
 
@@ -109,6 +160,16 @@ def deal_with_answer(ans, successive_correct, calculation_numbers, level, argume
 
 
 def question(successive_correct, level):
+    """Kysymyksen parametrien alustaminen, kysyminen
+    ja vastausta käsittelevän aliohjelman kutsuminen.
+
+    Args:
+        successive_correct (int): peräkkäisten oikeiden lkm.
+        level (int): taso.
+
+    Returns:
+        Aliohjelman deal_with_answer palauttamat arvot.
+    """
 
     random_integer1, random_integer2 = parameters(level)
 

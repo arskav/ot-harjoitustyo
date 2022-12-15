@@ -8,7 +8,10 @@ from services.practiseutilities import cancel, correct_answer
 from services.number_to_word import number_to_word
 
 
-FINISH = 2  # testaamisen helpottamiseksi riittää kaksi oikeaa vastausta.
+FINISH = 2
+    """Peräkkäisten oikeiden vastausten lukumäärä, joka riittää harjoituksen yhden tason suorittamiseksi.
+    Sovelluksen testaamisen helpottamiseksi tämä asetettu kahdeksi kaikissa harjoituksissa.
+    """
 
 
 def parameters(level):

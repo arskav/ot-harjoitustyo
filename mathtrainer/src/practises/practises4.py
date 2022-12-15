@@ -1,10 +1,23 @@
+    """Yksinertaisten tyyppiä x + a = b, a - x = b, 
+    ax = b, a/x = b olevien yhtälöiden ratkaisemisen harjoittelu."""
+
 from services.utilities import is_number, draw_two_integers
 from services.practiseutilities import cancel, correct_answer
 
 FINISH = 2
+    """Peräkkäisten oikeiden vastausten lukumäärä, joka riittää harjoituksen yhden tason suorittamiseksi."""
 
 
 def left_hand_func(level, constant_in_left):
+    """Yhtälön vasemman puolen, jolla tuntematon x, lauseke.
+
+    Args:
+        level (int): taso.
+        constant_in_left (int): yhtälön vasemmalla puolella oleva vakio.
+
+    Returns:
+        string: Yhtälön vasen puoli.
+    """
 
     if level == 1:
         return f"x + {constant_in_left}"
@@ -25,6 +38,16 @@ def left_hand_func(level, constant_in_left):
 
 
 def left_value_func(level, constant_in_left, answer_given):
+    """Yhtälön vasemman puolen lukuarvo, kun muuttujalla annetun vastauksen mukainen arvo.
+
+    Args:
+        level (int): taso
+        constant_in_left (int): yhtälön vasemmalla puolella oleva vakio.
+        answer_given (int): vastaukseksi annettu tuntemattoman x arvo.
+
+    Returns:
+        int: vasemman puolen arvo, kun x:llä annetun vastauksen mukainen arvo,
+    """
 
     if level == 1:
         return answer_given + constant_in_left
@@ -45,6 +68,16 @@ def left_value_func(level, constant_in_left, answer_given):
 
 
 def feedback_left_func(level, constant_in_left, answer_given):
+    """Palaute. Käytetään kun vastattu väärin.
+
+    Args:
+        level (int): taso
+        constant_in_left (int): yhtälön vasemmalla puolella oleva vakio.
+        answer_given (int): vastaukseksi annettu tuntemattoman x arvo.
+
+    Returns:
+        string: oikea vastaus perusteluineen.
+    """
 
     # pylint: disable=invalid-name
     a = constant_in_left
@@ -70,6 +103,15 @@ def feedback_left_func(level, constant_in_left, answer_given):
 # pylint: enable=invalid-name
 
 def parameters(level):
+    """Tehtävän parametrit.
+
+    Args:
+        level (int): taso.
+
+    Returns:
+        (int, int): yhtälön vasemmalla ja oikealla puolella olevien vakioiden satunnaiset arvot.
+    """
+
     if level == 1:
         random_integer1, random_temp = draw_two_integers(-10, 10, 1, 10)
         random_integer2 = random_integer1 + random_temp
@@ -96,6 +138,15 @@ def parameters(level):
 
 
 def give_feedback(solve_task, level, argument_in_left, right_value, answer_given):
+    """Palaute, kun vastattu väärin.
+
+    Args:
+        solve_task (string): ratkaistava yhtälö.
+        level (int): taso.
+        constant_in_left (int): yhtälön vasemmalla puolella oleva vakio.
+        right_value (int): yhtälön oikean puolen arvo.
+        answer_given (int): vastaukseksi annettu tuntemattoman x arvo.
+    """
 
     feedback = f"Väärin, kun x = {answer_given}, vasen puoli on "
     feedback += feedback_left_func(level, argument_in_left, answer_given)
@@ -108,6 +159,16 @@ def give_feedback(solve_task, level, argument_in_left, right_value, answer_given
 
 
 def question(successive_correct, level):
+    """Yhtälön ratkaisutehtävän muodostaminen, esittäminen ja vastauksen käsittely.
+
+    Args:
+        successive_correct (int): Peräkkäisten oikeiden vastausten lukumäärä.
+        level (int): taso
+
+    Returns:
+        (Boolean, Boolean, Boolean): onko vastaus oikein, onko keskeytetty,
+            onko taso tehty loppuun.
+    """
 
     constant_in_left, right_value = parameters(level)
 

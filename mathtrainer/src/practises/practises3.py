@@ -7,10 +7,11 @@ from practises.practises3_questions.question1 import question1
 from practises.practises3_questions.question2 import question2
 
 FINISH = 2
+    """Peräkkäisten oikeiden vastausten lukumäärä, joka riittää harjoituksen yhden tason suorittamiseksi."""
 
 
 def question(successive_correct, level):
-    """Esittää osaharjoituksen tason mukaisen kysymyksen,
+    """Esittää osaharjoituksen tason mukaisen kysymyksen.
 
     Args:
         successive_correct (int): peräkkäisten oikeiden lkm.
