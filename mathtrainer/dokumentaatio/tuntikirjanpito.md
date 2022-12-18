@@ -41,5 +41,5 @@ tehtävää. |
 |13.12.|2| lisää docstringiä, alustava arkkitehtuurikuvaus|
 |15.12.|2| lisää docstringiä, perehtymistä tkinter pakettiin.|
 |16.12.|2| ulkoisten kirjastojen tutkimista, PrettyTable käyttöönotto.|
-|17.12.|4| lisää docstringiä, testien koodausta|
+|17.12.|4| lisää docstringiä, ohjelman rakenteen parantelua, testien koodausta|
 | yht |104 |

@@ -21,3 +21,6 @@
 ## Viikko 6
 * Sanallisten tehtävien harjoitus (pari esimerkkiä), 'laskin' käytettävissä.
 
+## Viikko 7
+*mahdollisuus tulostaa taulukkona tilasto harjoitusten sujumisesta.
+
