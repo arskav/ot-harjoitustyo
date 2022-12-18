@@ -86,3 +86,23 @@ class TestMathTrainerSession(unittest.TestCase):
         self.session.level_up()
 
         self.assertEqual(self.session._tries_at_level, 0)
+
+    def test_set_ongoing(self):
+
+        self.session.set_ongoing(True)
+        self.assertEqual(self.session._ongoing, True)
+
+        self.session.set_ongoing(False)
+        self.assertEqual(self.session._ongoing, False)
+
+    def test_correct_or_not_True(self):
+
+        successive_correct, correct = self.session.correct_or_not(True,1,10)
+        self.assertEqual(successive_correct, 2)
+        self.assertEqual(correct, 11)
+
+    def test_correct_or_not_False(self):
+
+        successive_correct, correct = self.session.correct_or_not(False,1,10)
+        self.assertEqual(successive_correct, 0)
+        self.assertEqual(correct, 10)

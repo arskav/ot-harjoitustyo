@@ -1,5 +1,6 @@
 import unittest
-from services.utilities import list_to_string, string_to_list, correct_answer, draw_two_integers, is_number
+from services.utilities import list_to_string, string_to_list, draw_two_integers, is_number
+from services.practiseutilities import correct_answer
 
 class TestUtitities(unittest.TestCase):
 
@@ -18,10 +19,6 @@ class TestUtitities(unittest.TestCase):
     def test_correct_answer_not_finish(self):
 
         self.assertEqual(correct_answer(3,5), (False, 4))
-
-    def test_correct_answer_finish(self):
-
-        self.assertEqual(correct_answer(4,5), (True, 5))
 
     def test_draw_two_integers(self):
 

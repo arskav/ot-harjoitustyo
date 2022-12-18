@@ -18,6 +18,8 @@ from repositories.user_repository import user_repository
 from repositories.session_repository import session_repository
 # Harjoituksen tietoihin liittyvät tietokantaoperaatiot
 
+from services.printing_from_databases import printing_service
+
 
 class MathTrainer:
     # Käyttöliittymää vastaava luokka
@@ -62,35 +64,40 @@ class MathTrainer:
         print("3:   kaikki suoritukset")
         print("4:   kaikki annetun käyttäjän suoritukset")
         print("5:   kaikki annetun harjoituksen suoritukset")
+        print("6:   tilasto annetun harjoituksen onnistumisprosenteista")
         print("muu: palataan päävalikkoon")
 
     def _maintenance(self):
-
-        print("TODO Kysytään salasanaa")
 
         self._show_admin_menu()
 
         ans = input("Valintasi ")
         print("\n")
 
-        while ans in ['1', '2', '3', '4', '5']:
+        while ans in ['1', '2', '3', '4', '5', '6']:
 
             if ans == '1':
-                user_repository.print_all_users()
+                printing_service.print_all_users()
 
             if ans == '2':
-                user_repository.print_all_users_with_practises()
+                printing_service.print_all_users_with_practises()
 
             if ans == '3':
-                session_repository.print_all_sessions()
+                #session_repository.print_all_sessions()
+                printing_service.print_all_sessions()
 
             if ans == '4':
                 username = input("Käyttäjä, jonka tiedot annetaan > ")
-                session_repository.print_all_sessions_of_user(username)
+                #session_repository.print_all_sessions_of_user(username)
+                printing_service.print_all_sessions_of_user(username)
 
             if ans == '5':
                 practise = input("Harjoitus, jonka tiedot annetaan > ")
-                session_repository.print_all_sessions_of_practise(practise)
+                printing_service.print_all_sessions_of_practise(practise)
+
+            if ans == '6':
+                practise = input("Harjoitus, jonka tilasto annetaan > ")
+                printing_service.print_statistics_of_practise(practise)
 
             print("\n")
             input("Enter paluu valikkoon.")

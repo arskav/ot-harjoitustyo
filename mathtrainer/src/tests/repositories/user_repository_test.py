@@ -1,7 +1,8 @@
 import unittest
 import sqlite3
 from repositories.user_repository import user_repository
-from initialize_databases import DATABASE_USERS, create_usertable
+from config import DATABASE_USERS
+from initialize_databases import create_usertable
 
 
 class TestUserRepository(unittest.TestCase):
@@ -20,12 +21,7 @@ class TestUserRepository(unittest.TestCase):
 
         users = user_repository.find_all_users_with_practises()
 
-        self.assertEqual(len(users), 1)
-        self.assertEqual(users[0][1], 'arska')
-        self.assertEqual(users[0][2], '')
-        self.assertEqual(users[0][3], '')
-        self.assertEqual(users[0][4], 0)
-        self.assertEqual(users[0][5], 0)
+        self.assertEqual(users[0][1:], ('arska', '', '', 0, 0))
 
     def test_update_user(self):
 
@@ -33,11 +29,13 @@ class TestUserRepository(unittest.TestCase):
         user_repository.update_user('arska','1,2','1', 10, 20)
         users = user_repository.find_all_users_with_practises()
         self.assertEqual(len(users), 1)
-        self.assertEqual(users[0][1], 'arska')
-        self.assertEqual(users[0][2], '1,2')
-        self.assertEqual(users[0][3], '1')
-        self.assertEqual(users[0][4], 10)
-        self.assertEqual(users[0][5], 20)
+        self.assertEqual(users[0][1:], ('arska', '1,2', '1', 10, 20))
+
+        user_repository.update_user('arska','1,2','1,2', 15, 25)
+        users = user_repository.find_all_users_with_practises()
+        self.assertEqual(len(users), 1)
+        self.assertEqual(users[0][1:], ('arska', '1,2', '1,2', 15, 25))
+
 
     def test_find_all_users(self):
 
@@ -59,16 +57,9 @@ class TestUserRepository(unittest.TestCase):
         user_repository.update_user('arskaA','1,2','1', 10, 20)
         user_repository.update_user('arskaB','1,2,3,4','1,2', 30, 100)
         usersdata = user_repository.find_all_users_with_practises()
-        self.assertEqual(usersdata[0][1], 'arskaA')
-        self.assertEqual(usersdata[0][2], '1,2')
-        self.assertEqual(usersdata[0][3], '1')
-        self.assertEqual(usersdata[0][4], 10)
-        self.assertEqual(usersdata[0][5], 20)
-        self.assertEqual(usersdata[1][1], 'arskaB')
-        self.assertEqual(usersdata[1][2], '1,2,3,4')
-        self.assertEqual(usersdata[1][3], '1,2')
-        self.assertEqual(usersdata[1][4], 30)
-        self.assertEqual(usersdata[1][5], 100)
+        self.assertEqual(usersdata[0][1:], ('arskaA','1,2','1',10,20))
+        self.assertEqual(usersdata[1][1:], ('arskaB','1,2,3,4','1,2',30,100))
+
 
     def test_find_user(self):
 
@@ -77,10 +68,7 @@ class TestUserRepository(unittest.TestCase):
         user_repository.insert_new_user('arskaC')
         user_repository.update_user('arskaB','1,2,3,4','1,2', 30, 100)
         userdata = user_repository.find_user('arskaB')
-        self.assertEqual(userdata[1], 'arskaB')
-        self.assertEqual(userdata[2], '1,2,3,4')
-        self.assertEqual(userdata[3], '1,2')
-        self.assertEqual(userdata[4], 30)
-        self.assertEqual(userdata[5], 100)
+        self.assertEqual(userdata[1:], ('arskaB','1,2,3,4','1,2',30,100))
+
         userdata = user_repository.find_user('outo_tyyppi')
         self.assertEqual(userdata, None)

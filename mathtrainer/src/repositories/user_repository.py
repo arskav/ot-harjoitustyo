@@ -1,44 +1,9 @@
 """Käyttäjätietojen eli luokan MathTrainerUser olion tietojen tallentaminen
 ja käsittely tietokannassa.
 """
+from config import DATABASE_USERS
 from repositories.connection import get_database_connection,\
     database_updating, database_searching
-
-def output(item):
-    """Merkkijonon muodostaminen tulostusta varten.
-
-    Args:
-        item (list): tietokannasta palautettu rivi.
-
-    Returns:
-        string: merkkijono tulostusta varten.
-    """
-
-    string = item[1] + " "
-
-
-    if item[2] == '':
-
-        string += "ei aloitettuja harjoituksia."
-
-    else:
-
-        string += "aloitetut harjoitukset: "
-        string += item[2]
-
-        if item[3] == '':
-
-            string += ", ei loppuun tehtyjä harjoituksia"
-
-        else:
-
-            string += ", tehdyt harjoitukset: "
-            string += item[3]
-
-        string += f". oikein/yritykset: {item[4]}/{item[5]}"
-
-    return string
-
 
 class UserRepository:
     """Käyttäjätietoihin liittyvistä tietokantaoperaatioista vastaava luokka
@@ -106,16 +71,6 @@ class UserRepository:
 
         return rows
 
-    def print_all_users(self):
-        """Kaikkien käyttäjätunnusten tulostus."""
-
-        print("\nKaikki käyttäjätunnukset:")
-
-        rows = self.find_all_users()
-
-        for item in set(rows):
-            print(item[0])
-
     def find_all_users_with_practises(self):
         """Haetaan käyttäjätunnukset ja käyttäjät harjoitustiedot tietokannasta.
 
@@ -133,16 +88,6 @@ class UserRepository:
         rows = cursor.fetchall()
 
         return rows
-
-    def print_all_users_with_practises(self):
-        """Tulostetaan käyttäjien tiedot.
-        """
-
-        rows = self.find_all_users_with_practises()
-
-        for item in set(rows):
-
-            print(output(item))
 
 
     def find_user(self, username):
@@ -168,6 +113,4 @@ class UserRepository:
         return row
 
 
-DATABASE = "./data/userdata.sqlite"
-
-user_repository = UserRepository(get_database_connection(DATABASE))
+user_repository = UserRepository(get_database_connection(DATABASE_USERS))

@@ -1,7 +1,13 @@
 import unittest
-from services.practiseutilities import check_if_input_ok, correct_answer, doing_practise
+from unittest.mock import patch
+from services.practiseutilities import ask_answer_to_question, check_if_input_ok, correct_answer, doing_practise
+
 from entities.user import MathTrainerUser
 from entities.session import MathTrainerSession
+
+
+def get_input(text):
+    return input(text)
 
 
 class TestUtitities(unittest.TestCase):
@@ -18,6 +24,7 @@ class TestUtitities(unittest.TestCase):
 
         self.assertEqual(check_if_input_ok("123", 'integer'), 123)
         self.assertEqual(check_if_input_ok("-123", 'integer'), -123)
+        self.assertEqual(check_if_input_ok("x123", 'integer'), None)
         self.assertEqual(check_if_input_ok("123", 'nonnegative'), 123)
         self.assertEqual(check_if_input_ok("-123", 'nonnegative'), None)
 
@@ -43,3 +50,23 @@ class TestUtitities(unittest.TestCase):
         self.assertEqual(self.session.tries(), 1)
         self.assertEqual(self.trainee.correct_total(), 11)
         self.assertEqual(self.trainee.tries_total(), 21)
+
+    @patch('builtins.input', return_value = '123')
+    def test_ask_answer_to_question(self, input):
+        self.assertEqual(ask_answer_to_question('kehote', 'integer'), 123)
+
+    @patch('builtins.input', return_value = 'x123')
+    def test_ask_answer_to_question(self, input):
+        self.assertEqual(ask_answer_to_question('kehote', 'integer'), None)
+
+    @patch('builtins.input', return_value = '-123')
+    def test_ask_answer_to_question(self, input):
+        self.assertEqual(ask_answer_to_question('kehote', 'nonnegative'), None)
+
+    @patch('builtins.input', return_value = '0')
+    def test_ask_answer_to_question(self, input):
+        self.assertEqual(ask_answer_to_question('kehote', 'nonnegative'), 0)
+
+    @patch('builtins.input', return_value = '123')
+    def test_ask_answer_to_question(self, input):
+        self.assertEqual(ask_answer_to_question('kehote', 'positive'), None)

@@ -53,7 +53,7 @@ def check_if_input_ok(ans, mode):
 
     else:
 
-        pass
+        input_ok = False
 
     if input_ok:
 
@@ -80,7 +80,7 @@ def correct_answer(successive_correct, finish):
         finish (int): kuinka monta peräkkäistä oikeaa riittää lopetukseen,
 
     Returns:
-        (Booelan, int): toteutuuko lopetusehto, päivitetty perkkäisten oikeiden vastausten lkm.
+        (Boolean, int): toteutuuko lopetusehto, päivitetty perkkäisten oikeiden vastausten lkm.
     """
 
     successive_correct += 1

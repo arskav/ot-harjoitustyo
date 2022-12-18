@@ -136,15 +136,11 @@ class MathTrainerSession:
         os.system('clear')
         drill = self.practise()
         print(DESCRIPTION[drill])
-        # Tässä voisi olla myös enemmänkin tehtäväkokonaisuuden esittelyä
+
 
         doing_practise(self, trainee, PRACTISES[drill])
-        """Kutsuu harjoituksen tekemistä suorittavan aliohjelman.
+        #Kutsuu harjoituksen tekemistä suorittavan aliohjelman.
 
-        Args:
-            trainee (MathTrainer): harjoituksen tekijän tiedot.
-            PRACTISES[drill] (string) harjoitusta numero drill vastaava ohjelma.
-        """
 
     def new_attempt(self):
         """Kasvattaa yritysten sekä harjoitus- että tasokohtaista lukumäärää yhdellä."""
@@ -227,4 +223,3 @@ class MathTrainerSession:
         """Päivittää harjoitussession tiedot tietokannassa."""
 
         session_repository.update_session(self)
-

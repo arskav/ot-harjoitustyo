@@ -1,11 +1,12 @@
-    """Yksinertaisten tyyppiä x + a = b, a - x = b, 
-    ax = b, a/x = b olevien yhtälöiden ratkaisemisen harjoittelu."""
+"""Yksinkertaisten muotoa x + a = b, a - x = b, ax = b, a/x = b
+olevien yhtälöiden ratkaisemisen harjoittelu."""
 
 from services.utilities import is_number, draw_two_integers
 from services.practiseutilities import cancel, correct_answer
 
 FINISH = 2
-    """Peräkkäisten oikeiden vastausten lukumäärä, joka riittää harjoituksen yhden tason suorittamiseksi."""
+"""Peräkkäisten oikeiden vastausten lukumäärä, joka riittää harjoituksen
+yhden tason suorittamiseksi."""
 
 
 def left_hand_func(level, constant_in_left):

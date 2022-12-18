@@ -3,9 +3,13 @@ import unittest
 from unittest.mock import patch
 import sqlite3
 from repositories.session_repository import session_repository
+from repositories.user_repository import user_repository
 from config import DATABASE_SESSIONS
-from initialize_databases import create_sessiontable
+from config import DATABASE_USERS
+from initialize_databases import create_sessiontable, create_usertable
 from entities.session import MathTrainerSession
+from services.printing_from_databases import printing_service
+
 
 class TestSessionRepository(unittest.TestCase):
 
@@ -89,65 +93,65 @@ class TestSessionRepository(unittest.TestCase):
         self.session12.set_corrects_and_tries(11,12, 11, 12)
         session_repository.update_session(self.session12)
 
+        my_connection = sqlite3.connect(DATABASE_USERS)
 
-    def test_insert_new_session(self):
+        create_usertable(my_connection)
 
-        self.session13 = MathTrainerSession('arskaD', 4, 2)
-        session_repository.insert_new_session(self.session13)
+        user_repository.insert_new_user('arskaA')
+        user_repository.update_user('arskaA', '1,2', '1', 102, 151)
 
-        sessions = session_repository.find_all_sessions()
+        user_repository.insert_new_user('arskaB')
+        user_repository.update_user('arskaB', '1', '', 14, 40)
 
-        self.assertEqual(len(sessions), 13)
-        self.assertEqual(sessions[12], (13, 'arskaD', 4, 0, 0, 2, 0, 0))
-
-
-    def test_update_session(self):
-
-        self.session13 = MathTrainerSession('arskaD', 4, 2)
-        session_repository.insert_new_session(self.session13)
-        self.session13.set_corrects_and_tries(100,200, 10, 20)
-        session_repository.update_session(self.session13)
-        sessions = session_repository.find_all_sessions()
-        self.assertEqual(len(sessions), 13)
-        self.assertEqual(sessions[12], (13, 'arskaD', 4, 100, 200, 2, 10, 20))
+        user_repository.insert_new_user('arskaC')
+        user_repository.update_user('arskaC', '1', '', 11, 12)
 
 
-    def test_find_all_sessions(self):
+    #idea https://realpython.com/lessons/mocking-print-unit-tests/
+    @patch('builtins.print')
+    def test_print_all_sessions_of_user_empty(self,mock_print):
 
-        sessions = session_repository.find_all_sessions()
-        self.assertEqual(len(sessions), 12)
-        self.assertEqual(sessions[0][1:], ('arskaA', 1, 10, 20, 1, 10, 20))
-        self.assertEqual(sessions[2][1:], ('arskaA', 1, 36, 63, 3, 14, 22))
-        self.assertEqual(sessions[-1][1:], ('arskaC', 1, 11, 12, 1, 11, 12))
+        printing_service.print_all_sessions_of_user('outo')
+        mock_print.assert_called_with("Ei suorituksia.")
 
-    def test_find_all_sessions_of_user(self):
+    @patch('builtins.print')
+    def test_print_all_sessions_of_practise_empty(self,mock_print):
 
-        sessions = session_repository.find_all_sessions_of_user('arskaA')
-        self.assertEqual(len(sessions), 8)
-        self.assertEqual(sessions[0][1:], ('arskaA', 1, 10, 20, 1, 10, 20))
-        self.assertEqual(sessions[-1][1:], ('arskaA', 2, 8, 11, 2, 4, 6))
+        printing_service.print_all_sessions_of_practise(4)
+        mock_print.assert_called_with("Ei suorituksia.")
 
-        sessions = session_repository.find_all_sessions_of_user('arskaB')
-        self.assertEqual(len(sessions), 3)
-        self.assertEqual(sessions[-1][1:], ('arskaB', 1, 14, 40, 3, 5, 20))
 
-        sessions = session_repository.find_all_sessions_of_user('arskaC')
-        self.assertEqual(len(sessions), 1)
-        self.assertEqual(sessions[0][1:], ('arskaC', 1, 11, 12, 1, 11, 12))
+    def test_print_statistics_of_practise(self):
 
-        sessions = session_repository.find_all_sessions_of_user('arska')
-        self.assertEqual(len(sessions), 0)
+        calculated_by_hand = {1: {'corrects': 26, 'tries': 42 }, 2: {'corrects': 16, 'tries': 31 },
+        3: {'corrects': 19 , 'tries': 42},4: {'corrects': 16 , 'tries': 23},5: {'corrects': 18, 'tries': 24},
+        6: {'corrects': 20, 'tries': 25 }}
 
-    def test_find_all_sessions_of_practise(self):
+        calculated_by_app =  printing_service.print_statistics_of_practise(1)
 
-        sessions = session_repository.find_all_sessions_of_practise(1)
-        self.assertEqual(len(sessions), 10)
-        self.assertEqual(sessions[0][1:], ('arskaA', 1, 10, 20, 1, 10, 20))
-        self.assertEqual(sessions[7][1], 'arskaB')
-        self.assertEqual(sessions[-1][1], 'arskaC')
+        self.assertDictEqual(calculated_by_app, calculated_by_hand)
 
-        sessions = session_repository.find_all_sessions_of_practise(2)
-        self.assertEqual(len(sessions), 2)
-        self.assertEqual(sessions[0][1], 'arskaA')
-        self.assertEqual(sessions[1][1], 'arskaA')
+    def test_print_statistics_of_practise_empty(self):
 
+        calculated_by_hand = {}
+
+        calculated_by_app =  printing_service.print_statistics_of_practise(4)
+
+        self.assertDictEqual(calculated_by_app, calculated_by_hand)
+
+
+    @patch('builtins.print')
+    def test_print_all_users(self, mock_print):
+        """Aakkosjärjestyksessä viimeinen käyttäjätunnus arskaC"""
+
+        printing_service.print_all_users()
+
+        mock_print.assert_called_with("arskaC")
+
+    @patch('builtins.print')
+    def test_print_all_users_with_practises(self, mock_print):
+        """Aakkosjärjestyksessä viimeinen käyttäjätunnus arskaC"""
+
+        printing_service.print_all_users_with_practises()
+
+        mock_print.assert_called_with("arskaC aloitetut harjoitukset: 1, ei loppuun tehtyjä harjoituksia. oikein/yritykset: 11/12")

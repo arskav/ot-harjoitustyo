@@ -5,7 +5,8 @@ from services.number_to_word import number_to_word
 
 
 FINISH = 2
-    """Peräkkäisten oikeiden vastausten lukumäärä, joka riittää harjoituksen yhden tason suorittamiseksi."""
+"""Peräkkäisten oikeiden vastausten lukumäärä, joka riittää harjoituksen
+yhden tason suorittamiseksi."""
 
 def left_hand_func(level, first_argument, second_argument):
     """Lauseke, jonka arvo lasketaan.

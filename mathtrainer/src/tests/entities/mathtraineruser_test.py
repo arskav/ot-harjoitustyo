@@ -48,10 +48,15 @@ class TestMathTrainerUser(unittest.TestCase):
 
         self.assertEqual(self.trainee.tries_total(), 23)
 
+    def test_practise_started_append(self):
 
-    def test_to_database(self):
+        self.trainee.practise_started_append(4)
 
-        (username, started, finished, corrects, tries) = self.trainee.to_database()
+        self.assertEqual(list(self.trainee.practise_started()), [1, 2, 3, 4])
 
-        self.assertEqual((username, started, finished, corrects,
-                         tries), ("Testaaja", "1, 2, 3", "1", 10, 20))
+
+
+
+
+
+
