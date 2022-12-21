@@ -52,7 +52,7 @@ Esimerkiksi valinta 3 tulostaa kaikki sovelluksen käyttäjät ja heidän tekem�
 
 Varsinainen harjoitus valitaaan päävalikosta numeroilla 1, 2, 3 tai 4. Näkymä vaihtelee harjoituksittain, mutta yleisesti esitellään tehtävä ja pyydetään siihen vastausta. 
 
-Jos vastaa oikein, sovellus kysyy harjoituksen meneillä olevan tason seuraavan kysymyksen tai jos peräkkäisiä oikeita vastauksia on tarpeeksi (testauksen nopeuttamiseksi vaatimukseksi on asetettu nyt 2 peräkkäistä oikeaa vastausta), mahdollistetaan harjoituksen lopetus kirjaimella 'X' (tai 'x'). 
+Jos vastaa oikein, sovellus kysyy harjoituksen meneillä olevan tason seuraavan kysymyksen tai jos peräkkäisiä oikeita vastauksia on tarpeeksi, mahdollistetaan harjoituksen lopetus kirjaimella 'X' (tai 'x'). 
 
 Jos vastaa väärin, sovellus kertoo oikean vastauksen ja joissakin harjoituksissa antaa lisäksi ohjeet, miten oikea vastaus lasketaan. Tämän jälkeen kysytään uusi kysymys.
 
