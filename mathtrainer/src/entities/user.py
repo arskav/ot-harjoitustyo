@@ -41,14 +41,6 @@ class MathTrainerUser:
 
         return self._practise_started
 
-    # def practise_level(self, drill):
-    #     """Palauttaa harjoituksen tason.
-
-    #     Args:
-    #         drill (integer): harjoituksen numero
-    #     """
-
-    #     return self._practise_started[drill]
 
     def practise_finished(self):
         """Palauttaa harjoitukset, jotka tehty loppuun."""

@@ -22,5 +22,6 @@
 * Sanallisten tehtävien harjoitus (pari esimerkkiä), 'laskin' käytettävissä.
 
 ## Viikko 7
-*mahdollisuus tulostaa taulukkona tilasto harjoitusten sujumisesta.
+* Mahdollisuus tulostaa taulukkona tilasto harjoitusten sujumisesta.
+* Mahdollisuus poistaa käyttäjätunnus ja siihen liittyvät tiedot.
 

@@ -94,14 +94,7 @@ class PrintingService:
 
         return
 
-    def print_statistics_of_practise(self, practise):
-        """Tulostaa tilastotietoa harjoituksen suorituksista.
-
-        Args:
-            practise (int): harjoituksen numero.
-        """
-
-        data =  self._session_repository.find_all_sessions_of_practise(practise)
+    def _dictionary_from_data(self,data):
 
         data_of_levels = {}
 
@@ -116,7 +109,18 @@ class PrintingService:
                 data_of_levels[item[5]]['corrects'] += item[6]
                 data_of_levels[item[5]]['tries'] += item[7]
 
+        return max_level, data_of_levels
 
+    def print_statistics_of_practise(self, practise):
+        """Tulostaa tilastotietoa harjoituksen suorituksista.
+
+        Args:
+            practise (int): harjoituksen numero.
+        """
+
+        data =  self._session_repository.find_all_sessions_of_practise(practise)
+
+        max_level, data_of_levels = self._dictionary_from_data(data)
 
         statistics = PrettyTable()
 

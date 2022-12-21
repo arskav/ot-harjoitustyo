@@ -16,7 +16,7 @@ tämä asetettu kahdeksi kaikissa harjoituksissa.
 
 
 def parameters(level):
-    """Arvotaan kysyttävä luku. Harjoituksen tason kasvaessa luuvn suuruus kasvaa.
+    """Arvotaan kysyttävä luku. Harjoituksen tason kasvaessa luvun suuruus kasvaa.
 
     Args:
         level (int): harjoituksen osan taso.
@@ -47,6 +47,11 @@ def parameters(level):
     if level == 6:
 
         number = random.randint(100000, 9999999)
+
+    if level == 1000:
+        #testaamista varten
+
+        number = 123
 
     return number
 

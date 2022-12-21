@@ -6,7 +6,10 @@ class Question:
     yksittäisen kysymyksen tietoja.
     """
 
-    def __init__(self, calculator_in_use):
+    def __init__(
+        self, calculator_in_use, question_part, randomize_func,
+        correct_answer_func, feedback_func
+        ):
         """Luokan konstruktori
 
         Args:
@@ -33,21 +36,29 @@ class Question:
 
         """
 
+        # self._calculator_in_use = calculator_in_use
+        # self._variables = []
+        # self._question = {'text': (lambda: None), 'prompt':'', 'mode': ''}
+        # self._randomize = (lambda: None)
+        # self._correct_answer = (lambda: None)
+        # self._feedback = (lambda: None)
+
         self._calculator_in_use = calculator_in_use
         self._variables = []
-        self._question = {'text': (lambda: None), 'prompt':'', 'mode': ''}
-        self._randomize = (lambda: None)
-        self._correct_answer = (lambda: None)
-        self._feedback = (lambda: None)
+        self._question = question_part
+        self._randomize = randomize_func
+        self._correct_answer = correct_answer_func
+        self._feedback = feedback_func
 
-    def set_randomizing(self, randomice_func):
-        """Asettaa attribuutin _randomize arvon.
 
-        Args:
-            randomice_func: funktio, joka palauttaa kysymyksen
-                muuttujien arvot.
-        """
-        self._randomize = randomice_func
+    # def set_randomizing(self, randomice_func):
+    #     """Asettaa attribuutin _randomize arvon.
+
+    #     Args:
+    #         randomice_func: funktio, joka palauttaa kysymyksen
+    #             muuttujien arvot.
+    #     """
+    #     self._randomize = randomice_func
 
     def randomize(self, randomice_func):
         """Asettaa kysymyksen muuttujille (yleensä satunnaiset) arvot.
@@ -58,46 +69,46 @@ class Question:
 
         self._variables = randomice_func()
 
-    def set_question(self, text_func, prompt, mode):
-        """Asettaa arvot kysymyksen generoimiseksi.
+    # def set_question(self, text_func, prompt, mode):
+    #     """Asettaa arvot kysymyksen generoimiseksi.
 
-        Args:
-            text_func: funktio, joka tulostaa kysymyksen,
-                argumenteina tehtävän muuttujat.
-            prompt (string): kehote input-komennossa.
-            mode (string): millainen vastaus (esim. kokonaisluku) hyväksytään.
-        """
+    #     Args:
+    #         text_func: funktio, joka tulostaa kysymyksen,
+    #             argumenteina tehtävän muuttujat.
+    #         prompt (string): kehote input-komennossa.
+    #         mode (string): millainen vastaus (esim. kokonaisluku) hyväksytään.
+    #     """
 
-        self._question['text'] = text_func
+    #     self._question['text'] = text_func
 
-        self._question['prompt'] = prompt
+    #     self._question['prompt'] = prompt
 
-        self._question['mode'] = mode
+    #     self._question['mode'] = mode
 
-    def set_feedback(self, feedback_func):
-        """Asettaa palautetekstin.
+    # def set_feedback(self, feedback_func):
+    #     """Asettaa palautetekstin.
 
-        Args:
-            feedback_func: funktio, joka tulostaa palautteen,
-                argumenteina tehtävän muuttujat.
-        """
+    #     Args:
+    #         feedback_func: funktio, joka tulostaa palautteen,
+    #             argumenteina tehtävän muuttujat.
+    #     """
 
-        self._feedback = feedback_func
+    #     self._feedback = feedback_func
 
     def give_feedback(self):
         """Tulostaa palautteen."""
 
         self._feedback(*self.values_of_variables())
 
-    def set_correct_answer(self, correct_answer_func):
-        """Asettaa oikean vastauksen kaavan.
+    # def set_correct_answer(self, correct_answer_func):
+    #     """Asettaa oikean vastauksen kaavan.
 
-        Args:
-            correct_answer_func: funktio, joka antaa kysymyksen oikean vastauksen,
-                argumenteina tehtävän muuttujat.
-        """
+    #     Args:
+    #         correct_answer_func: funktio, joka antaa kysymyksen oikean vastauksen,
+    #             argumenteina tehtävän muuttujat.
+    #     """
 
-        self._correct_answer = correct_answer_func
+    #     self._correct_answer = correct_answer_func
 
     def check_answer(self, ans):
         """Tarkistaa, onko vastaus oikein.
@@ -137,7 +148,7 @@ class Question:
 
             return None
 
-        if ans[0] == '=':
+        if ans[0] == '=' and self._calculator_in_use:
 
             answer =  calculator(ans[1:])
 
@@ -157,31 +168,53 @@ class Question:
 
         return self._variables
 
-    def process(self,randomize_func, text_func, prompt, mode, correct_answer_func, feedback_func):
-        """prosessoi kysymyksen: asettaa muuttujien arvot, tulostaa kysymyksen,
-        tarkistaa vastauksen tyypin ja onko oikein, antaa palautteen, jos väärin.
+    # def process(self,randomize_func, text_func, prompt, mode, correct_answer_func, feedback_func):
+    #     """prosessoi kysymyksen: asettaa muuttujien arvot, tulostaa kysymyksen,
+    #     tarkistaa vastauksen tyypin ja onko oikein, antaa palautteen, jos väärin.
 
-        Args:
-            randomize_func: funktio, joka asettaa kysymyksen muuttujien arvot.
-            text_func: funktio, joka esittää kysymyksen.
-            prompt (string): kehote inputissa.
-            mode (string): sallitun vastauksen tyyppu.
-            correct_answer_func: funktio, joka laskee oikean vastauksen.
-            feedback_func: funktio, joka tulostaa palautteen, jos vastaus väärin.
+    #     Args:
+    #         randomize_func: funktio, joka asettaa kysymyksen muuttujien arvot.
+    #         text_func: funktio, joka esittää kysymyksen.
+    #         prompt (string): kehote inputissa.
+    #         mode (string): sallitun vastauksen tyyppu.
+    #         correct_answer_func: funktio, joka laskee oikean vastauksen.
+    #         feedback_func: funktio, joka tulostaa palautteen, jos vastaus väärin.
 
-        Returns:
-            (Boolean, Boolean): onko vastaus oikein, onko kysymykseen vastaaminen keskeytetty.
-        """
+    #     Returns:
+    #         (Boolean, Boolean): onko vastaus oikein, onko kysymykseen vastaaminen keskeytetty.
+    #     """
 
 
 
-        self.randomize(randomize_func)
+        # self.randomize(randomize_func)
 
-        self.set_question(text_func, prompt, mode)
+        # self.set_question(text_func, prompt, mode)
 
-        self.set_correct_answer(correct_answer_func)
+        # self.set_correct_answer(correct_answer_func)
 
-        self.set_feedback(feedback_func)
+        # self.set_feedback(feedback_func)
+
+        # ans = self.ask_question()
+
+        # if ans is None:
+        #     #keskeytys
+
+        #     return False, True
+
+        # is_correct = self.check_answer(ans)
+
+        # if is_correct:
+
+        #     print("Vastaus on oikein.")
+
+        # if not is_correct:
+
+        #     self.give_feedback()
+
+        # return is_correct, False
+
+
+    def process(self):
 
         ans = self.ask_question()
 

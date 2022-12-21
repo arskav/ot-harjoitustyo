@@ -151,3 +151,17 @@ class TestSessionRepository(unittest.TestCase):
         self.assertEqual(sessions[0][1], 'arskaA')
         self.assertEqual(sessions[1][1], 'arskaA')
 
+    def test_delete_all_sessions_of_user(self):
+
+        sessions = session_repository.find_all_sessions_of_user('arskaB')
+        self.assertEqual(len(sessions), 3)
+
+        session_repository.delete_all_sessions_of_user('arskaB')
+
+        sessions_after_deleting = session_repository.find_all_sessions_of_user('arskaB')
+
+        self.assertEqual(len(sessions_after_deleting), 0)
+
+
+
+

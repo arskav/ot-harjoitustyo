@@ -1,6 +1,6 @@
 import os
 
-from entities.definitions import COMMANDS,  COMMANDS_ADMIN, MAXLEVELS
+from entities.definitions import DESCRIPTION, COMMANDS, MAXLEVELS
 # Vakiot, joita käytetään päävalikon esittämiseen, ja harjoituskokonaisuuksien tasojen lukumäärä
 # tiedostoa päivitetään aina lisättäessä uusi harjoituskokonaisuus
 
@@ -18,35 +18,102 @@ from repositories.user_repository import user_repository
 from repositories.session_repository import session_repository
 # Harjoituksen tietoihin liittyvät tietokantaoperaatiot
 
-from ui.admin import MathTrainerAdmin
-# Hallinnointi
+from services.printing_from_databases import printing_service
+
 
 class MathTrainer:
+    # Käyttöliittymää vastaava luokka
+    def mainmenu(self):
 
-    def show_main_menu(self, trainee):
+        trainee = self._login()
+        # kirjaudutaan järjestelmään uutena tai vanhana käyttäjänä
+        # harjoituksen tekijan tiedot luokan MathTrainerUse mukaisesti
 
+        while True:
+            self._show_main_menu(trainee)
+            # Näytetään valikko
+
+            choice = input("Valinta: ").upper()
+            if not choice in COMMANDS:
+                # Tarkistetaan, tunnistetaanko annettu komento
+                os.system('clear')
+                print(choice, "on virheellinen komento")
+                print("Valitse uudelleen")
+            elif choice == "X":
+                self._shutdown(trainee)
+                # Lopetetaan istunto.
+                break
+            elif choice == "Y":
+                self._maintenance()
+            else:
+                self._action(trainee, choice)
+                # Valitaan jokin harjoituksista tai tulostetaan ohjeet
+
+    def _show_main_menu(self, trainee):
+        # Päävalikko
         print(trainee)
+        # Näytetään käyttäjän tiedot
 
         for command in COMMANDS:
-
             print(command, ":", COMMANDS[command])
 
+    def _show_admin_menu(self):
 
-    def action(self, trainee, choice):
+        print("1:   kaikki käyttäjänimet")
+        print("2:   kaikki käyttäjät harjoitustietoineen")
+        print("3:   kaikki suoritukset")
+        print("4:   kaikki annetun käyttäjän suoritukset")
+        print("5:   kaikki annetun harjoituksen suoritukset")
+        print("6:   tilasto annetun harjoituksen onnistumisprosenteista")
+        print("muu: palataan päävalikkoon")
 
+    def _maintenance(self):
+
+        self._show_admin_menu()
+
+        ans = input("Valintasi ")
+        print("\n")
+
+        while ans in ['1', '2', '3', '4', '5', '6']:
+
+            if ans == '1':
+                printing_service.print_all_users()
+
+            if ans == '2':
+                printing_service.print_all_users_with_practises()
+
+            if ans == '3':
+                #session_repository.print_all_sessions()
+                printing_service.print_all_sessions()
+
+            if ans == '4':
+                username = input("Käyttäjä, jonka tiedot annetaan > ")
+                #session_repository.print_all_sessions_of_user(username)
+                printing_service.print_all_sessions_of_user(username)
+
+            if ans == '5':
+                practise = input("Harjoitus, jonka tiedot annetaan > ")
+                printing_service.print_all_sessions_of_practise(practise)
+
+            if ans == '6':
+                practise = input("Harjoitus, jonka tilasto annetaan > ")
+                printing_service.print_statistics_of_practise(practise)
+
+            print("\n")
+            input("Enter paluu valikkoon.")
+
+            self._show_admin_menu()
+
+            ans = input("Valintasi ")
+
+    def _action(self, trainee, choice):
+        # Ohjeet tai jokin harjoituksista
         if choice == "O":
-
+            # Ohjeita
             self._help()
-
-        elif choice == "Y":
-
-            mathtrainer_admin = MathTrainerAdmin()
-            mathtrainer_admin._start()
-
         else:
-
             self.begin_practising(int(choice), trainee)
-
+            # Aloitetaan harjoitus
 
     def begin_practising(self, drill, trainee):
         # drill harjoituksen numero, trainee käyttäjä
@@ -78,9 +145,9 @@ class MathTrainer:
         os.system('clear')
         print(f"Olet tehnyt kaikki tehtävät harjoituksissa {drill}.")
         print("Jos haluat tehdä tämän harjoituksen tehtäviä uudelleen, valitse uusi käyttäjätunnus.")
-        input("Jatka >> ")
+        input("Enter paluu päävalikkoon.")
 
-    def shutdown(self, trainee):
+    def _shutdown(self, trainee):
         os.system('clear')
         print("Lopetetaan ohjelman suoritus.")
         print("Käyttäjän tiedot:")
@@ -89,7 +156,7 @@ class MathTrainer:
     def _help(self):
         os.system('clear')
         print("Valintasi: O")
-        print("Laskutehtävien suorituksen voi keskeyttää antamalla laskun vastaukseksi tyhjän.")
+        print("Lskutehtävien suorituksen voi keskeyttää antamalla laskun vastaukseksi tyhjän.")
         print()
         print("Osassa tehtävissä on 'laskin' käytössä:")
         print("Kirjoita alkuun = ja sitten laskutoimituksia +, -, *, / sisältävä lauseke.")
@@ -98,35 +165,7 @@ class MathTrainer:
         print("Kehotteeseen Jatka >> voi vastata Enterillä.")
         print()
 
-    def problems_with_databases(self):
-
-        problems = False
-
-        try:
-
-            user_repository.find_user('admin')
-
-        except Exception as e:
-
-            print(e)
-
-            problems = True
-
-        try:
-
-            session_repository.find_all_sessions_of_user('admin')
-
-        except Exception as e:
-
-            print(e)
-
-            problems =  True
-
-
-        return problems
-
-
-    def login(self):
+    def _login(self):
 
         os.system('clear')
 
@@ -142,6 +181,7 @@ class MathTrainer:
 
             trainee = MathTrainerUser(username, [], [], 0, 0)
 
+            # Tallennetaan uusi käyttäjä tietokantaan.
             user_repository.insert_new_user(username)
 
         else:
@@ -150,9 +190,9 @@ class MathTrainer:
             print("jos et ole itse rekisteröinyt tätä tunnusta,")
             print("keskeytä ohjelman käyttö päävalikossa X")
             print("ja kirjaudu uudelleen eri tunnuksella.")
-            input("Jatka >> ")
+            input("Jatka Enter ")
 
-
+            # Etsitään rekisteröityneen käyttäjän tiedot tietokannasta.
             userdata = user_repository.find_user(username)
 
             started = string_to_list(userdata[2])
@@ -165,6 +205,5 @@ class MathTrainer:
 
             trainee = MathTrainerUser(
                 username, started, finished, corrects, tries)
-
 
         return trainee

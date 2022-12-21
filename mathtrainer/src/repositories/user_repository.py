@@ -112,5 +112,20 @@ class UserRepository:
 
         return row
 
+    def delete_user(self, username):
+        """Poistetetaan käyttäjätunnus tietokannasta USERS
+
+        Args:
+            username (string): poistettava käyttäjätunnus
+        """
+
+        sql_command = """
+        DELETE FROM Users WHERE user = ?
+        """
+
+        parameters = (username,)
+
+        database_updating(self._connection, sql_command, parameters)
+
 
 user_repository = UserRepository(get_database_connection(DATABASE_USERS))

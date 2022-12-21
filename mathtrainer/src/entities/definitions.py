@@ -31,3 +31,14 @@ MAXLEVELS = {
     4: 6
 }
 """Harjoituksessa olevien tasojen eli osaharjoitusten lukumäärä."""
+
+COMMANDS_ADMIN = {
+    "0":   "paluu päävalikkoon",
+    "1":   "kaikki käyttäjänimet",
+    "2":   "kaikki käyttäjät harjoitustietoineen",
+    "3":   "kaikki suoritukset",
+    "4":   "kaikki annetun käyttäjän suoritukset",
+    "5":   "kaikki annetun harjoituksen suoritukset",
+    "6":   "tilasto annetun harjoituksen onnistumisprosenteista",
+    "7":   "käyttäjätunnuksen poistaminen"
+}

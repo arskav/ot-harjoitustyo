@@ -24,14 +24,10 @@ def question(successive_correct, level):
             onko taso tehty loppuun.
     """
 
-    #question = Question(calculator_in_use = True)
-
-
-
     if level == 1:
-        is_correct, is_cancelled = question1.process()
+        is_correct, is_cancelled = question1()
     elif level == 2:
-        is_correct, is_cancelled = question2.process()
+        is_correct, is_cancelled = question2()
 
     is_finish = False
 

@@ -13,7 +13,6 @@ class TestUserRepository(unittest.TestCase):
 
         create_usertable(my_connection)
 
-        #self.user_arska = User('arska', [1,2], [1], 5, 10)
 
     def test_insert_new_user(self):
 
@@ -72,3 +71,17 @@ class TestUserRepository(unittest.TestCase):
 
         userdata = user_repository.find_user('outo_tyyppi')
         self.assertEqual(userdata, None)
+
+
+    def test_delete_user(self):
+
+        user_repository.insert_new_user('arskaA')
+        user_repository.insert_new_user('ArskaB')
+        user_repository.insert_new_user('arskaC')
+
+        user_repository.delete_user('ArskaB')
+
+        users = user_repository.find_all_users()
+        self.assertEqual(len(users), 2)
+        self.assertEqual(users[0][0], 'arskaA')
+        self.assertEqual(users[1][0], 'arskaC')

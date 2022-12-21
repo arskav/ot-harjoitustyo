@@ -106,3 +106,6 @@ class TestMathTrainerSession(unittest.TestCase):
         successive_correct, correct = self.session.correct_or_not(False,1,10)
         self.assertEqual(successive_correct, 0)
         self.assertEqual(correct, 10)
+
+
+
