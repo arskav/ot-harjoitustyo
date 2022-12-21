@@ -43,9 +43,9 @@ Valinta 'Y' ei toistaiseksi vaadi salasanaa. Se antaa valikon, jolla voi tulosta
 > 2:   kaikki käyttäjät harjoitustietoineen  
 > 3:   kaikki suoritukset  
 > 4:   kaikki annetun käyttäjän suoritukset  
-> 5:   kaikki annetun harjoituksen suoritukset
-> 6:   tilasto annetun harjoituksen onnistumisprosenteista 
-> 7:   käyttäjätunnuksen poistaminen
+> 5:   kaikki annetun harjoituksen suoritukset  
+> 6:   tilasto annetun harjoituksen onnistumisprosenteista   
+> 7:   käyttäjätunnuksen poistaminen  
 
 
 Esimerkiksi valinta 3 tulostaa kaikki sovelluksen käyttäjät ja heidän tekemänsä harjoitustensa eri tasojen tulokset. Valinta 7 poistaa käyttäjätunnuksen ja kaikki tiedot tämän käyttäjän tekemistä harjoituksista.
