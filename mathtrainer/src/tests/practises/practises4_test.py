@@ -1,7 +1,3 @@
-"""
-idea https://stackoverflow.com/questions/3692159/how-do-i-redefine-functions-in-python
-"""
-
 import unittest
 from unittest.mock import patch
 import practises.practises4 as p
@@ -18,7 +14,8 @@ class TestUtitities(unittest.TestCase):
     def fake_parameters(self,level):
         #testausta varten, oikea vastaus näillä arvoilla -2
         return 3,6
-
+        """_summary_
+        """
 
     @patch('builtins.input', return_value = '3')
     def test_question1_correct(self, input):

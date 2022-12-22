@@ -107,14 +107,7 @@ def parameters(level):
             # olisi nollalla jako
             random_integer2 = random.randint(1, 10)
 
-    if level == 1000:
-        #testaamista varten
-        return 1, 2
-
-    if level != 1000:
-        random_multiplier = random.choice([1, 10, 100])
-    else:
-        random_multiplier = 1
+    random_multiplier = 1
 
     random_integer1 = random_multiplier * random_integer1
     random_integer2 = random_multiplier * random_integer2

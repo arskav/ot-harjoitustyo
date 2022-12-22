@@ -1,6 +1,6 @@
 # Testausdokumentti
 
-Ohjelmaa on testattu sekä automatisoiduin yksikkötestein unittestilla että manuaalisesti järjestelmätason testeihin.
+Ohjelmaa on testattu sekä automatisoiduin yksikkötestein unittestilla (myös unittest.mock on ollut käytössä) että manuaalisesti järjestelmätason testeihin.
 
 Testin suorittaja ei ollut oikein perillä siitä, mitä automaattisilla integraatiotesteillä tarkoitetaan, eikä niitä ehkä tästä syystä ole tehty. Yksikkötesteissä on kuitenkin testattu eri luokkien yhteistoimintaa niin, että on koodattu apufunktio, joka palauttaa samantyyppisiä arvoja kuin mitä toinen luokka tai aliohjelman palauttaisi testattavalle luokalle, ja testattu sitä hyödyntäen luokkaa, jolle kyseiset parametrit välitetään.
 
@@ -24,7 +24,7 @@ Testaamisen ulkopuolelle on jätetty .coveragerc tiedoston rivin
 
 > omit = src/**/__init__.py,src/tests/**,src/ui/**,src/index.py, src/build.py, src/initialize_databases.py
 
-mukaiset tiedostot.
+mukaiset tiedostot. Näitä lukuun ottamatta haarautumakattavuus on 76%.
 
 ## Järjestelmätestaus
 
