@@ -1,7 +1,6 @@
 import os
 
 from entities.definitions import DESCRIPTION, MAXLEVELS
-# Harjoitusten kuvaukset
 
 import practises.practises1
 
@@ -10,19 +9,17 @@ import practises.practises2
 import practises.practises3
 
 import practises.practises4
-# Näitä lisätään sitä mukaa kun tulee lisää harjoituskokonaisuuksia
 
 from services.utilities import return_to_menu
 
 from services.practiseutilities import doing_practise
 
 from repositories.session_repository import session_repository
-# Harjoituksen tietoihin liittyvät tietokantaoperaatiot
 
-#Kun harjoituksia tulee lisää, päivitä tämä
 PRACTISES = {1: practises.practises1.question, 2: practises.practises2.question, \
     3: practises.practises3.question, 4: practises.practises4.question
 }
+"""Kun harjoituksia tehdään lisää, päivitä tämä ja import -komennot."""
 
 class MathTrainerSession:
     """Luokka, joka kuvaa harjoitussessiota eli yhden harjoituskokonaisuuden

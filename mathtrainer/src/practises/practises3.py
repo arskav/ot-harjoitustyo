@@ -1,6 +1,4 @@
 """'Uuden' koodaustavan mukainen matemaattisen harjoituksen runko.
-Tästä on tarkoitus kehittää yleispätevämpi, nyt koodi riippuu tehdyistä
-kysymyksistä question1 ja question2.
 """
 from services.practiseutilities import correct_answer
 from practises.practises3_questions.question1 import question1
@@ -24,13 +22,11 @@ def question(successive_correct, level):
             onko taso tehty loppuun.
     """
 
-    #question = Question(calculator_in_use = True)
-
-
-
     if level == 1:
+        question1.randomize()
         is_correct, is_cancelled = question1.process()
     elif level == 2:
+        question2.randomize()
         is_correct, is_cancelled = question2.process()
 
     is_finish = False

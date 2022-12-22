@@ -18,8 +18,13 @@ class TestUtitities(unittest.TestCase):
 
     def setUp(self):
 
-        question1.randomize(fake_randomize1)
-        question2.randomize(fake_randomize2)
+        question1._randomize = fake_randomize1
+        question1.randomize()
+
+        question2._randomize = fake_randomize2
+        question2.randomize()
+
+        #question2.randomize(fake_randomize2)
 
     @patch('builtins.input', return_value = '500')
     def test_question_correct(self, input):

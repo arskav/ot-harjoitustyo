@@ -2,7 +2,7 @@ from initialize_databases import initialize_databases
 
 
 def build():
-    """Käytetään ennen sovelluksen käynnistämistä tietokantojen alustukseen."""
+    """Tietokantojen alustus."""
 
     initialize_databases()
 

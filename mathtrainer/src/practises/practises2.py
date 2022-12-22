@@ -36,10 +36,6 @@ def left_hand_func(level, first_argument, second_argument):
     if level in [5, 6]:
         return f"{number_to_word(a)} jaettuna luvulla {number_to_word(b)}", f"{a}/{b}"
 
-    if level == 1000:
-        #testausta varten
-        return("testi", "1+2")
-
     return None
  # pylint: enable=invalid-name
 
@@ -66,11 +62,6 @@ def left_value_func(level, argument1, argument2):
 
     if level in [5, 6]:
         return argument1 / argument2
-
-    if level == 1000:
-        #testaamista varten
-        return argument1 + argument2
-
 
     return None
 

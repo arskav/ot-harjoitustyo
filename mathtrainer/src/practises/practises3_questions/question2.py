@@ -1,4 +1,4 @@
-"""Harjoituksen 3 toinen kysymys."""
+"""Toinen esimerkki harjoituksen 3 kysymyksistä."""
 import random
 from entities.question import Question
 #kysymyksen muuttujat:
@@ -67,7 +67,5 @@ question_part = {'text': text_func, 'prompt': "Uusi asumiskulu kuukaudessa ", 'm
 
 question = Question(CALCULATOR, question_part, randomize_func,
     correct_answer_func, feedback_func)
-
-question.randomize(randomize_func)
 
 question2 = question

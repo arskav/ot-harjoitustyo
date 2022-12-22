@@ -6,14 +6,17 @@ from services.printing_from_databases import printing_service
 
 
 class MathTrainerAdmin:
+    """Ylläpitotoiminnoista vastaava luokka."""
 
     def _show_admin_menu(self):
+        """Näyttä ylläpitotoimintojen valikon."""
 
         for command in COMMANDS_ADMIN:
 
             print(command, ":", COMMANDS_ADMIN[command])
 
     def _start(self):
+        """Ylläpitotoiminnan valitseminen."""
 
         os.system('clear')
 
@@ -37,6 +40,11 @@ class MathTrainerAdmin:
 
 
     def _admin_action(self,choice):
+        """Ylläpitotoimminnan suorittaminen.
+
+        Args:
+            choice (int): valinta valikosta.
+        """
 
         if choice == '1':
 

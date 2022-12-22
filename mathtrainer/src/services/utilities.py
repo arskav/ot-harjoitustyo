@@ -1,6 +1,6 @@
 import random
 #Sekalaisia apuohjelmia.
-#Tämä pitäisi jakaa osiin sen mukaisesti, missä apuohjelmaa käytetään.
+#Tämä pitäisi ehkä jakaa osiin sen mukaisesti, missä apuohjelmaa käytetään.
 #Osa harjoituksissa käytettävissä apuohjelmista tiedostossa practiseutilities.py
 
 def draw_two_integers(lower1, upper1, lower2, upper2):

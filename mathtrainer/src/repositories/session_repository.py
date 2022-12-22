@@ -8,10 +8,20 @@ class SessionRepository:
     """
 
     def __init__(self, connection):
+        """Luokna konstruktori.
+
+        Args:
+            connection: yhteys.
+        """
 
         self._connection = connection
 
     def insert_new_session(self, session):
+        """Tallentaa harjoitussessionin tiedot tietokantaan.
+
+        Args:
+            session (MathTrainerSession): harjoitussessioni
+        """
 
         sql_command = """
         INSERT INTO Sessions
@@ -25,6 +35,11 @@ class SessionRepository:
         database_updating(self._connection, sql_command, parameters)
 
     def update_session(self, session):
+        """Päivittää tietokannassa jo olevan harjoitussessionin tiedot.
+
+        Args:
+            session (MathTrainerSession): harjoitussessioni
+        """
 
         sql_command = """
         UPDATE Sessions
@@ -38,6 +53,11 @@ class SessionRepository:
         database_updating(self._connection, sql_command, parameters)
 
     def  find_all_sessions(self):
+        """Hakee kaikki harjoitussessionit tietokannasta.
+
+        Returns:
+            Harjoitussessionit.
+        """
 
         sql_command = """
         SELECT * FROM Sessions ORDER BY user COLLATE NOCASE, practise
@@ -49,6 +69,14 @@ class SessionRepository:
 
 
     def find_all_sessions_of_user(self, username):
+        """Hakee kaikki käyttäjän harjoitussessionit tietokannasta.
+
+        Args:
+            username (string): käyttäjätunnus.
+
+        Returns:
+            _Käyttäjän kaikki harjoitussessionit.
+        """
 
         sql_command = """
         SELECT * FROM Sessions WHERE user = ? ORDER BY practise, level
@@ -62,6 +90,15 @@ class SessionRepository:
 
 
     def find_all_sessions_of_practise(self, practise):
+        """Hakee kaikki tietyn harjoituksen harjoitussessionit tietokannasta.
+
+
+        Args:
+            practise (int): harjoitus.
+
+        Returns:
+            harjoitukseen liittyvät sessionit.
+        """
 
         sql_command = """
         SELECT * FROM Sessions WHERE practise = ?
@@ -76,7 +113,15 @@ class SessionRepository:
 
 
     def find_session_of_user(self, username, practise):
-        # Valitaan se, jonka taso level korkein
+        """Hakee käyttäjän tietyn harjoituksen viimeisimmäin sessionin.
+
+        Args:
+            username (string): käyttäjätunnus.
+            practise (int): harjoitus.
+
+        Returns:
+           Käyttäjän viimeisin harjoitussessioni.
+        """
 
         sql_command = """
         SELECT * FROM Sessions WHERE user = ? AND practise = ? ORDER BY level DESC

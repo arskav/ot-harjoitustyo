@@ -16,7 +16,7 @@ DESCRIPTION = {
 COMMANDS = {
     "O": "Ohje (O-kirjain)",
     "X": "Lopetus",
-    "Y": "Ylläpito (vaatii salasanan)",
+    "Y": "Ylläpito",
     "1": DESCRIPTION[1],
     "2": DESCRIPTION[2],
     "3": DESCRIPTION[3],
@@ -34,7 +34,7 @@ MAXLEVELS = {
 
 COMMANDS_ADMIN = {
     "0":   "paluu päävalikkoon",
-    "1":   "kaikki käyttäjänimet",
+    "1":   "kaikki käyttäjätunnukset",
     "2":   "kaikki käyttäjät harjoitustietoineen",
     "3":   "kaikki suoritukset",
     "4":   "kaikki annetun käyttäjän suoritukset",
@@ -42,3 +42,4 @@ COMMANDS_ADMIN = {
     "6":   "tilasto annetun harjoituksen onnistumisprosenteista",
     "7":   "käyttäjätunnuksen poistaminen"
 }
+"""Ylläpidon valikko"""

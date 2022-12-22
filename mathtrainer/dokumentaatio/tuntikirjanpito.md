@@ -45,4 +45,5 @@ tehtävää. |
 |19.12.|4| testien koodaamista, ohjelman rakenteen parantelua|
 |20.12.|4| dokumentaatiota, testien koodaamista|
 |21.12.|2| testit loppuun, testausdokumentin viimeistely|
-| yht |113|
+|22.12.|4| bugin korjaus, testien korjailu, koodin siistiminen, docstringit loppuun|
+| yht |117|

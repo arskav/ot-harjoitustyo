@@ -48,11 +48,6 @@ def parameters(level):
 
         number = random.randint(100000, 9999999)
 
-    if level == 1000:
-        #testaamista varten
-
-        number = 123
-
     return number
 
 

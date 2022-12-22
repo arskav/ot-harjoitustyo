@@ -1,7 +1,5 @@
 import sqlite3
-
-DATABASE_USERS = "./data/userdata.sqlite"
-DATABASE_SESSIONS = "./data/sessiondata.sqlite"
+from config import DATABASE_USERS, DATABASE_SESSIONS
 
 
 def create_usertable(connection):

@@ -1,6 +1,6 @@
 """Harjoituksen 3, missä esitetään sanallisia tehtäviä, jotka ratkaistavissa
 peruslaskutoimituksilla, yksi kysymys. Lisäkysymysten laatiminen ei tuo koodausmielessä
-mitään uutta esiin, joten tässä harjoitustyössä tyydytään esittämään pari kolme esimerkkiä.
+mitään uutta esiin, joten tässä harjoitustyössä tyydytään esittämään pari esimerkkiä.
 Sovelluksen laajentaminen on käytännössä tällaisten kysymysten laatimista.
 
 Returns:
@@ -97,7 +97,5 @@ question_part = {
 
 question = Question(CALCULATOR, question_part, randomize_func,
     correct_answer_func, feedback_func)
-
-question.randomize(randomize_func)
 
 question1 = question

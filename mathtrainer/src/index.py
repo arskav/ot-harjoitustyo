@@ -5,6 +5,8 @@ from entities.definitions import COMMANDS
 from ui.mathtrainer import MathTrainer
 
 def main():
+    """Sisäänkirjautuminen ja päävalikko
+    """
 
     mathtrainer = MathTrainer()
 

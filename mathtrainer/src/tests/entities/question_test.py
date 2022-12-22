@@ -8,11 +8,11 @@ def randomice_function_for_testing():
 
     return x, y
 
-def correct_answer_function_for_testing():
+def correct_answer_function_for_testing(x,y):
 
     return 10 + 15
 
-def text_function_for_testing():
+def text_function_for_testing(x,y):
 
     print("Kysymysteksti")
 
@@ -22,7 +22,7 @@ question_part_for_testing = {
     'mode': 'integer'
     }
 
-def feedback_function_for_testing():
+def feedback_function_for_testing(x,y):
 
     print("Palaute")
 
