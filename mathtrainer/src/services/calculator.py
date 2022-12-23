@@ -35,23 +35,19 @@ def calculator(expr):
         time.sleep(1)
         return value
 
-    except KeyError:
+    except ZeroDivisionError:
+
+        print("Nollalla ei voi jakaa.")
+        time.sleep(1)
+
+    except (KeyError, SyntaxError, TypeError):
 
         print("Sallitut laskutoimitukset +, -, *, / ja luvun edessä -")
+        print(f"Lauseketta {expr} ei voi arvioida.")
         time.sleep(1)
-        return None
 
-    except SyntaxError:
+    return None
 
-        print(f"Lauseketta {expr} ei voi arvioida")
-        time.sleep(1)
-        return None
-
-    except TypeError:
-
-        print("Lopetus")
-        time.sleep(1)
-        return None
 
 def eval_(node):
     """Käsittelee rekursiivisesti lauseketta."""

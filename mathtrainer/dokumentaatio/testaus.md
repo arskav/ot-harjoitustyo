@@ -24,7 +24,7 @@ Testaamisen ulkopuolelle on jätetty .coveragerc tiedoston rivin
 
 > omit = src/**/__init__.py,src/tests/**,src/ui/**,src/index.py, src/build.py, src/initialize_databases.py
 
-mukaiset tiedostot. Näitä lukuun ottamatta haarautumakattavuus on 76%.
+mukaiset tiedostot. Näitä lukuun ottamatta haarautumakattavuus on 74%.
 
 ## Järjestelmätestaus
 

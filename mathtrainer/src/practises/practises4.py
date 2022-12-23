@@ -1,6 +1,6 @@
 """Yksinkertaisten muotoa x + a = b, a - x = b, ax = b, a/x = b
 olevien yhtälöiden ratkaisemisen harjoittelu."""
-
+import random
 from services.utilities import is_number, draw_two_integers
 from services.practiseutilities import cancel, correct_answer
 
@@ -63,7 +63,13 @@ def left_value_func(level, constant_in_left, answer_given):
         return answer_given / constant_in_left
 
     if level == 6:
-        return constant_in_left / answer_given
+        try:
+            value = constant_in_left / answer_given
+        except ZeroDivisionError:
+            print("Nollalla ei voi jakaa")
+            value = None
+
+        return value
 
     return None
 
@@ -97,7 +103,12 @@ def feedback_left_func(level, constant_in_left, answer_given):
         return f"x/{a} = {x}/{a} = {x/a}"
 
     if level == 6:
-        return f"{a}/x = {a}/{x} = {a/x}"
+        try:
+            feedback_string = f"{a}/x = {a}/{x} = {a/x}"
+        except ZeroDivisionError:
+            feedback_string = "Nollalla ei voi jakaa."
+
+        return feedback_string
 
     return None
 
@@ -130,6 +141,8 @@ def parameters(level):
 
     if level == 5:
         random_integer1, random_integer2 = draw_two_integers(-10, 10, -10, 10)
+        if random_integer1 == 0:
+            random_integer1 = random.randint(-10,-1)
 
     if level == 6:
         random_temp, random_integer2 = draw_two_integers(-10, 10, -10, 10)
