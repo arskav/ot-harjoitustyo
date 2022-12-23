@@ -21,9 +21,9 @@ Ohjelman rakenne ei valitettavasti noudata puhdasoppisesti kolmitasoista kerrosa
 ## Käyttöliittymä
 
 Käyttöliittymä sisältää kolme erillistä päänäkymää:
-*Kirjautuminen
-*Toimenpiteen, erityisesti esimerkiksi harjoituksen, valitseminen
-*Toimenpiteen 'ylläpito' valinnalla aukeava valikko tilastotietojen tulostamista varten
+*Kirjautuminen  
+*Toimenpiteen, erityisesti esimerkiksi harjoituksen, valitseminen  
+*Toimenpiteen 'ylläpito' valinnalla aukeava valikko tilastotietojen tulostamista varten  
 
 Lisäksi jokaista harjoitusta kohden avautuu oma näkymä. (Nyt neljä.)
 
@@ -67,7 +67,6 @@ classDiagram
       to_database_new()
       update_database()
     }
-    {
     class Question{
       _calculator_in_use  
       _variables  
@@ -88,9 +87,9 @@ Luokan MathTrainerSession attribuuttien arvoina on käyttäjän tunnus, harjoitu
 
 Luokan Question metodi randomize() antaa kysymyksen parametreille (_variables) attribuutin _randomize arvona olevan funktion mukaiset arvot. 
 
-Attribuutti _question on sanakirja,jonka avaimet ovat 'text', 'prompt' ja 'mode'. question['text'] sisältää tehtävän kysymyksen sen muuttujien funktiona, question['prompt'] on kehote vastauksen antamiseen ja 'mode' kertoo, minkä tyyppisiä vastauksia kysymykseen odotetaan.
+Attribuutti _ question on sanakirja,jonka avaimet ovat 'text', 'prompt' ja 'mode'. question['text'] sisältää tehtävän kysymyksen sen muuttujien funktiona, question['prompt'] on kehote vastauksen antamiseen ja 'mode' kertoo, minkä tyyppisiä vastauksia kysymykseen odotetaan.
 
-Metodi ask_question() esittää tehtävän näit hyödyntäen. 
+Metodi ask_question() esittää tehtävän näitä hyödyntäen. 
 
 Metodi check_answer() tarkistaa vastauksen oikeellisuuden hyödyntäen attribuutin _correct_answer arvona olevaa funktiota, joka laskee oikean vastauksen tehtävän parametrien funktiona.
 
