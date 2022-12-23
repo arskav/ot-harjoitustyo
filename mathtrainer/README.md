@@ -22,7 +22,7 @@ Sovellus on tehty käyttämällä Python-versiota 3.9., mutta testattu Python-ve
 
 * [Changelog](https://github.com/arskav/ot-harjoitustyo/blob/main/mathtrainer/dokumentaatio/changelog.md)
 
-## Releas
+## Release
 
 [Viimeisin release](https://github.com/arskav/ot-harjoitustyo/releases/tag/loppupalautus)
 
