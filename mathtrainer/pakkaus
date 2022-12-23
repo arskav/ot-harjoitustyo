@@ -1,0 +1,194 @@
+.
+├── data
+│   ├── sessiondata.sqlite
+│   ├── sessiondata_test.sqlite
+│   ├── userdata.sqlite
+│   └── userdata_test.sqlite
+├── dokumentaatio
+│   ├── arkkitehtuuri.md
+│   ├── changelog.md
+│   ├── kayttoohje.md
+│   ├── kuvat
+│   │   ├── coverage_report.png
+│   │   └── pakkausrakenne.png
+│   ├── testaus.md
+│   ├── tuntikirjanpito.md
+│   └── vaatimusmaarittely.md
+├── htmlcov
+│   ├── coverage_html.js
+│   ├── d_145eef247bfb46b6_build_py.html
+│   ├── d_145eef247bfb46b6_config_py.html
+│   ├── d_145eef247bfb46b6_initialize_databases_py.html
+│   ├── d_145eef247bfb46b6_initialize_databe_py.html
+│   ├── d_5fff82e951f4e7e5_definitions_py.html
+│   ├── d_5fff82e951f4e7e5_question_py.html
+│   ├── d_5fff82e951f4e7e5_session_py.html
+│   ├── d_5fff82e951f4e7e5_user_py.html
+│   ├── d_67f6f9a13eff1831_calculator_py.html
+│   ├── d_67f6f9a13eff1831_number_to_word_py.html
+│   ├── d_67f6f9a13eff1831_practiseutilities_py.html
+│   ├── d_67f6f9a13eff1831_printing_from_databases_py.html
+│   ├── d_67f6f9a13eff1831_utilities_py.html
+│   ├── d_6f7c8c89bef6ae60_connection_py.html
+│   ├── d_6f7c8c89bef6ae60_session_repository_py.html
+│   ├── d_6f7c8c89bef6ae60_user_repository_py.html
+│   ├── d_76870dffb5acabea_question1_py.html
+│   ├── d_76870dffb5acabea_question2_py.html
+│   ├── d_d78b66a010d9c161_practises1_py.html
+│   ├── d_d78b66a010d9c161_practises2_py.html
+│   ├── d_d78b66a010d9c161_practises3_py.html
+│   ├── d_d78b66a010d9c161_practises4_py.html
+│   ├── favicon_32.png
+│   ├── index.html
+│   ├── keybd_closed.png
+│   ├── keybd_open.png
+│   ├── status.json
+│   └── style.css
+├── pakkaus
+├── poetry.lock
+├── pyproject.toml
+├── pytest.ini
+├── README.md
+├── src
+│   ├── build.py
+│   ├── config.py
+│   ├── entities
+│   │   ├── definitions.py
+│   │   ├── __init__.py
+│   │   ├── __pycache__
+│   │   │   ├── definitions.cpython-310.pyc
+│   │   │   ├── definitions.cpython-39.pyc
+│   │   │   ├── __init__.cpython-310.pyc
+│   │   │   ├── __init__.cpython-39.pyc
+│   │   │   ├── question.cpython-39.pyc
+│   │   │   ├── session.cpython-310.pyc
+│   │   │   ├── session.cpython-39.pyc
+│   │   │   ├── user.cpython-310.pyc
+│   │   │   └── user.cpython-39.pyc
+│   │   ├── question.py
+│   │   ├── session.py
+│   │   └── user.py
+│   ├── index.py
+│   ├── initialize_databases.py
+│   ├── practises
+│   │   ├── __init__.py
+│   │   ├── practises1.py
+│   │   ├── practises2.py
+│   │   ├── practises3.py
+│   │   ├── practises3_questions
+│   │   │   ├── __init__.py
+│   │   │   ├── __pycache__
+│   │   │   │   ├── __init__.cpython-39.pyc
+│   │   │   │   ├── question1.cpython-39.pyc
+│   │   │   │   └── question2.cpython-39.pyc
+│   │   │   ├── question1.py
+│   │   │   └── question2.py
+│   │   ├── practises4.py
+│   │   └── __pycache__
+│   │       ├── __init__.cpython-310.pyc
+│   │       ├── __init__.cpython-39.pyc
+│   │       ├── practises1.cpython-310.pyc
+│   │       ├── practises1.cpython-39.pyc
+│   │       ├── practises2.cpython-310.pyc
+│   │       ├── practises2.cpython-39.pyc
+│   │       ├── practises3.cpython-39.pyc
+│   │       ├── practises4.cpython-39.pyc
+│   │       ├── practises.cpython-310.pyc
+│   │       └── practises.cpython-39.pyc
+│   ├── __pycache__
+│   │   ├── config.cpython-39.pyc
+│   │   ├── database_connection.cpython-310.pyc
+│   │   └── initialize_databases.cpython-39.pyc
+│   ├── repositories
+│   │   ├── connection.py
+│   │   ├── __init__.py
+│   │   ├── __pycache__
+│   │   │   ├── connection.cpython-39.pyc
+│   │   │   ├── __init__.cpython-310.pyc
+│   │   │   ├── __init__.cpython-39.pyc
+│   │   │   ├── session_repository.cpython-310.pyc
+│   │   │   ├── session_repository.cpython-39.pyc
+│   │   │   ├── user_repository.cpython-310.pyc
+│   │   │   └── user_repository.cpython-39.pyc
+│   │   ├── session_repository.py
+│   │   └── user_repository.py
+│   ├── services
+│   │   ├── calculator.py
+│   │   ├── __init__.py
+│   │   ├── number_to_word.py
+│   │   ├── practiseutilities.py
+│   │   ├── printing_from_databases.py
+│   │   ├── __pycache__
+│   │   │   ├── calculator.cpython-39.pyc
+│   │   │   ├── __init__.cpython-310.pyc
+│   │   │   ├── __init__.cpython-39.pyc
+│   │   │   ├── number_to_word.cpython-310.pyc
+│   │   │   ├── number_to_word.cpython-39.pyc
+│   │   │   ├── practiseutilities.cpython-39.pyc
+│   │   │   ├── printing_from_databases.cpython-39.pyc
+│   │   │   ├── utilities.cpython-310.pyc
+│   │   │   └── utilities.cpython-39.pyc
+│   │   └── utilities.py
+│   ├── tests
+│   │   ├── entities
+│   │   │   ├── __init__.py
+│   │   │   ├── mathtrainersession_test.py
+│   │   │   ├── mathtraineruser_test.py
+│   │   │   ├── __pycache__
+│   │   │   │   ├── __init__.cpython-39.pyc
+│   │   │   │   ├── mathtrainersession_test.cpython-39-pytest-7.2.0.pyc
+│   │   │   │   ├── mathtraineruser_test.cpython-39-pytest-7.2.0.pyc
+│   │   │   │   └── question_test.cpython-39-pytest-7.2.0.pyc
+│   │   │   └── question_test.py
+│   │   ├── __init__.py
+│   │   ├── practises
+│   │   │   ├── __init__.py
+│   │   │   ├── practises1_test.py
+│   │   │   ├── practises2_test.py
+│   │   │   ├── practises3_test.py
+│   │   │   ├── practises4_test.py
+│   │   │   └── __pycache__
+│   │   │       ├── __init__.cpython-39.pyc
+│   │   │       ├── practises1_test.cpython-39-pytest-7.2.0.pyc
+│   │   │       ├── practises2_test.cpython-39-pytest-7.2.0.pyc
+│   │   │       ├── practises3_test.cpython-39-pytest-7.2.0.pyc
+│   │   │       └── practises4_test.cpython-39-pytest-7.2.0.pyc
+│   │   ├── __pycache__
+│   │   │   ├── __init__.cpython-39.pyc
+│   │   │   ├── mathtrainersession_test.cpython-39-pytest-7.2.0.pyc
+│   │   │   └── mathtraineruser_test.cpython-39-pytest-7.2.0.pyc
+│   │   ├── repositories
+│   │   │   ├── __init__.py
+│   │   │   ├── __pycache__
+│   │   │   │   ├── __init__.cpython-39.pyc
+│   │   │   │   ├── session_repository_test.cpython-39-pytest-7.2.0.pyc
+│   │   │   │   └── user_repository_test.cpython-39-pytest-7.2.0.pyc
+│   │   │   ├── session_repository_test.py
+│   │   │   └── user_repository_test.py
+│   │   └── services
+│   │       ├── calculator_test.py
+│   │       ├── __init__.py
+│   │       ├── numbers_to_words_test.py
+│   │       ├── practiseutilities_test.py
+│   │       ├── printing_from_databases_test.py
+│   │       ├── __pycache__
+│   │       │   ├── calculator_test.cpython-39-pytest-7.2.0.pyc
+│   │       │   ├── __init__.cpython-39.pyc
+│   │       │   ├── numbers_to_words_test.cpython-39-pytest-7.2.0.pyc
+│   │       │   ├── practiseutilities_test.cpython-39-pytest-7.2.0.pyc
+│   │       │   ├── printing_from_databases_test.cpython-39-pytest-7.2.0.pyc
+│   │       │   └── utilities_test.cpython-39-pytest-7.2.0.pyc
+│   │       └── utilities_test.py
+│   └── ui
+│       ├── admin.py
+│       ├── __init__.py
+│       ├── mathtrainer.py
+│       └── __pycache__
+│           ├── admin.cpython-39.pyc
+│           ├── __init__.cpython-310.pyc
+│           ├── __init__.cpython-39.pyc
+│           ├── mathtrainer.cpython-310.pyc
+│           └── mathtrainer.cpython-39.pyc
+└── tasks.py
+
+28 directories, 163 files
