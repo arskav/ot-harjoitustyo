@@ -161,7 +161,7 @@ Kirjautuminen ja harjoituksen valinta (asiakas tarkoittaa henkilöä, joka käyt
     participant UI
     asiakas ->> UI: login(käyttäjätunnus)    
     UI ->> UserRepositio: find_user(käyttäjätunnus)
-    User_repositio -->> UI: None
+    UserRepositio -->> UI: None
     UI ->> MathTrainerUser: käyttäjä = MathTrainerUser(käyttäjätunnus, [], [], 0, 0)
     UI -->> asiakas: show_main_menu(käyttäjä)
     asiakas ->> UI: action(käyttäjä, harjoitus 3)
