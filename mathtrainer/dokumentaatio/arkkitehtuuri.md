@@ -211,7 +211,7 @@ ja harjoituksen 3 tekemisen lopetus:
 ```
 
 Yllä Practises viittaa pakkaukseen, joka sisältää harjoitusta vastaavien koodien tiedostot, practises3 on harjoitusta 3 vastaava koodi,
-question on aliohjelma,joka kutsuu harjoituksen 3 meneillä olevaa tasoa vastaavaa tehtävää ja doing_practise on apuohjelma, jonka silmukassa 
+question on aliohjelma, joka kutsuu harjoituksen 3 meneillä olevaa tasoa vastaavaa tehtävää ja doing_practise on apuohjelma, jonka silmukassa 
 harjoituksen kysymyksiin vastataan, kunnes lopetetaan. (Pitäisi varmaan olio-ohjelmoinnin hengessä
 luoda vielä yksi luokka MathtrainerPractise, jonka attribuuttina olisi viittaus harjoituksen koodiin ja metodina yllä mainitut question ja  doing_practise.)
 
