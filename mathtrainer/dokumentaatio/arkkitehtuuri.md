@@ -201,7 +201,7 @@ ja harjoituksen 3 tekemisen lopetus:
    sessio ->> sessio: level_up()
    sessio ->> UI: return_to_menu
    UI -->> asiakas: "Lopetetaanko?"
-   asiaks -->> UI: "Lopetetaan"
+   asiakas -->> UI: "Lopetetaan"
    UI -->> sessio:  lopetus = True
    sessio -->> doing_practise: lopetus
    doing_practise ->> käyttäjä: update_total(oikeita, yrityksiä)
