@@ -138,7 +138,7 @@ Kirjautumisen jälkeen on siis luotu käyttäjää kuvaava MathTrainerUser luoka
 Tarkastellaan tässä uutta koodaustapaa edustavan harjoituksen 3 tekemistä. Kun käyttäjä valitsee valitsee valikosta tämän harjoituksen, sovellus tarkistaa ensin trainee olion pohjalta, onko käyttäjä jo tehnyt harjoituksen loppuun. Jos on, tästä tulee ilmoitus ja palataan päävalikkoon.
 
 Jos ei ole, edetään. Jos käyttäjä on jo aloittanut harjoituksen etsitään myös tietokannasta käyttäjän harjoitustiedot ja välitetään viimeisimmän harjoitussession tiedot käyttäjää kuvaavan luokan MathTrainerSession oliolle. Jos käyttäjä vasta aloittaa harjoituksen tekemisen, luodaan uusi MathTrainerSession olio. Käytetään jatkossa tälle oliolle nimitystä session.
-Jos harjoituskerta on ensimmäinen, päivitetään tämä tieto oliolle trainee. session olion tiedot tallennetaan myös tässä vaiheessa harjoitussesioiden tietokantaan. session oliossa on tieto harjoituksen numerosta.
+Jos harjoituskerta on ensimmäinen, päivitetään tieto harjoituksen aloittamisesta oliolle trainee. session olion tiedot tallennetaan myös tässä vaiheessa harjoitussesioiden tietokantaan. session oliossa on myös tieto harjoituksen numerosta.
 
 Tämän jälkeen kutsutaan MathTrainerSession luokan metodia begin_practise, jolle parametriksi annetaan käyttäjätiedot trainee olion välityksellä. Metodi kutsuu ohjelmaa doing_practise, parametriksi annetaan käyttäjän tiedot trainee ja harjoitusta vastaavan koodin sisältävä tiedosto.
 
