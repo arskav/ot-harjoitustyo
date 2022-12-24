@@ -31,8 +31,6 @@ Tällä hetkellä käyttöliittymä on tekstipohjainen.
 
 ## Sovelluslogiikka
 
-Sovelluksessa on usean tasoista sovelluslogiikkaa. Jokaista harjoitusta vastaa oma harjoitukselle ominainen sovelluslogiikka.
-
 Sovelluksen rungon loogisen tietomallin muodostavat luokat MathTrainerUser ja MathTrainerSession. Näistä ensimmäinen kuvaa käyttäjää ja hänen tekemiensä harjoitusten kokonaistilannetta. Jälkimmäinen kuvaa käyttäjän tekemän yksittäisen harjoituksen yksittäiseen tasoon liittyviä tietoja. Harjoituksen 3 (joka edustaa tapaa, joka tulee olemaan jatkossa käytössä harjoituksia lisättäessä) sovelluslogiikasta vastaa luokka Question. Alla kaaviokuva näistä (vain oleellisemmat metodit mainittu):
 
 ```mermaid
