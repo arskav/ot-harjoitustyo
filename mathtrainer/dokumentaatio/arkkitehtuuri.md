@@ -149,7 +149,7 @@ Kun harjoituksen kysymyksiin vastaaminen loppuu, olion trainee atribuuttien tied
 Harjoitusta 3 vastaava funktio kutsuu funktiota question antaen parametreina peräkkäisten oikeiden vastausten lukumäärän ja harjoituksen tason. Funktio question luo uuden luokan Question olion, jonka atribuuttien tiedot määräytyvät kysymyksen sisällöstä. Funktio question palauttaa harjoitusta (3) vastaavalle funktiolle tiedon siitä, oliko vastaus kysymykseen oikein tai väärin tai keskeytettiinkö kysymykseen vastaaminen.
 
 
-Seuraavat sekvenssikaaviot kuvaavat sovelluksen toimintalogiikkaa tilanteessa, jossa uusi käyttäjä kirjautuu sovellukseen luoden käyttäjätunnuksen, valitsee päävalikosta harjoituksen 3, vastaa sen yhteen kysymykseen, joka tason 1 ainoa kysymys, oikein ja lopettaa harjoituksen 3 tekemisen.
+Seuraavat sekvenssikaaviot kuvaavat sovelluksen toimintalogiikkaa tilanteessa, jossa uusi käyttäjä kirjautuu sovellukseen luoden käyttäjätunnuksen, valitsee päävalikosta harjoituksen 3, vastaa oikein sen yhteen kysymykseen, joka tason 1 ainoa kysymys, ja lopettaa harjoituksen 3 tekemisen.
 
 Kirjautuminen ja harjoituksen valinta (asiakas tarkoittaa henkilöä, joka käyttää sovellusta)
 
