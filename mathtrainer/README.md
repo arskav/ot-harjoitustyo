@@ -1,8 +1,6 @@
 # Mathtrainer
 
-Sovelluksen avulla käyttäjät voivat harjoitella peruskoulun matemaattisia tehtäviä. 
-
-Pääpaino on sanallissa matemaattisissa peruslaskutoimituksia sisältävissä tehtävissä. Suomea vieraana kieltä puhuville on suomenkielisten matemaattisten ilmausten ymmärtämistä harjoittavia tehtäviä. Ennen varsinaisia sanallisia tehtäviä harjoitellaan lausekkeiden arvojen määrittämistä ja alkeellisia yhtälön ratkaisutehtäviä.
+Sovelluksen avulla käyttäjät voivat harjoitella peruskoulun matemaattisia tehtäviä. Tämä sovelluksen alustava versio toimii Helsingin yliopiston opintojakson Ohjelmistotekniikka harjoitustyönä.
 
 ## Python-versio
 
