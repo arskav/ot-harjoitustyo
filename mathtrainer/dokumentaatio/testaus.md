@@ -2,7 +2,7 @@
 
 Ohjelmaa on testattu sekä automatisoiduin yksikkötestein unittestilla (myös unittest.mock on ollut käytössä) että manuaalisesti järjestelmätason testeihin.
 
-Testin suorittaja ei ollut oikein perillä siitä, mitä automaattisilla integraatiotesteillä tarkoitetaan, eikä niitä ehkä tästä syystä ole tehty. Yksikkötesteissä on kuitenkin testattu eri luokkien yhteistoimintaa niin, että on koodattu apufunktio, joka palauttaa samantyyppisiä arvoja kuin mitä toinen luokka tai funktio palauttaisi testattavalle luokalle, ja testattu sitä hyödyntäen luokkaa, jolle kyseiset parametrit välitetään.
+En ollut oikein perillä siitä, mitä automaattisilla integraatiotesteillä tarkoitetaan, eikä niitä tästä syystä ehkä ole tehty. Yksikkötesteissä on kuitenkin testattu eri luokkien yhteistoimintaa niin, että on koodattu apufunktio, joka palauttaa samantyyppisiä arvoja kuin mitä toinen luokka tai funktio palauttaisi testattavalle luokalle, ja testattu sitä hyödyntäen luokkaa, jolle kyseiset parametrit välitetään.
 
 ## Yksikkötestaus
 
