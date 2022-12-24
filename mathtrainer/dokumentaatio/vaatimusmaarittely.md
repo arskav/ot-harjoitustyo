@@ -37,7 +37,7 @@ Kun käyttäjä on tehnyt kaikki vaativamman tason tehtävät, harjoituskokonais
 
 Ensimmäinen jatkotavoite on toteuttaa ohjelman pääkäyttöliitymä ja yksittäisten harjoitusten käyttöliittymä graafisena käyttöliittymänä. Toinen välitön jatkotavoite on yhdenmukaistaa harjoitusten koodaustapaa niin, että se vastaa nykyisen harjoituksen 3 tapaa.
 
-Tämänä jälkeen on tarkoitus luoda erityisesti sellaisia tehtävämuotoja, jotka eroavat Moodlen tarjoamista ja testata niiden toimivuutta (oikeastaan kiinnostavuutta) sopivalla kohderyhmällä. Kun on löydetty toimivia harjoittelumuotoja, on ajatuksena toteuttaa lisää harjoittelukokonaisuuksia kirjoittamani oppimateriaalin [Matematiikan perustiedot](https://homepages.tuni.fi/ari.virtanen/peruskoulumatikkaa.pdf) mukaisesti.
+Tämän jälkeen on tarkoitus luoda erityisesti sellaisia tehtävämuotoja, jotka eroavat Moodlen tarjoamista ja testata niiden toimivuutta (oikeastaan kiinnostavuutta) sopivalla kohderyhmällä. Kun on löydetty toimivia harjoittelumuotoja, on ajatuksena toteuttaa lisää harjoittelukokonaisuuksia kirjoittamani oppimateriaalin [Matematiikan perustiedot](https://homepages.tuni.fi/ari.virtanen/peruskoulumatikkaa.pdf) mukaisesti.
 
 Jos tämä etenee suotuisasti, niin ohjelmasta on tarkoitus tehdä web-sovellus (harrastuksena tai ehkä jonkun toisen opintojakson yhteydessä). Välitavoitteena on tehdä ohjelmasta versio, joka toimii Windows-koneissa ns. standalone sovelluksena. Tarkoitus on myös kehittää pääkäyttäjälle apuohjelmia, jotka osittain automatisoivat uusien harjoitustehtävien lisäämistä.
 
