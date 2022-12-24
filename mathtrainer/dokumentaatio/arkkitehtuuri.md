@@ -151,7 +151,7 @@ Harjoitusta 3 vastaava funktio kutsuu funktiota question antaen parametreina per
 
 Seuraavat sekvenssikaaviot kuvaavat sovelluksen toimintalogiikkaa tilanteessa, jossa uusi käyttäjä kirjautuu sovellukseen luoden käyttäjätunnuksen, valitsee päävalikosta harjoituksen 3, vastaa oikein sen yhteen kysymykseen, joka tason 1 ainoa kysymys, ja lopettaa harjoituksen 3 tekemisen.
 
-Kirjautuminen ja harjoituksen valinta (asiakas tarkoittaa henkilöä, joka käyttää sovellusta)
+Kirjautuminen ja harjoituksen valinta (asiakas tarkoittaa henkilöä, joka käyttää sovellusta):
 
 ```mermaid
     sequenceDiagram
