@@ -21,9 +21,9 @@ Ohjelman rakenne ei valitettavasti noudata puhdasoppisesti kolmitasoista kerrosa
 ## Käyttöliittymä
 
 Käyttöliittymä sisältää kolme erillistä päänäkymää:
-*Kirjautuminen  
-*Toimenpiteen, erityisesti esimerkiksi harjoituksen, valitseminen  
-*Toimenpiteen 'ylläpito' valinnalla aukeava valikko tilastotietojen tulostamista varten  
+* Kirjautuminen    
+* Toimenpiteen, erityisesti esimerkiksi harjoituksen, valitseminen   
+* Toimenpiteen 'ylläpito' valinnalla aukeava valikko tilastotietojen tulostamista varten   
 
 Lisäksi jokaista harjoitusta kohden avautuu oma näkymä. (Nyt neljä.)
 
