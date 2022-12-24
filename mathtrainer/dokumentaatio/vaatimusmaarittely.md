@@ -16,7 +16,7 @@ _Pääkäyttäjä_ pystyy tulostamaan erilaisia yhteenvetoja ja tilastoja käytt
 
 ## Käyttöliittymä
 
-Ohjelmaa aloitettaessa kysytään tunnusta. Jos tunnusta ei vielä ole, se luodaan tässä vaiheessa. _Tehty._
+Ohjelmaa aloitettaessa kysytään tunnusta. Jos tunnusta ei vielä ole, se luodaan tässä vaiheessa.
 
 Tämän jälkeen avautuu valikko, jossa on valittavissa eri harjoituksia. Valikosta voi avat myös pääkäyttäjälle tarkoitetun ylläpitotoimintojen valikon. Jokaiselle harjoitukselle on oma käyttöliittymä, jossa huomioitu tehtävien luonne.
 
