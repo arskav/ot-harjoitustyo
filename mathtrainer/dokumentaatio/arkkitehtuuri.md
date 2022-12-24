@@ -219,7 +219,7 @@ luoda vielä yksi luokka MathtrainerPractise, jonka attribuuttina olisi viittaus
 
 ## Ohjelman rakenteen ja toimintalogiikan heikkoudet
 
-Harjoitukset 1, 2, ja 4 on toteutettu ensin vanhemmalla ohjelmointitavalla. Harjoitus 3 on tehty uudemmalla ohjelmointitavalla luokkaa Question hyödyntäen. Ohjelmiston ylläpitoa helpottaisi, jos myös
+Harjoitukset 1, 2, ja 4 on toteutettu ensin vanhemmalla ohjelmointitavalla. Harjoitus 3 on tehty uudemmalla ohjelmointitavalla luokkaa Question hyödyntäen. Ohjelmisto olisi yhdenmukaisempi, jos myös
 harjoitukset 1, 2, ja 4 olisi toteutettu samalla tavalla kuin harjoitus 3. 
 
 Sovellus ei vaadi tällä hetkellä salasanoja. Todellisessa käytössä ainakin ylläpitotoimintojen, erityisesti käyttäjätunnuksen poistaminen, suorittamisen pitäisi edellyttää salasanaa.
