@@ -199,8 +199,10 @@ ja harjoituksen 3 tekemisen lopetus:
    sessio ->> sessio: correct_up() 
    sessio ->> SessionRepository: sessio.update_database()
    sessio ->> sessio: level_up()
-   sessio ->> asiakas: return_to_menu
-   asiakas -->> sessio:  lopetus = True
+   sessio ->> UI: return_to_menu
+   UI -->> asiakas: "Lopetetaanko?"
+   asiaks -->> UI: "Lopetetaan"
+   UI -->> sessio:  lopetus = True
    sessio -->> doing_practise: lopetus
    doing_practise ->> käyttäjä: update_total(oikeita, yrityksiä)
    käyttäjä ->> UserRepositio: to_database()
@@ -208,7 +210,7 @@ ja harjoituksen 3 tekemisen lopetus:
    UI -->> asiakas: show_main_menu(käyttäjä)
 ```
 
-Yllä Practises viittaa pakkaukseen, joka sisältää harjoitusta vastaavien koodien tiedostot, practises3 on harjoitusta 3 vastaavan koodi,
+Yllä Practises viittaa pakkaukseen, joka sisältää harjoitusta vastaavien koodien tiedostot, practises3 on harjoitusta 3 vastaava koodi,
 question on aliohjelma,joka kutsuu harjoituksen 3 meneillä olevaa tasoa vastaavaa tehtävää ja doing_practise on apuohjelma, jonka silmukassa 
 harjoituksen kysymyksiin vastataan, kunnes lopetetaan. (Pitäisi varmaan olio-ohjelmoinnin hengessä
 luoda vielä yksi luokka MathtrainerPractise, jonka attribuuttina olisi viittaus harjoituksen koodiin ja metodina yllä mainitut question ja  doing_practise.)
