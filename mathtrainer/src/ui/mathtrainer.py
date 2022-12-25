@@ -47,7 +47,7 @@ class MathTrainer:
         elif choice == "Y":
 
             mathtrainer_admin = MathTrainerAdmin()
-            mathtrainer_admin._start()
+            mathtrainer_admin._start(trainee)
 
         else:
 

@@ -39,8 +39,6 @@ Ensimmäinen jatkotavoite on toteuttaa ohjelman pääkäyttöliitymä ja yksitt�
 
 Tämänä jälkeen on tarkoitus luoda erityisesti sellaisia tehtävämuotoja, jotka eroavat Moodlen tarjoamista ja testata niiden toimivuutta (oikeastaan kiinnostavuutta) sopivalla kohderyhmällä. Kun on löydetty toimivia harjoittelumuotoja, on ajatuksena toteuttaa lisää harjoittelukokonaisuuksia kirjoittamani oppimateriaalin [Matematiikan perustiedot](https://homepages.tuni.fi/ari.virtanen/peruskoulumatikkaa.pdf) mukaisesti.
 
-Jos tämä etenee suotuisasti, niin ohjelmasta on tarkoitus tehdä web-sovellus (harrastuksena tai ehkä jonkun toisen opintojakson yhteydessä). Välitavoitteena on tehdä ohjelmasta versio, joka toimii Windows-koneissa ns. standalone sovelluksena. Tarkoitus on myös kehittää pääkäyttäjälle apuohjelmia, jotka osittain automatisoivat uusien harjoitustehtävien lisäämistä.
-
 
 
 

@@ -9,13 +9,13 @@ class MathTrainerAdmin:
     """Ylläpitotoiminnoista vastaava luokka."""
 
     def _show_admin_menu(self):
-        """Näyttä ylläpitotoimintojen valikon."""
+        """Näyttää ylläpitotoimintojen valikon."""
 
         for command in COMMANDS_ADMIN:
 
             print(command, ":", COMMANDS_ADMIN[command])
 
-    def _start(self):
+    def _start(self,trainee):
         """Ylläpitotoiminnan valitseminen."""
 
         os.system('clear')
@@ -36,10 +36,10 @@ class MathTrainerAdmin:
                 break
 
             else:
-                self._admin_action(choice)
+                self._admin_action(choice, trainee)
 
 
-    def _admin_action(self,choice):
+    def _admin_action(self,choice, trainee):
         """Ylläpitotoimminnan suorittaminen.
 
         Args:
@@ -78,7 +78,15 @@ class MathTrainerAdmin:
             username = input("Poistettava käyttäjätunnus > ")
 
             print(f"Poistetaan kaikki käyttäjän {username} tiedot.")
-            ans = input(" Oletko varma, K = kyllä, K/muu > ")
+
+            if username == trainee.username():
+
+                print("Omaa käyttäjätunnusta ei voi poistaa.")
+                ans = 'E'
+
+            else:
+
+                ans = input(" Oletko varma, K = kyllä, K/muu > ")
 
             if ans != 'K':
 

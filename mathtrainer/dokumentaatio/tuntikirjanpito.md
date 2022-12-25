@@ -46,5 +46,7 @@ tehtävää. |
 |20.12.|4| dokumentaatiota, testien koodaamista|
 |21.12.|2| testit loppuun, testausdokumentin viimeistely|
 |22.12.|4| bugin korjaus, testien korjailu, koodin siistiminen, docstringit loppuun|
-|23.12.|2| vaatimusmäärittelyn päivittäminen, ohjelman manuaalista testausta, nollalla jako -bugin korjaus|
-| yht |119|
+|23.12.|6| vaatimusmäärittelyn päivittäminen, ohjelman manuaalista testausta, nollalla jako -bugin korjaus, arkkitehtuurikuvauksen viimeistely.|
+|24.12.|1| testailua, oikolukua|
+|25.12.|1| virheilmoitus bugin korjaus|
+| yht |125|

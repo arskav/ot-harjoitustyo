@@ -106,7 +106,7 @@ def feedback_left_func(level, constant_in_left, answer_given):
         try:
             feedback_string = f"{a}/x = {a}/{x} = {a/x}"
         except ZeroDivisionError:
-            feedback_string = "Nollalla ei voi jakaa."
+            feedback_string = "määrittelemätön, koska nollalla ei voi jakaa"
 
         return feedback_string
 
