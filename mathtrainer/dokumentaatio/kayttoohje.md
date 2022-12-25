@@ -60,9 +60,9 @@ Jos haluaa keskeyttää harjoituksen kysymyksen yhteydessä, tämä onnistuu vas
 
 Joissakin harjoituksissa on käytössä 'laskin' eli vastaukseksi voi syöttää merkillä '=' alkavan laskutoimituksia +, -, * ja / sisältävän lausekkeen ja sovellus laskee (syntaktisesti oikein muodostetun) lausekkeen arvon. Esimerkiksi Esimerkiksi =2*(3+4) tai = (4 - 2) / -2.
 
-Kun keskeyttää tai lopettaa harjoituksen tai siirtyy harjoituksen seuraavalla tasolle, harjoituksen meneillään olevaa tasoa vastaavat tiedot (kuinka monta yritystä, kuinka moni oikein) tallennetaan. tietokantaan. Aloitettaessa harjoituksen tekeminen uudelleen tiedot haetaan tietokannasta ja harjoitusta voi jatkaa tasolta, minne pääsi.
+Kun keskeyttää tai lopettaa harjoituksen tai siirtyy harjoituksen seuraavalla tasolle, harjoituksen meneillään olevaa tasoa vastaavat tiedot (kuinka monta yritystä, kuinka moni oikein) tallennetaan tietokantaan. Aloitettaessa harjoituksen tekeminen uudelleen tiedot haetaan tietokannasta ja harjoitusta voi jatkaa tasolta, minne pääsi.
 
-Aloitetut harjoitukset tallennetaan myös tietokantaan ja samoin käyttäjän loppuun asti (eli kaikki tasot) tekemät harjoitukset. Loppuun asti tehtyä harjoitusta ei voi tehdä enää samalla käyttäjätunnuksella uudelleen. Myöskään paluu harjoituksen aikaisemmille tasoille ei ole mahdollista samaa käyttäjätunnusta käytettäessä.
+Tieto aloitetuista harjoituksista tallennetaan tietokantaan ja samoin tieto käyttäjän loppuun asti (eli kaikki tasot) tekemistä harjoituksista. Loppuun asti tehtyä harjoitusta ei voi tehdä enää samalla käyttäjätunnuksella uudelleen. Myöskään paluu harjoituksen aikaisemmille tasoille ei ole mahdollista samaa käyttäjätunnusta käytettäessä.
 
 
 

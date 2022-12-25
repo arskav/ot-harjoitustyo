@@ -16,7 +16,7 @@ _Pääkäyttäjä_ pystyy tulostamaan erilaisia yhteenvetoja ja tilastoja käytt
 
 ## Käyttöliittymä
 
-Ohjelmaa aloitettaessa kysytään tunnusta. Jos tunnusta ei vielä ole, se luodaan tässä vaiheessa. _Tehty._
+Ohjelmaa aloitettaessa kysytään tunnusta. Jos tunnusta ei vielä ole, se luodaan tässä vaiheessa.
 
 Tämän jälkeen avautuu valikko, jossa on valittavissa eri harjoituksia. Valikosta voi avat myös pääkäyttäjälle tarkoitetun ylläpitotoimintojen valikon. Jokaiselle harjoitukselle on oma käyttöliittymä, jossa huomioitu tehtävien luonne.
 
@@ -37,7 +37,7 @@ Kun käyttäjä on tehnyt kaikki vaativamman tason tehtävät, harjoituskokonais
 
 Ensimmäinen jatkotavoite on toteuttaa ohjelman pääkäyttöliitymä ja yksittäisten harjoitusten käyttöliittymä graafisena käyttöliittymänä. Toinen välitön jatkotavoite on yhdenmukaistaa harjoitusten koodaustapaa niin, että se vastaa nykyisen harjoituksen 3 tapaa.
 
-Tämänä jälkeen on tarkoitus luoda erityisesti sellaisia tehtävämuotoja, jotka eroavat Moodlen tarjoamista ja testata niiden toimivuutta (oikeastaan kiinnostavuutta) sopivalla kohderyhmällä. Kun on löydetty toimivia harjoittelumuotoja, on ajatuksena toteuttaa lisää harjoittelukokonaisuuksia kirjoittamani oppimateriaalin [Matematiikan perustiedot](https://homepages.tuni.fi/ari.virtanen/peruskoulumatikkaa.pdf) mukaisesti.
+Tämän jälkeen on tarkoitus luoda erityisesti sellaisia tehtävämuotoja, jotka eroavat Moodlen tarjoamista ja testata niiden toimivuutta (oikeastaan kiinnostavuutta) sopivalla kohderyhmällä. Kun on löydetty toimivia harjoittelumuotoja, on ajatuksena toteuttaa lisää harjoittelukokonaisuuksia kirjoittamani oppimateriaalin [Matematiikan perustiedot](https://homepages.tuni.fi/ari.virtanen/peruskoulumatikkaa.pdf) mukaisesti.
 
 
 

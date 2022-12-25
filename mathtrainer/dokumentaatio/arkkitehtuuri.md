@@ -21,17 +21,15 @@ Ohjelman rakenne ei valitettavasti noudata puhdasoppisesti kolmitasoista kerrosa
 ## Käyttöliittymä
 
 Käyttöliittymä sisältää kolme erillistä päänäkymää:
-*Kirjautuminen  
-*Toimenpiteen, erityisesti esimerkiksi harjoituksen, valitseminen  
-*Toimenpiteen 'ylläpito' valinnalla aukeava valikko tilastotietojen tulostamista varten  
+* Kirjautuminen    
+* Toimenpiteen, erityisesti esimerkiksi harjoituksen, valitseminen   
+* Toimenpiteen 'ylläpito' valinnalla aukeava valikko tilastotietojen tulostamista varten   
 
 Lisäksi jokaista harjoitusta kohden avautuu oma näkymä. (Nyt neljä.)
 
 Tällä hetkellä käyttöliittymä on tekstipohjainen.
 
 ## Sovelluslogiikka
-
-Sovelluksessa on usean tasoista sovelluslogiikkaa. Jokaista harjoitusta vastaa oma harjoitukselle ominainen sovelluslogiikka.
 
 Sovelluksen rungon loogisen tietomallin muodostavat luokat MathTrainerUser ja MathTrainerSession. Näistä ensimmäinen kuvaa käyttäjää ja hänen tekemiensä harjoitusten kokonaistilannetta. Jälkimmäinen kuvaa käyttäjän tekemän yksittäisen harjoituksen yksittäiseen tasoon liittyviä tietoja. Harjoituksen 3 (joka edustaa tapaa, joka tulee olemaan jatkossa käytössä harjoituksia lisättäessä) sovelluslogiikasta vastaa luokka Question. Alla kaaviokuva näistä (vain oleellisemmat metodit mainittu):
 
@@ -137,23 +135,23 @@ Kirjautumisen jälkeen aukeaa näkymä, jonka yläosassa ilmoitetaan käyttäjä
 
 Kirjautumisen jälkeen on siis luotu käyttäjää kuvaava MathTrainerUser luokan olio. Käytetään tälle jatkossa nimitystä trainee.
 
-Tarkastellaan tässä uutta koodaustapaa edustavan harjoituksen 3 tekemistä. Kun käyttäjä valitsee valitsee valikosta tämän harjoituksen, sovellus tarkistaa ensin trainee olion pohjalta, onko käyttäjä jo tehnyt harjoituksen loppuun. Jos on, tästä tulee ilmoitus ja palataan päävalikkoon.
+Tarkastellaan tässä uutta koodaustapaa edustavan harjoituksen 3 tekemistä. Kun käyttäjä valitsee valikosta tämän harjoituksen, sovellus tarkistaa ensin trainee olion pohjalta, onko käyttäjä jo tehnyt harjoituksen loppuun. Jos on, tästä tulee ilmoitus ja palataan päävalikkoon.
 
-Jos ei ole, edetään. Jos käyttäjä on jo aloittanut harjoituksen etsitään myös tietokannasta käyttäjän harjoitustiedot ja välitetään viimeisimmän harjoitussession tiedot käyttäjää kuvaavan luokan MathTrainerSession oliolle. Jos käyttäjä vasta aloittaa harjoituksen tekemisen, luodaan uusi MathTrainerSession olio. Käytetään jatkossa tälle oliolle nimitystä session.
-Jos harjoituskerta on ensimmäinen, päivitetään tämä tieto oliolle trainee. session olion tiedot tallennetaan myös tässä vaiheessa harjoitussesioiden tietokantaan. session oliossa on tieto harjoituksen numerosta.
+Jos ei ole, edetään. Jos käyttäjä on jo aloittanut harjoituksen, etsitään myös tietokannasta käyttäjän harjoitustiedot ja välitetään viimeisimmän harjoitussession tiedot käyttäjää kuvaavan luokan MathTrainerSession oliolle. Jos käyttäjä vasta aloittaa harjoituksen tekemisen, luodaan uusi MathTrainerSession olio. Käytetään jatkossa tälle oliolle nimitystä session.
+Jos harjoituskerta on ensimmäinen, päivitetään tieto harjoituksen aloittamisesta oliolle trainee. session olion tiedot tallennetaan myös tässä vaiheessa harjoitussessioiden tietokantaan. session oliossa on myös tieto harjoituksen numerosta.
 
 Tämän jälkeen kutsutaan MathTrainerSession luokan metodia begin_practise, jolle parametriksi annetaan käyttäjätiedot trainee olion välityksellä. Metodi kutsuu ohjelmaa doing_practise, parametriksi annetaan käyttäjän tiedot trainee ja harjoitusta vastaavan koodin sisältävä tiedosto.
 
-Ohjelma doing_practise pitää kirjaa harjoitussession oikeiden vastausten, yritysten ja peräkkäisten oikeiden vastausten lukumääristä. Ohjelman while-luupissa kutsutaan harjoitusta vastaava funktio, jolle parametrina annetaan peräkkäisten oikeiden vastausten lukumäärä ja menossa oleva harjoituksen taso. Funktio kysyy yhden harjoituksen kysymyksen ja palauttaa tiedon siitä, oliko vastaus oikein, keskeytettiinkö harjoituksen tekeminen ja onko harjoituksen taso tehty loppuun. _Lisättäessä harjoituksia sovellukseen harjoituksen koodin on oltava siis sellainen, että se palauttaa nämä tiedot._ Olion session atribuuttien tiedot päivitetään funktion palauttamien arvojen mukaisesti. Jos harjoitusta tehtäessä se keskeytetään tai siirrytään harjoituksen seuraavalla tasolle, niin olion session tiedot tallennetaan harjoitussesioiden tiedot sisältävään tietokantaan.
+Ohjelma doing_practise pitää kirjaa harjoitussession oikeiden vastausten, yritysten ja peräkkäisten oikeiden vastausten lukumääristä. Ohjelman while-luupissa kutsutaan harjoitusta vastaava funktio, jolle parametrina annetaan peräkkäisten oikeiden vastausten lukumäärä ja menossa oleva harjoituksen taso. Funktio kysyy yhden harjoituksen kysymyksen ja palauttaa tiedon siitä, oliko vastaus oikein, keskeytettiinkö harjoituksen tekeminen ja onko harjoituksen taso tehty loppuun. _Lisättäessä harjoituksia sovellukseen harjoituksen koodin on oltava siis sellainen, että se palauttaa nämä tiedot._ Olion session atribuuttien tiedot päivitetään funktion palauttamien arvojen mukaisesti. Jos harjoitusta tehtäessä se keskeytetään tai siirrytään harjoituksen seuraavalla tasolle, niin olion session tiedot tallennetaan harjoitussessioiden tiedot sisältävään tietokantaan.
 
 Kun harjoituksen kysymyksiin vastaaminen loppuu, olion trainee atribuuttien tiedot päivitetään. Tässä vaiheessa käyttäjää vastaavat tiedot tallennetaan myös käyttäjätiedot sisältävään tietokantaan.
 
 Harjoitusta 3 vastaava funktio kutsuu funktiota question antaen parametreina peräkkäisten oikeiden vastausten lukumäärän ja harjoituksen tason. Funktio question luo uuden luokan Question olion, jonka atribuuttien tiedot määräytyvät kysymyksen sisällöstä. Funktio question palauttaa harjoitusta (3) vastaavalle funktiolle tiedon siitä, oliko vastaus kysymykseen oikein tai väärin tai keskeytettiinkö kysymykseen vastaaminen.
 
 
-Seuraavat sekvenssikaaviot kuvaavat sovelluksen toimintalogiikkaa tilanteessa, jossa uusi käyttäjä kirjautuu sovellukseen luoden käyttäjätunnuksen, valitsee päävalikosta harjoituksen 3, vastaa sen yhteen kysymykseen, joka tason 1 ainoa kysymys, oikein ja lopettaa harjoituksen 3 tekemisen.
+Seuraavat sekvenssikaaviot kuvaavat sovelluksen toimintalogiikkaa tilanteessa, jossa uusi käyttäjä kirjautuu sovellukseen luoden käyttäjätunnuksen, valitsee päävalikosta harjoituksen 3, vastaa oikein sen yhteen kysymykseen, joka tason 1 ainoa kysymys, ja lopettaa harjoituksen 3 tekemisen.
 
-Kirjautuminen ja harjoituksen valinta (asiakas tarkoittaa henkilöä, joka käyttää sovellusta)
+Kirjautuminen ja harjoituksen valinta (asiakas tarkoittaa henkilöä, joka käyttää sovellusta):
 
 ```mermaid
     sequenceDiagram
@@ -201,8 +199,10 @@ ja harjoituksen 3 tekemisen lopetus:
    sessio ->> sessio: correct_up() 
    sessio ->> SessionRepository: sessio.update_database()
    sessio ->> sessio: level_up()
-   sessio ->> asiakas: return_to_menu
-   asiakas -->> sessio:  lopetus = True
+   sessio ->> UI: return_to_menu
+   UI -->> asiakas: "Lopetetaanko?"
+   asiakas -->> UI: "Lopetetaan"
+   UI -->> sessio:  lopetus = True
    sessio -->> doing_practise: lopetus
    doing_practise ->> käyttäjä: update_total(oikeita, yrityksiä)
    käyttäjä ->> UserRepositio: to_database()
@@ -210,8 +210,8 @@ ja harjoituksen 3 tekemisen lopetus:
    UI -->> asiakas: show_main_menu(käyttäjä)
 ```
 
-Yllä Practises viittaa pakkaukseen, joka sisältää harjoitusta vastaavien koodien tiedostot, practises3 on harjoitusta 3 vastaavan koodi,
-question on aliohjelma,joka kutsuu harjoituksen 3 meneillä olevaa tasoa vastaavaa tehtävää ja doing_practise on apuohjelma, jonka silmukassa 
+Yllä Practises viittaa pakkaukseen, joka sisältää harjoitusta vastaavien koodien tiedostot, practises3 on harjoitusta 3 vastaava koodi,
+question on aliohjelma, joka kutsuu harjoituksen 3 meneillä olevaa tasoa vastaavaa tehtävää ja doing_practise on apuohjelma, jonka silmukassa 
 harjoituksen kysymyksiin vastataan, kunnes lopetetaan. (Pitäisi varmaan olio-ohjelmoinnin hengessä
 luoda vielä yksi luokka MathtrainerPractise, jonka attribuuttina olisi viittaus harjoituksen koodiin ja metodina yllä mainitut question ja  doing_practise.)
 
@@ -219,7 +219,7 @@ luoda vielä yksi luokka MathtrainerPractise, jonka attribuuttina olisi viittaus
 
 ## Ohjelman rakenteen ja toimintalogiikan heikkoudet
 
-Harjoitukset 1, 2, ja 4 on toteutettu ensin vanhemmalla ohjelmointitavalla. Harjoitus 3 on tehty uudemmalla ohjelmointitavalla luokkaa Question hyödyntäen. Ohjelmiston ylläpitoa helpottaisi, jos myös
+Harjoitukset 1, 2, ja 4 on toteutettu ensin vanhemmalla ohjelmointitavalla. Harjoitus 3 on tehty uudemmalla ohjelmointitavalla luokkaa Question hyödyntäen. Ohjelmisto olisi yhdenmukaisempi, jos myös
 harjoitukset 1, 2, ja 4 olisi toteutettu samalla tavalla kuin harjoitus 3. 
 
 Sovellus ei vaadi tällä hetkellä salasanoja. Todellisessa käytössä ainakin ylläpitotoimintojen, erityisesti käyttäjätunnuksen poistaminen, suorittamisen pitäisi edellyttää salasanaa.
